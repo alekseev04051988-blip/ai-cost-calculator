@@ -1,350 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Cloud GPU & Proxy Pool Cost Calculator 2026</title>
-    <meta name="description" content="Calculate real-time costs for dedicated IPv4/IPv6 scraping proxies and AI Cloud GPU instances. Compare providers and save up to 65% on infrastructure.">
-    <meta property="og:title" content="AI & Scraping Infrastructure Cost Estimator 2026">
-    <meta property="og:description" content="Interactive cost calculator for IPv4/IPv6 proxy pools and LLM GPU compute.">
-    <meta property="og:type" content="website">
-    <style>
-        :root {
-            --bg: #0b1120;
-            --card: #1e293b;
-            --card-border: #334155;
-            --accent: #38bdf8;
-            --green: #4ade80;
-            --text: #f8fafc;
-            --text-muted: #94a3b8;
-        }
-        * {
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            margin: 0;
-            padding: 20px 16px;
-            line-height: 1.5;
-        }
-        .container {
-            max-width: 620px;
-            margin: 0 auto;
-        }
-        .badge {
-            display: inline-block;
-            background: rgba(56, 189, 248, 0.15);
-            color: var(--accent);
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 4px 10px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 10px;
-        }
-        header {
-            text-align: center;
-            margin-bottom: 24px;
-        }
-        h1 {
-            font-size: 1.65rem;
-            margin: 0 0 8px 0;
-            color: var(--text);
-        }
-        p.subtitle {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin: 0;
-        }
-        .card {
-            background: var(--card);
-            border: 1px solid var(--card-border);
-            border-radius: 14px;
-            padding: 22px;
-            margin-bottom: 22px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
-        }
-        .card-title {
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin: 0 0 16px 0;
-            color: var(--accent);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-            color: #e2e8f0;
-        }
-        select, input[type="range"] {
-            width: 100%;
-            margin-bottom: 16px;
-        }
-        select {
-            padding: 12px;
-            border-radius: 8px;
-            background: var(--bg);
-            border: 1px solid var(--card-border);
-            color: var(--text);
-            font-size: 0.95rem;
-            outline: none;
-        }
-        input[type="range"] {
-            accent-color: var(--accent);
-            height: 6px;
-            cursor: pointer;
-        }
-        .metrics-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(15, 23, 42, 0.6);
-            padding: 10px 14px;
-            border-radius: 8px;
-            margin-bottom: 16px;
-            font-size: 0.9rem;
-        }
-        .result-box {
-            background: var(--bg);
-            border-left: 4px solid var(--green);
-            padding: 16px;
-            border-radius: 0 10px 10px 0;
-            margin-top: 10px;
-        }
-        .price-row {
-            display: flex;
-            align-items: baseline;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 6px;
-        }
-        .price {
-            font-size: 1.85rem;
-            font-weight: 800;
-            color: var(--green);
-        }
-        .savings {
-            background: rgba(74, 222, 128, 0.15);
-            color: var(--green);
-            font-size: 0.8rem;
-            font-weight: 700;
-            padding: 4px 8px;
-            border-radius: 6px;
-        }
-        .coupon-box {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: rgba(56, 189, 248, 0.08);
-            border: 1px dashed var(--accent);
-            border-radius: 8px;
-            padding: 10px 14px;
-            margin-top: 14px;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .coupon-box:hover {
-            background: rgba(56, 189, 248, 0.15);
-        }
-        .coupon-text {
-            font-size: 0.85rem;
-            color: #e2e8f0;
-        }
-        .coupon-code {
-            font-family: monospace;
-            font-weight: 700;
-            font-size: 0.95rem;
-            color: var(--accent);
-            background: var(--bg);
-            padding: 4px 10px;
-            border-radius: 6px;
-            border: 1px solid var(--card-border);
-        }
-        .btn {
-            display: block;
-            width: 100%;
-            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
-            color: white;
-            text-align: center;
-            padding: 15px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1rem;
-            margin-top: 14px;
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
-            box-shadow: 0 4px 14px rgba(14, 165, 233, 0.35);
-        }
-        .btn:active {
-            transform: scale(0.99);
-        }
-        .features {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            margin-top: 12px;
-            padding-top: 12px;
-            border-top: 1px solid var(--card-border);
-        }
-        footer {
-            text-align: center;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 28px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI & Proxy Pool Cost Calculator (2026 Benchmark)</title>
+  <meta name="description" content="Interactive 2026 cost calculator to benchmark dedicated IPv4/IPv6 proxy pools (SOCKS5/HTTPS) and Cloud GPU compute (H100, A100, RTX 4090) for web scraping and AI agents." />
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card: #131b2e;
+      --border: #23304d;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --accent: #0ea5e9;
+      --accent-hover: #0284c7;
+      --green: #10b981;
+      --box-bg: #0f172a;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 24px 16px 48px;
+    }
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .badge-top {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(14, 165, 233, 0.12);
+      border: 1px solid rgba(14, 165, 233, 0.3);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+    h1 {
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .card {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      gap: 10px;
+    }
+    .card-title {
+      font-size: 17px;
+      font-weight: 700;
+    }
+    .tag {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      background: rgba(14, 165, 233, 0.12);
+      padding: 3px 9px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+    label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    label span.val {
+      color: var(--text);
+      font-weight: 700;
+    }
+    select, input[type="range"] {
+      width: 100%;
+      margin-bottom: 18px;
+    }
+    select {
+      background-color: var(--box-bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 11px 12px;
+      font-size: 14px;
+      outline: none;
+    }
+    input[type="range"] {
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+    .result-box {
+      background-color: var(--box-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .price-label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .price-main {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--text);
+    }
+    .price-main small {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    .savings {
+      text-align: right;
+    }
+    .savings-badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--green);
+      background: rgba(16, 185, 129, 0.12);
+      padding: 3px 8px;
+      border-radius: 6px;
+      margin-bottom: 4px;
+    }
+    .market-avg {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .save-amount {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--green);
+    }
+    .promo-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(14, 165, 233, 0.08);
+      border: 1px dashed rgba(14, 165, 233, 0.4);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 16px;
+      font-size: 13px;
+    }
+    .promo-code {
+      font-family: monospace;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--box-bg);
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-left: 6px;
+    }
+    .copy-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .copy-btn:hover {
+      border-color: var(--accent);
+    }
+    .cta-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background-color: var(--accent);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 13px;
+      border-radius: 9px;
+      transition: background-color 0.2s;
+    }
+    .cta-btn:hover {
+      background-color: var(--accent-hover);
+    }
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 24px;
+    }
+  </style>
 </head>
 <body>
-<div class="container">
-    <header>
-        <div class="badge">2026 Infrastructure Benchmark</div>
-        <h1>AI &amp; Proxy Pool Cost Calculator</h1>
-        <p class="subtitle">Estimate monthly expenses for scraping proxies, AI agents &amp; cloud GPU compute</p>
-    </header>
-
-    <!-- Блок 1: Калькулятор прокси -->
-    <div class="card">
-        <div class="card-title">
-            <span>1. Dedicated Proxy Pool Estimator</span>
-            <span style="font-size: 0.8rem; color: var(--green);">SOCKS5 / HTTPS</span>
-        </div>
-
-        <label for="proxyType">Select Proxy Protocol &amp; Tier:</label>
-        <select id="proxyType" onchange="calculateProxy()">
-            <option value="0.20" data-comp="0.65">IPv6 Dedicated (Scraping &amp; AI Bots) — $0.20 / IP</option>
-            <option value="0.90" data-comp="2.10">IPv4 Shared (High-Speed Multi-Thread) — $0.90 / IP</option>
-            <option value="1.80" data-comp="3.80" selected>IPv4 Individual (Dedicated Private IP) — $1.80 / IP</option>
-        </select>
-
-        <label for="ipCount">Number of Dedicated IPs Needed:</label>
-        <input type="range" id="ipCount" min="5" max="500" step="5" value="50" oninput="calculateProxy()">
-        
-        <div class="metrics-row">
-            <span>Pool Size: <strong id="ipDisplay" style="color: var(--accent);">50 IPs</strong></span>
-            <span>Market Avg: <s id="compPrice" style="color: var(--text-muted);">$190.00/mo</s></span>
-        </div>
-
-        <div class="result-box">
-            <div style="font-size: 0.85rem; color: var(--text-muted);">Recommended Provider: <strong style="color: var(--text);">Proxy6 Automated Pool (US / EU / Asia)</strong></div>
-            <div class="price-row">
-                <div class="price" id="finalProxyPrice">$90.00 <span style="font-size: 0.85rem; font-weight: 400; color: var(--text-muted);">/ month</span></div>
-                <div class="savings" id="proxySavings">You save $100.00/mo (53%)</div>
-            </div>
-        </div>
-
-        <!-- Плашка с твоим купоном на 5% скидку -->
-        <div class="coupon-box" onclick="copyCoupon(this)">
-            <span class="coupon-text">🎁 Extra <strong>5% OFF</strong> Promo Code (Tap to Copy):</span>
-            <span class="coupon-code" id="couponText1">SSTnLrQf8p</span>
-        </div>
-
-        <a href="https://proxy6.net/en/?r=1085217" target="_blank" rel="noopener noreferrer" class="btn">
-            Deploy Instant Proxy Pool Now &rarr;
-        </a>
-
-        <div class="features">
-            <span>&#10003; Instant Automatic Issue</span>
-            <span>&#10003; Up to 1 Gbps Speed</span>
-            <span>&#10003; API for Developers</span>
-        </div>
+  <div class="container">
+    <div class="header">
+      <div class="badge-top">2026 Infrastructure Benchmark</div>
+      <h1>AI & Proxy Pool Cost Calculator</h1>
+      <p class="subtitle">Estimate monthly scraping proxy pools & cloud GPU compute expenses in real time</p>
     </div>
 
-    <!-- Блок 2: Калькулятор GPU + Сетевых нод для ИИ -->
+    <!-- Section 1: Proxy Pool Calculator -->
     <div class="card">
-        <div class="card-title">
-            <span>2. AI Agent &amp; GPU Compute Estimator</span>
-            <span style="font-size: 0.8rem; color: var(--text-muted);">LLM + Static IP</span>
+      <div class="card-header">
+        <div class="card-title">1. Scraping & Automation Proxy Pool</div>
+        <span class="tag">SOCKS5 / HTTPS</span>
+      </div>
+
+      <label for="proxyType">Proxy Architecture</label>
+      <select id="proxyType" onchange="calculateAll()">
+        <option value="0.20" data-market="0.45">Dedicated IPv6 Pool (Best for Scraping) — $0.20 / IP</option>
+        <option value="0.90" data-market="1.80">Shared IPv4 Datacenter Pool — $0.90 / IP</option>
+        <option value="1.80" data-market="3.20">Individual Dedicated IPv4 Pool — $1.80 / IP</option>
+      </select>
+
+      <label for="ipCount">
+        <span>Number of IPs / Concurrent Threads:</span>
+        <span class="val" id="ipCountDisplay">500 IPs</span>
+      </label>
+      <input type="range" id="ipCount" min="10" max="2000" step="10" value="500" oninput="calculateAll()" />
+
+      <div class="result-box">
+        <div>
+          <div class="price-label">Estimated Cost (with 5% partner discount):</div>
+          <div class="price-main" id="proxyPrice">$95.00 <small>/ mo</small></div>
         </div>
-
-        <label for="gpuSelect">Select Cloud GPU Hardware:</label>
-        <select id="gpuSelect" onchange="calculateGPU()">
-            <option value="0.79">NVIDIA RTX 4090 (24GB VRAM) — $0.79 / hr</option>
-            <option value="1.89">NVIDIA A100 PCIe (80GB VRAM) — $1.89 / hr</option>
-            <option value="2.99" selected>NVIDIA H100 SXM (80GB VRAM) — $2.99 / hr</option>
-        </select>
-
-        <label for="hoursRange">Active Compute Hours per Month:</label>
-        <input type="range" id="hoursRange" min="10" max="720" step="10" value="160" oninput="calculateGPU()">
-
-        <div class="metrics-row">
-            <span>Runtime: <strong id="hoursDisplay" style="color: var(--accent);">160 hrs/mo</strong></span>
-            <span>Recommended Static IPs: <strong id="recIps" style="color: var(--green);">16 IPs</strong></span>
+        <div class="savings">
+          <div class="savings-badge">Unthrottled 1 Gbps</div>
+          <div class="market-avg" id="marketAvgText">vs ~$225.00/mo market avg</div>
+          <div class="save-amount" id="saveAmountText">You save ~$130.00/mo</div>
         </div>
+      </div>
 
-        <div class="result-box">
-            <div style="font-size: 0.85rem; color: var(--text-muted);">Estimated Compute + Network Routing Budget:</div>
-            <div class="price-row">
-                <div class="price" id="finalGpuPrice">$478.40 <span style="font-size: 0.85rem; font-weight: 400; color: var(--text-muted);">/ month</span></div>
-                <div class="savings">Unthrottled Bandwidth</div>
-            </div>
+      <div class="promo-row">
+        <div>
+          Extra <strong>5% OFF</strong> Promo Code:
+          <span class="promo-code" id="promoText">SSTnLrQf8p</span>
         </div>
+        <button class="copy-btn" onclick="copyPromo()" id="copyBtn">Copy Code</button>
+      </div>
 
-        <div class="coupon-box" onclick="copyCoupon(this)">
-            <span class="coupon-text">🎁 5% Discount Code for Static IPs:</span>
-            <span class="coupon-code">SSTnLrQf8p</span>
-        </div>
-
-        <a href="https://proxy6.net/en/?r=1085217" target="_blank" rel="noopener noreferrer" class="btn">
-            Get Static IPs for AI Agents &amp; Nodes &rarr;
-        </a>
+      <a href="https://proxy6.net/en/?r=1085217" target="_blank" rel="noopener noreferrer" class="cta-btn">
+        Deploy Proxy Pool on Proxy6 &rarr;
+      </a>
     </div>
 
-    <footer>
-        &copy; 2026 AI &amp; Network Cost Metrics. Real-time infrastructure pricing estimator.
-    </footer>
-</div>
+    <!-- Section 2: Cloud GPU Calculator -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">2. Cloud GPU Compute (LLM & Parsing)</div>
+        <span class="tag">VRAM Cluster</span>
+      </div>
 
-<script>
-    function calculateProxy() {
-        const select = document.getElementById('proxyType');
-        const rate = parseFloat(select.value);
-        const compRate = parseFloat(select.options[select.selectedIndex].getAttribute('data-comp'));
-        const count = parseInt(document.getElementById('ipCount').value);
+      <label for="gpuType">GPU Instance</label>
+      <select id="gpuType" onchange="calculateAll()">
+        <option value="2.40">NVIDIA H100 (80GB VRAM) — $2.40 / hr</option>
+        <option value="1.35">NVIDIA A100 (80GB VRAM) — $1.35 / hr</option>
+        <option value="0.45" selected>NVIDIA RTX 4090 (24GB VRAM) — $0.45 / hr</option>
+      </select>
 
-        document.getElementById('ipDisplay').innerText = count + ' IPs';
+      <label for="gpuHours">
+        <span>Active Compute Hours per Day:</span>
+        <span class="val" id="gpuHoursDisplay">8 hrs/day</span>
+      </label>
+      <input type="range" id="gpuHours" min="1" max="24" step="1" value="8" oninput="calculateAll()" />
 
-        const total = (rate * count).toFixed(2);
-        const compTotal = (compRate * count).toFixed(2);
-        const saved = (compTotal - total).toFixed(2);
-        const percent = Math.round(((compTotal - total) / compTotal) * 100);
+      <div class="result-box">
+        <div>
+          <div class="price-label">Monthly GPU Compute Estimate:</div>
+          <div class="price-main" id="gpuPrice">$108.00 <small>/ mo</small></div>
+        </div>
+        <div class="savings">
+          <div class="price-label">Total Combined Infrastructure:</div>
+          <div class="save-amount" id="totalCombined" style="font-size: 18px; color: #38bdf8;">$203.00 / mo</div>
+        </div>
+      </div>
+    </div>
 
-        document.getElementById('compPrice').innerText = '$' + compTotal + '/mo';
-        document.getElementById('finalProxyPrice').innerHTML = '$' + total + ' <span style="font-size: 0.85rem; font-weight: 400; color: var(--text-muted);">/ month</span>';
-        document.getElementById('proxySavings').innerText = 'You save $' + saved + '/mo (' + percent + '%)';
+    <div class="footer">
+      Open-Source 2026 Infrastructure Estimator &bull; Zero-dependency browser calculator
+    </div>
+  </div>
+
+  <script>
+    function calculateAll() {
+      const proxySelect = document.getElementById('proxyType');
+      const pricePerIp = parseFloat(proxySelect.value);
+      const marketPerIp = parseFloat(proxySelect.options[proxySelect.selectedIndex].getAttribute('data-market'));
+      const ipCount = parseInt(document.getElementById('ipCount').value, 10);
+
+      document.getElementById('ipCountDisplay').textContent = ipCount + ' IPs';
+
+      const discountedProxyCost = ipCount * pricePerIp * 0.95;
+      const marketCost = ipCount * marketPerIp;
+      const saved = Math.max(0, marketCost - discountedProxyCost);
+
+      document.getElementById('proxyPrice').innerHTML = '$' + discountedProxyCost.toFixed(2) + ' <small>/ mo</small>';
+      document.getElementById('marketAvgText').textContent = 'vs ~$' + marketCost.toFixed(2) + '/mo market avg';
+      document.getElementById('saveAmountText').textContent = 'You save ~$' + saved.toFixed(2) + '/mo';
+
+      const gpuHourly = parseFloat(document.getElementById('gpuType').value);
+      const gpuHours = parseInt(document.getElementById('gpuHours').value, 10);
+      document.getElementById('gpuHoursDisplay').textContent = gpuHours + ' hrs/day';
+
+      const monthlyGpuCost = gpuHourly * gpuHours * 30;
+      document.getElementById('gpuPrice').innerHTML = '$' + monthlyGpuCost.toFixed(2) + ' <small>/ mo</small>';
+
+      const total = discountedProxyCost + monthlyGpuCost;
+      document.getElementById('totalCombined').textContent = '$' + total.toFixed(2) + ' / mo';
     }
 
-    function calculateGPU() {
-        const rate = parseFloat(document.getElementById('gpuSelect').value);
-        const hours = parseInt(document.getElementById('hoursRange').value);
-        const recIps = Math.max(5, Math.round(hours / 10));
-
-        document.getElementById('hoursDisplay').innerText = hours + ' hrs/mo';
-        document.getElementById('recIps').innerText = recIps + ' IPs';
-
-        const total = (rate * hours).toFixed(2);
-        document.getElementById('finalGpuPrice').innerHTML = '$' + total + ' <span style="font-size: 0.85rem; font-weight: 400; color: var(--text-muted);">/ month</span>';
+    function copyPromo() {
+      const code = 'SSTnLrQf8p';
+      navigator.clipboard.writeText(code);
+      const btn = document.getElementById('copyBtn');
+      btn.textContent = 'Copied!';
+      setTimeout(() => { btn.textContent = 'Copy Code'; }, 2000);
     }
 
-    function copyCoupon(element) {
-        navigator.clipboard.writeText('SSTnLrQf8p');
-        const codeSpan = element.querySelector('.coupon-code');
-        const originalText = codeSpan.innerText;
-        codeSpan.innerText = 'Copied! ✓';
-        codeSpan.style.color = '#4ade80';
-        setTimeout(() => {
-            codeSpan.innerText = originalText;
-            codeSpan.style.color = '#38bdf8';
-        }, 2000);
-    }
-</script>
+    calculateAll();
+  </script>
+
+  <!-- Vercel Web Analytics -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
