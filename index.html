@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="Pn-0FZ5BG-9BSCzJeW6U0kx0t_lvUZpD5Zcp39ZTdsI" />
-  <title>AI & Proxy Pool Cost Calculator + Proxy6 Promo Code (2026)</title>
-  <meta name="description" content="Free interactive calculator to estimate monthly costs for IPv6/IPv4 scraping proxy pools and cloud GPUs (RTX 4090, A100, H100). Includes verified 5% OFF Proxy6 promo code sSTnLrQf8p." />
-  <meta name="keywords" content="Proxy6 promo code, Proxy6 coupon code 2026, sSTnLrQf8p, IPv6 proxy calculator, web scraping proxy cost, AI agent infrastructure calculator, GPU cost estimator" />
+  <title>AI & Proxy Pool Cost Calculator + Proxy6, Webshare & RunPod Deals (2026)</title>
+  <meta name="description" content="Free interactive calculator to estimate monthly costs for IPv6/IPv4 scraping proxy pools and cloud GPUs (RTX 4090, A100, H100). Claim 10 free Webshare proxies, 5% OFF Proxy6 promo code sSTnLrQf8p, and $5 RunPod GPU credit." />
+  <meta name="keywords" content="Proxy6 promo code, Proxy6 coupon code 2026, sSTnLrQf8p, Webshare free proxies, RunPod promo credit, IPv6 proxy calculator, web scraping proxy cost, GPU cost estimator" />
   <script defer src="/_vercel/insights/script.js"></script>
   <style>
     :root {
@@ -18,6 +18,10 @@
       --accent: #38bdf8;
       --green: #10b981;
       --green-hover: #059669;
+      --blue: #0ea5e9;
+      --blue-hover: #0284c7;
+      --purple: #8b5cf6;
+      --purple-hover: #7c3aed;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     body { background: var(--bg); color: var(--text); line-height: 1.6; padding: 24px 16px; }
@@ -39,14 +43,20 @@
     .res-row { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.95rem; }
     .res-total { display: flex; justify-content: space-between; font-size: 1.35rem; font-weight: 800; color: #fff; border-top: 1px solid var(--border); padding-top: 12px; margin-top: 8px; }
     .savings { color: var(--green); font-weight: 700; font-size: 0.95rem; margin-top: 8px; display: block; }
-    .promo-box { background: var(--bg); border: 1px dashed var(--accent); border-radius: 10px; padding: 14px; text-align: center; margin-bottom: 18px; }
+    .promo-box { background: var(--bg); border: 1px dashed var(--accent); border-radius: 10px; padding: 14px; text-align: center; margin-bottom: 14px; }
     .promo-code { font-family: monospace; font-size: 1.25rem; font-weight: 800; color: var(--accent); letter-spacing: 1px; background: rgba(56, 189, 248, 0.12); padding: 4px 12px; border-radius: 6px; margin: 0 6px; display: inline-block; }
     .copy-btn { background: transparent; border: 1px solid var(--accent); color: var(--accent); padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.82rem; font-weight: 600; margin-top: 8px; }
     .copy-btn:hover { background: var(--accent); color: #000; }
-    .cta-btn { display: block; width: 100%; text-align: center; background: var(--green); color: #052e16; font-weight: 800; text-decoration: none; padding: 15px 20px; border-radius: 10px; font-size: 1.05rem; transition: 0.2s; }
+    .cta-stack { display: flex; flex-direction: column; gap: 10px; }
+    .cta-btn { display: block; width: 100%; text-align: center; background: var(--green); color: #052e16; font-weight: 800; text-decoration: none; padding: 13px 16px; border-radius: 10px; font-size: 0.98rem; transition: 0.2s; }
     .cta-btn:hover { background: var(--green-hover); color: #fff; }
+    .cta-btn.webshare { background: var(--blue); color: #fff; }
+    .cta-btn.webshare:hover { background: var(--blue-hover); }
+    .cta-btn.runpod { background: var(--purple); color: #fff; }
+    .cta-btn.runpod:hover { background: var(--purple-hover); }
     .seo-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 20px 24px; font-size: 0.92rem; color: var(--muted); }
     .seo-card h3 { color: #fff; font-size: 1.05rem; margin-bottom: 8px; }
+    .seo-card p { margin-bottom: 10px; }
     .seo-card a { color: var(--accent); text-decoration: none; font-weight: 600; }
     .footer-note { text-align: center; color: var(--muted); font-size: 0.85rem; margin-top: 24px; }
     .footer-note a { color: var(--accent); text-decoration: none; }
@@ -103,7 +113,7 @@
             <span id="legacyCost" style="text-decoration: line-through; color: #94a3b8;">$875.00/mo</span>
           </div>
           <div class="res-row">
-            <span>Optimized Proxy6 Pool (with 5% code):</span>
+            <span>Optimized Proxy Pool (with 5% code):</span>
             <span id="proxyCost" style="color: #38bdf8; font-weight: 700;">$47.50/mo</span>
           </div>
           <div class="res-row">
@@ -125,19 +135,29 @@
           <button class="copy-btn" onclick="copyCode()" id="copyBtn">📋 Copy Coupon Code</button>
         </div>
 
-        <a href="https://proxy6.net/en/?r=1085217" target="_blank" rel="noopener" class="cta-btn" onclick="copyCode()">
-          🚀 Get IPv6 / IPv4 Proxies on Proxy6 (5% OFF) →
-        </a>
+        <div class="cta-stack">
+          <a href="https://www.webshare.io/?referral_code=g8vopl2g9jh6" target="_blank" rel="noopener" class="cta-btn webshare">
+            🔥 Claim 10 Free Proxies on Webshare.io →
+          </a>
+          <a href="https://proxy6.net/en/?r=1085217" target="_blank" rel="noopener" class="cta-btn" onclick="copyCode()">
+            🚀 Get IPv6 / IPv4 Proxies on Proxy6 (5% OFF) →
+          </a>
+          <a href="https://runpod.io?ref=un6lqx4m" target="_blank" rel="noopener" class="cta-btn runpod">
+            ⚡ Deploy Cloud GPUs on RunPod (+$5 Bonus Credit) →
+          </a>
+        </div>
       </div>
     </div>
 
     <div class="seo-card">
-      <h3>🏷️ How to Apply the Proxy6 Coupon Code (2026)</h3>
-      <p>Looking for a working <strong>Proxy6 promo code</strong>? Copy the partner coupon <strong><code>sSTnLrQf8p</code></strong> above and paste it into the "Coupon" field at checkout on <a href="https://proxy6.net/en/?r=1085217" target="_blank" rel="noopener">Proxy6.net (English Portal)</a> or via the direct partner link <a href="https://proxy6.net/d/1085217" target="_blank" rel="noopener">proxy6.net/d/1085217</a> to receive an instant <strong>5% discount</strong> on dedicated IPv6, IPv4, and shared SOCKS5/HTTPS proxy pools.</p>
+      <h3>🏷️ Verified Proxy & Cloud GPU Partner Deals (2026)</h3>
+      <p>• <strong>Webshare High-Speed Scraping Proxies:</strong> Get <strong>10 free datacenter proxies</strong> to test your AI or Playwright pipelines on <a href="https://www.webshare.io/?referral_code=g8vopl2g9jh6" target="_blank" rel="noopener">Webshare.io</a> before scaling to rotating residential or dedicated pools.</p>
+      <p>• <strong>Proxy6 5% OFF Promo Code:</strong> Copy the partner coupon <strong><code>sSTnLrQf8p</code></strong> above and paste it at checkout on <a href="https://proxy6.net/en/?r=1085217" target="_blank" rel="noopener">Proxy6.net (English Portal)</a> or <a href="https://proxy6.net/d/1085217" target="_blank" rel="noopener">proxy6.net/d/1085217</a> for an instant <strong>5% discount</strong> on dedicated IPv6 and IPv4 pools.</p>
+      <p>• <strong>RunPod Cloud GPUs:</strong> Rent NVIDIA RTX 4090, A100, and H100 instances starting at $0.44/hr and claim a <strong>$5 bonus credit</strong> via <a href="https://runpod.io?ref=un6lqx4m" target="_blank" rel="noopener">RunPod Cloud</a>.</p>
     </div>
 
     <div class="footer-note">
-      Built for data engineers & AI builders • <a href="https://github.com/alekseev04051988-blip/ai-cost-calculator" target="_blank" rel="noopener">GitHub Repository</a> • Official Partner Link: <a href="https://proxy6.net/d/1085217" target="_blank" rel="noopener">Proxy6.net</a>
+      Built for data engineers & AI builders • <a href="https://github.com/alekseev04051988-blip/ai-cost-calculator" target="_blank" rel="noopener">GitHub Repository</a> • Partners: <a href="https://www.webshare.io/?referral_code=g8vopl2g9jh6" target="_blank" rel="noopener">Webshare</a> • <a href="https://proxy6.net/d/1085217" target="_blank" rel="noopener">Proxy6</a> • <a href="https://runpod.io?ref=un6lqx4m" target="_blank" rel="noopener">RunPod</a>
     </div>
   </div>
 
