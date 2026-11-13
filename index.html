@@ -24,9 +24,12 @@
       --purple-hover: #7c3aed;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background: var(--bg); color: var(--text); line-height: 1.6; padding: 24px 16px; }
+    body { background: var(--bg); color: var(--text); line-height: 1.6; padding: 20px 16px; }
     .container { max-width: 880px; margin: 0 auto; }
-    header { text-align: center; margin-bottom: 32px; }
+    .top-nav { display: flex; justify-content: center; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
+    .nav-link { color: var(--muted); text-decoration: none; font-size: 0.88rem; font-weight: 600; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--border); background: var(--card); transition: 0.2s; }
+    .nav-link.active, .nav-link:hover { color: #fff; border-color: var(--accent); background: rgba(56, 189, 248, 0.15); }
+    header { text-align: center; margin-bottom: 28px; }
     .badge { display: inline-block; background: rgba(56, 189, 248, 0.12); color: var(--accent); border: 1px solid rgba(56, 189, 248, 0.3); padding: 4px 12px; border-radius: 999px; font-size: 0.8rem; font-weight: 600; margin-bottom: 12px; }
     h1 { font-size: 2rem; font-weight: 800; margin-bottom: 8px; color: #fff; }
     p.sub { color: var(--muted); font-size: 1rem; max-width: 640px; margin-top: 4px; margin-left: auto; margin-right: auto; }
@@ -64,6 +67,11 @@
 </head>
 <body>
   <div class="container">
+    <nav class="top-nav">
+      <a href="/" class="nav-link active">🧮 Proxy & GPU Cost Calculator</a>
+      <a href="/vram.html" class="nav-link">🧠 LLM VRAM Calculator (New)</a>
+    </nav>
+
     <header>
       <span class="badge">Open-Source Infrastructure & Proxy Estimator</span>
       <h1>AI & Proxy Pool Cost Calculator</h1>
@@ -153,11 +161,11 @@
       <h3>🏷️ Verified Proxy & Cloud GPU Partner Deals (2026)</h3>
       <p>• <strong>Webshare High-Speed Scraping Proxies:</strong> Get <strong>10 free datacenter proxies</strong> to test your AI or Playwright pipelines on <a href="https://www.webshare.io/?referral_code=g8vopl2g9jh6" target="_blank" rel="noopener">Webshare.io</a> before scaling to rotating residential or dedicated pools.</p>
       <p>• <strong>Proxy6 5% OFF Promo Code:</strong> Copy the partner coupon <strong><code>sSTnLrQf8p</code></strong> above and paste it at checkout on <a href="https://proxy6.net/en/?r=1085217" target="_blank" rel="noopener">Proxy6.net (English Portal)</a> or <a href="https://proxy6.net/d/1085217" target="_blank" rel="noopener">proxy6.net/d/1085217</a> for an instant <strong>5% discount</strong> on dedicated IPv6 and IPv4 pools.</p>
-      <p>• <strong>RunPod Cloud GPUs:</strong> Rent NVIDIA RTX 4090, A100, and H100 instances starting at $0.44/hr and claim a <strong>$5 bonus credit</strong> via <a href="https://runpod.io?ref=un6lqx4m" target="_blank" rel="noopener">RunPod Cloud</a>.</p>
+      <p>• <strong>RunPod Cloud GPUs:</strong> Rent NVIDIA RTX 4090, A100, and H100 instances starting at $0.44/hr and claim a <strong>$5 bonus credit</strong> via <a href="https://runpod.io?ref=un6lqx4m" target="_blank" rel="noopener">RunPod Cloud</a>. Need to check if DeepSeek or Llama 3 fits your GPU? Try our <a href="/vram.html">LLM VRAM Calculator</a>.</p>
     </div>
 
     <div class="footer-note">
-      Built for data engineers & AI builders • <a href="https://github.com/alekseev04051988-blip/ai-cost-calculator" target="_blank" rel="noopener">GitHub Repository</a> • Partners: <a href="https://www.webshare.io/?referral_code=g8vopl2g9jh6" target="_blank" rel="noopener">Webshare</a> • <a href="https://proxy6.net/d/1085217" target="_blank" rel="noopener">Proxy6</a> • <a href="https://runpod.io?ref=un6lqx4m" target="_blank" rel="noopener">RunPod</a>
+      Built for data engineers & AI builders • <a href="/vram.html">LLM VRAM Calculator</a> • <a href="https://github.com/alekseev04051988-blip/ai-cost-calculator" target="_blank" rel="noopener">GitHub</a> • Partners: <a href="https://www.webshare.io/?referral_code=g8vopl2g9jh6" target="_blank" rel="noopener">Webshare</a> • <a href="https://proxy6.net/d/1085217" target="_blank" rel="noopener">Proxy6</a> • <a href="https://runpod.io?ref=un6lqx4m" target="_blank" rel="noopener">RunPod</a>
     </div>
   </div>
 
