@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="Pn-0FZ5BG-9BSCzJeW6U0kx0t_lvUZpD5Zcp39ZTdsI" />
+  <title>LLM VRAM Calculator (2026) — DeepSeek, Llama 3, Qwen & Cloud GPU Estimator</title>
+  <meta name="description" content="Free interactive LLM VRAM calculator for 2026. Check exact GPU memory requirements for DeepSeek-R1, Llama 3.3 70B, Qwen 2.5, and Flux. Claim $5 RunPod GPU credit and 10 free Webshare proxies." />
+  <meta name="keywords" content="LLM VRAM calculator, can I run DeepSeek locally, Llama 3 70B VRAM requirements, Q4_K_M memory calculator, RunPod promo code 2026, Webshare free proxies, Proxy6 coupon sSTnLrQf8p" />
+  <script defer src="/_vercel/insights/script.js"></script>
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card: #131b2e;
+      --border: #23304d;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --green: #10b981;
+      --green-hover: #059669;
+      --blue: #0ea5e9;
+      --blue-hover: #0284c7;
+      --purple: #8b5cf6;
+      --purple-hover: #7c3aed;
+      --red: #ef4444;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background: var(--bg); color: var(--text); line-height: 1.6; padding: 20px 16px; }
+    .container { max-width: 880px; margin: 0 auto; }
+    .top-nav { display: flex; justify-content: center; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
+    .nav-link { color: var(--muted); text-decoration: none; font-size: 0.88rem; font-weight: 600; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--border); background: var(--card); transition: 0.2s; }
+    .nav-link.active, .nav-link:hover { color: #fff; border-color: var(--accent); background: rgba(56, 189, 248, 0.15); }
+    header { text-align: center; margin-bottom: 28px; }
+    .badge { display: inline-block; background: rgba(139, 92, 246, 0.15); color: #c4b5fd; border: 1px solid rgba(139, 92, 246, 0.4); padding: 4px 12px; border-radius: 999px; font-size: 0.8rem; font-weight: 600; margin-bottom: 10px; }
+    h1 { font-size: 2rem; font-weight: 800; margin-bottom: 8px; color: #fff; }
+    p.sub { color: var(--muted); font-size: 0.98rem; max-width: 650px; margin: 0 auto; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+    @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } h1 { font-size: 1.6rem; } }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; }
+    .card h2 { font-size: 1.2rem; margin-bottom: 20px; color: #fff; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+    .control { margin-bottom: 18px; }
+    .control label { display: flex; justify-content: space-between; font-weight: 600; font-size: 0.92rem; margin-bottom: 8px; }
+    .val { color: var(--accent); font-weight: 700; }
+    select, input[type="range"] { width: 100%; }
+    select { padding: 10px 12px; border-radius: 8px; background: var(--bg); color: #fff; border: 1px solid var(--border); font-size: 0.94rem; }
+    input[type="range"] { accent-color: var(--accent); cursor: pointer; }
+    .res-box { background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border); border-radius: 12px; padding: 18px; margin-bottom: 16px; }
+    .res-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.94rem; }
+    .res-total { display: flex; justify-content: space-between; font-size: 1.3rem; font-weight: 800; color: #fff; border-top: 1px solid var(--border); padding-top: 10px; margin-top: 8px; }
+    .status-banner { padding: 12px 14px; border-radius: 10px; font-weight: 700; font-size: 0.92rem; margin-bottom: 16px; text-align: center; }
+    .status-oom { background: rgba(239, 68, 68, 0.12); border: 1px solid rgba(239, 68, 68, 0.4); color: #fca5a5; }
+    .status-ok { background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.4); color: #6ee7b7; }
+    .cta-stack { display: flex; flex-direction: column; gap: 10px; }
+    .cta-btn { display: block; width: 100%; text-align: center; font-weight: 800; text-decoration: none; padding: 13px 16px; border-radius: 10px; font-size: 0.96rem; transition: 0.2s; }
+    .cta-btn.runpod { background: var(--purple); color: #fff; }
+    .cta-btn.runpod:hover { background: var(--purple-hover); }
+    .cta-btn.webshare { background: var(--blue); color: #fff; }
+    .cta-btn.webshare:hover { background: var(--blue-hover); }
+    .cta-btn.proxy6 { background: var(--green); color: #052e16; }
+    .cta-btn.proxy6:hover { background: var(--green-hover); color: #fff; }
+    .seo-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 20px 24px; font-size: 0.92rem; color: var(--muted); }
+    .seo-card h3 { color: #fff; font-size: 1.05rem; margin-bottom: 10px; }
+    .seo-card p { margin-bottom: 10px; }
+    .seo-card a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .footer-note { text-align: center; color: var(--muted); font-size: 0.85rem; margin-top: 24px; }
+    .footer-note a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="top-nav">
+      <a href="/" class="nav-link">🧮 Proxy & GPU Cost Calculator</a>
+      <a href="/vram.html" class="nav-link active">🧠 LLM VRAM Calculator (New)</a>
+    </nav>
+
+    <header>
+      <span class="badge">2026 Local vs Cloud GPU Memory Benchmark</span>
+      <h1>LLM & AI VRAM Calculator</h1>
+      <p class="sub">Check if your GPU has enough VRAM to run DeepSeek-R1, Llama 3.3, Qwen 2.5, or Flux locally — or deploy instant Cloud GPUs with $5 free credit.</p>
+    </header>
+
+    <div class="grid">
+      <div class="card">
+        <h2>⚙️ 1. Select Model & Hardware</h2>
+
+        <div class="control">
+          <label><span>AI / LLM Model Size (Parameters)</span></label>
+          <select id="modelParams" onchange="calcVram()">
+            <option value="8">Llama 3.1 / DeepSeek-R1 Distill (8B)</option>
+            <option value="14">Qwen 2.5 / DeepSeek-R1 Distill (14B)</option>
+            <option value="24">Flux.1-dev / Mistral Small 3 (24B)</option>
+            <option value="32" selected>Qwen 2.5 Coder / DeepSeek-R1 (32B)</option>
+            <option value="70">Llama 3.3 / DeepSeek-R1 Distill (70B)</option>
+            <option value="123">Mistral Large 2 (123B)</option>
+            <option value="671">DeepSeek-R1 / V3 Full MoE (671B)</option>
+          </select>
+        </div>
+
+        <div class="control">
+          <label><span>Quantization Precision</span></label>
+          <select id="quantBits" onchange="calcVram()">
+            <option value="16">FP16 / BF16 (Full Precision — 16-bit)</option>
+            <option value="8">Q8_0 / INT8 (High Quality — 8-bit)</option>
+            <option value="4.8" selected>Q4_K_M / AWQ (Recommended — 4-bit)</option>
+            <option value="3.5">Q3_K_M (Compressed — 3-bit)</option>
+          </select>
+        </div>
+
+        <div class="control">
+          <label><span>Context Length (Tokens)</span> <span class="val" id="ctxVal">16,384</span></label>
+          <input type="range" id="ctxLen" min="4096" max="131072" step="4096" value="16384" oninput="calcVram()" />
+        </div>
+
+        <div class="control">
+          <label><span>Your Current Local GPU VRAM</span></label>
+          <select id="localVram" onchange="calcVram()">
+            <option value="6">6 GB VRAM (RTX 3060 Laptop / GTX 1660)</option>
+            <option value="8" selected>8 GB VRAM (RTX 3070 / RTX 4060)</option>
+            <option value="12">12 GB VRAM (RTX 3060 / RTX 4070)</option>
+            <option value="16">16 GB VRAM (RTX 4080 / A4000)</option>
+            <option value="24">24 GB VRAM (RTX 3090 / RTX 4090)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>📊 2. VRAM Verdict & Cloud Match</h2>
+
+        <div class="res-box">
+          <div class="res-row">
+            <span>Model Weights Memory:</span>
+            <span id="weightsMem">19.2 GB</span>
+          </div>
+          <div class="res-row">
+            <span>KV Cache & CUDA Overhead:</span>
+            <span id="kvMem">3.6 GB</span>
+          </div>
+          <div class="res-total">
+            <span>Total Required VRAM:</span>
+            <span id="totalVram" style="color: var(--accent);">22.8 GB</span>
+          </div>
+        </div>
+
+        <div id="statusBanner" class="status-banner status-oom">
+          ❌ Out of Memory! You need 14.8 GB more VRAM than your local GPU.
+        </div>
+
+        <div style="font-size: 0.9rem; color: var(--muted); margin-bottom: 12px; text-align: center;">
+          Recommended Cloud Pod: <strong id="recGpu" style="color: #fff;">1x NVIDIA RTX 4090 (24GB) — $0.44/hr</strong>
+        </div>
+
+        <div class="cta-stack">
+          <a href="https://runpod.io?ref=un6lqx4m" target="_blank" rel="noopener" class="cta-btn runpod">
+            ⚡ Launch GPU Pod on RunPod (+$5 Bonus Credit) →
+          </a>
+          <a href="https://www.webshare.io/?referral_code=g8vopl2g9jh6" target="_blank" rel="noopener" class="cta-btn webshare">
+            🔥 Claim 10 Free Proxies for AI Agents (Webshare) →
+          </a>
+          <a href="https://proxy6.net/en/?r=1085217" target="_blank" rel="noopener" class="cta-btn proxy6">
+            🚀 Dedicated IPv6 Scraping Proxies (5% Code: sSTnLrQf8p) →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="seo-card">
+      <h3>💡 How to Run Large LLMs Without Buying Expensive GPUs (2026)</h3>
+      <p>• <strong>Instant Cloud GPU Pods ($5 Free Credit):</strong> Instead of spending $2,000+ on local hardware for 32B or 70B models, deploy pre-configured Ollama, vLLM, or ComfyUI templates on <a href="https://runpod.io?ref=un6lqx4m" target="_blank" rel="noopener">RunPod Cloud GPUs</a> starting at $0.44/hr and claim a <strong>$5 signup bonus</strong>.</p>
+      <p>• <strong>Free Proxies for Web-Browsing AI Agents:</strong> Connecting DeepSeek or LangChain agents to live web data? Grab <strong>10 free high-speed datacenter proxies</strong> on <a href="https://www.webshare.io/?referral_code=g8vopl2g9jh6" target="_blank" rel="noopener">Webshare.io</a> or use promo code <strong><code>sSTnLrQf8p</code></strong> for <strong>5% OFF</strong> IPv6 pools at <a href="https://proxy6.net/en/?r=1085217" target="_blank" rel="noopener">Proxy6.net</a>.</p>
+    </div>
+
+    <div class="footer-note">
+      <a href="/">← Back to AI & Proxy Pool Cost Calculator</a> • <a href="https://github.com/alekseev04051988-blip/ai-cost-calculator" target="_blank" rel="noopener">GitHub</a> • Partners: <a href="https://runpod.io?ref=un6lqx4m" target="_blank" rel="noopener">RunPod</a> • <a href="https://www.webshare.io/?referral_code=g8vopl2g9jh6" target="_blank" rel="noopener">Webshare</a> • <a href="https://proxy6.net/d/1085217" target="_blank" rel="noopener">Proxy6</a>
+    </div>
+  </div>
+
+  <script>
+    function calcVram() {
+      const params = parseFloat(document.getElementById('modelParams').value);
+      const bits = parseFloat(document.getElementById('quantBits').value);
+      const ctx = parseInt(document.getElementById('ctxLen').value, 10);
+      const local = parseFloat(document.getElementById('localVram').value);
+
+      document.getElementById('ctxVal').innerText = ctx.toLocaleString() + ' tok';
+
+      const weights = params * (bits / 8) * 1.05;
+      const kv = (ctx / 4096) * (params * 0.04) + 1.2;
+      const total = weights + kv;
+
+      document.getElementById('weightsMem').innerText = weights.toFixed(1) + ' GB';
+      document.getElementById('kvMem').innerText = kv.toFixed(1) + ' GB';
+      document.getElementById('totalVram').innerText = total.toFixed(1) + ' GB';
+
+      const banner = document.getElementById('statusBanner');
+      if (total > local) {
+        const diff = (total - local).toFixed(1);
+        banner.className = 'status-banner status-oom';
+        banner.innerText = '❌ Out of Memory! Requires ' + diff + ' GB more VRAM than your local GPU.';
+      } else {
+        banner.className = 'status-banner status-ok';
+        banner.innerText = '✅ Fits in Local VRAM! (' + (local - total).toFixed(1) + ' GB headroom remaining)';
+      }
+
+      let rec = '1x NVIDIA RTX 4090 (24GB) — $0.44/hr';
+      if (total > 23 && total <= 46) {
+        rec = '2x NVIDIA RTX 4090 (48GB) — $0.88/hr';
+      } else if (total > 46 && total <= 78) {
+        rec = '1x NVIDIA A100 (80GB VRAM) — $1.65/hr';
+      } else if (total > 78) {
+        rec = '2x–8x NVIDIA H100 (80GB Cluster) on RunPod';
+      }
+      document.getElementById('recGpu').innerText = rec;
+    }
+
+    calcVram();
+  </script>
+</body>
+</html>
