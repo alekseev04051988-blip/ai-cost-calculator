@@ -170,11 +170,26 @@
     </div>
 
     <div class="footer-note">
-      <a href="/">← Back to AI & Proxy Pool Cost Calculator</a> • <a href="https://github.com/alekseev04051988-blip/ai-cost-calculator" target="_blank" rel="noopener">GitHub</a> • Partners: <a href="https://runpod.io?ref=un6lqx4m" target="_blank" rel="noopener">RunPod</a> • <a href="https://www.webshare.io/?referral_code=g8vopl2g9jh6" target="_blank" rel="noopener">Webshare</a> • <a href="https://proxy6.net/d/1085217" target="_blank" rel="noopener">Proxy6</a>
+      <a href="/">← Back to AI & Proxy Pool Cost Calculator</a> • <a href="https://github.com/alekseev04051988-blip/ai-cost-calculator" target="_blank" rel="noopener">GitHub</a> • Partners: <a href="https://runpod.io?ref=un6lqx4m" target="_blank" rel="noopener">RunPod</a> • <a href="https://www.webshare.io/?referral_code=g8vopl2g9jh6" target="_blank" rel="noopener">Webshare</a> • <a href="https://proxy6.net/d/1085217" target="_blank" rel="noopener">Proxy6</a> • <a href="/?stats=1" style="text-decoration:none; opacity:0.6;">📊</a>
     </div>
   </div>
 
   <script>
+    const NS = 'alekseev_ai_calc_2026';
+
+    function trackClick(key) {
+      if (localStorage.getItem('ignore_my_clicks') === '1') return;
+      fetch('https://api.counterapi.dev/v1/' + NS + '/' + key + '/up', { keepalive: true }).catch(() => {});
+    }
+
+    document.addEventListener('click', function(e) {
+      const a = e.target.closest('a');
+      if (!a || !a.href) return;
+      if (a.href.includes('webshare.io')) trackClick('webshare');
+      else if (a.href.includes('proxy6.net')) trackClick('proxy6');
+      else if (a.href.includes('runpod.io')) trackClick('runpod');
+    });
+
     function calcVram() {
       const params = parseFloat(document.getElementById('modelParams').value);
       const bits = parseFloat(document.getElementById('quantBits').value);
