@@ -178,16 +178,16 @@
     </div>
 
     <div id="adminStatsPanel">
-      <h3 style="color:#fff; margin-bottom:6px;">📊 Внутренняя статистика кликов</h3>
+      <h3 style="color:#fff; margin-bottom:6px;">📊 Внутренняя статистика кликов (Локальная)</h3>
       <div class="stat-grid">
-        <div class="stat-item"><span>📋 Копирование промокода:</span> <span class="stat-num" id="st_copy">...</span></div>
-        <div class="stat-item"><span>🔥 Клики на Webshare:</span> <span class="stat-num" id="st_webshare">...</span></div>
-        <div class="stat-item"><span>🚀 Клики на Proxy6:</span> <span class="stat-num" id="st_proxy6">...</span></div>
-        <div class="stat-item"><span>⚡ Клики на RunPod:</span> <span class="stat-num" id="st_runpod">...</span></div>
-        <div class="stat-item"><span>🛒 Клики на Amazon:</span> <span class="stat-num" id="st_amazon">...</span></div>
+        <div class="stat-item"><span>📋 Копирование промокода:</span> <span class="stat-num" id="st_copy">0</span></div>
+        <div class="stat-item"><span>🔥 Клики на Webshare:</span> <span class="stat-num" id="st_webshare">0</span></div>
+        <div class="stat-item"><span>🚀 Клики на Proxy6:</span> <span class="stat-num" id="st_proxy6">0</span></div>
+        <div class="stat-item"><span>⚡ Клики на RunPod:</span> <span class="stat-num" id="st_runpod">0</span></div>
+        <div class="stat-item"><span>🛒 Клики на Amazon:</span> <span class="stat-num" id="st_amazon">0</span></div>
       </div>
       <button class="admin-btn" onclick="loadAdminStats()">🔄 Обновить цифры</button>
-      <button class="admin-btn" id="ignoreToggleBtn" onclick="toggleIgnoreMe()"></button>
+      <button class="admin-btn" onclick="resetStats()" style="border-color:#ef4444; color:#fca5a5;">🗑️ Сбросить нули</button>
     </div>
 
     <div class="footer-note">
@@ -197,11 +197,12 @@
   </div>
 
   <script>
-    const NS = 'alekseev_ai_calc_2026';
     function trackClick(key) {
-      if (localStorage.getItem('ignore_my_clicks') === '1') return;
-      fetch('https://api.counterapi.dev/v1/' + NS + '/' + key + '/up', { keepalive: true }).catch(() => {});
+      const k = 'stat_' + key;
+      let val = parseInt(localStorage.getItem(k) || '0', 10);
+      localStorage.setItem(k, val + 1);
     }
+
     document.addEventListener('click', function(e) {
       const a = e.target.closest('a');
       if (!a || !a.href) return;
@@ -210,6 +211,7 @@
       else if (a.href.includes('runpod.io')) trackClick('runpod');
       else if (a.href.includes('amazon.')) trackClick('amazon');
     });
+
     function calc() {
       const count = parseInt(document.getElementById('proxyCount').value, 10);
       const proxyPrice = parseFloat(document.getElementById('proxyType').value);
@@ -228,6 +230,7 @@
       document.getElementById('totalCost').innerText = '$' + total.toFixed(2) + '/mo';
       document.getElementById('savingsText').innerText = '🔥 You save $' + saved.toFixed(2) + '/month vs legacy providers!';
     }
+
     function copyCode(trackSeparately) {
       if (navigator.clipboard) navigator.clipboard.writeText('sSTnLrQf8p');
       if (trackSeparately) trackClick('copy_coupon');
@@ -235,37 +238,25 @@
       btn.innerText = '✅ Copied: sSTnLrQf8p';
       setTimeout(() => { btn.innerText = '📋 Copy Coupon Code'; }, 3000);
     }
-    async function fetchCount(key, elId) {
-      try {
-        const res = await fetch('https://api.counterapi.dev/v1/' + NS + '/' + key + '/');
-        if (!res.ok) { document.getElementById(elId).innerText = '0'; return; }
-        const data = await res.json();
-        document.getElementById(elId).innerText = data.count || 0;
-      } catch (e) { document.getElementById(elId).innerText = '0'; }
-    }
+
     function loadAdminStats() {
-      fetchCount('copy_coupon', 'st_copy');
-      fetchCount('webshare', 'st_webshare');
-      fetchCount('proxy6', 'st_proxy6');
-      fetchCount('runpod', 'st_runpod');
-      fetchCount('amazon', 'st_amazon');
-      updateIgnoreBtn();
+      ['copy_coupon', 'webshare', 'proxy6', 'runpod', 'amazon'].forEach(k => {
+        const elMap = {copy_coupon: 'st_copy', webshare: 'st_webshare', proxy6: 'st_proxy6', runpod: 'st_runpod', amazon: 'st_amazon'};
+        document.getElementById(elMap[k]).innerText = localStorage.getItem('stat_' + k) || '0';
+      });
     }
-    function updateIgnoreBtn() {
-      const ignored = localStorage.getItem('ignore_my_clicks') === '1';
-      const btn = document.getElementById('ignoreToggleBtn');
-      btn.innerText = ignored ? '🙈 Мои клики НЕ считаются (Вкл)' : '👀 Мои клики считаются (Выкл)';
-      btn.style.borderColor = ignored ? '#10b981' : '#38bdf8';
+
+    function resetStats() {
+      ['copy_coupon', 'webshare', 'proxy6', 'runpod', 'amazon'].forEach(k => localStorage.setItem('stat_' + k, '0'));
+      loadAdminStats();
     }
-    function toggleIgnoreMe() {
-      localStorage.setItem('ignore_my_clicks', localStorage.getItem('ignore_my_clicks') === '1' ? '0' : '1');
-      updateIgnoreBtn();
-    }
+
     function toggleAdminPanel() {
       const p = document.getElementById('adminStatsPanel');
       if (p.style.display === 'block') { p.style.display = 'none'; }
       else { p.style.display = 'block'; loadAdminStats(); p.scrollIntoView({ behavior: 'smooth' }); }
     }
+
     if (window.location.search.includes('stats=1')) toggleAdminPanel();
     calc();
   </script>
