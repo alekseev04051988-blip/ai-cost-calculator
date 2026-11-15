@@ -184,11 +184,12 @@
   </div>
 
   <script>
-    const NS = 'alekseev_ai_calc_2026';
     function trackClick(key) {
-      if (localStorage.getItem('ignore_my_clicks') === '1') return;
-      fetch('https://api.counterapi.dev/v1/' + NS + '/' + key + '/up', { keepalive: true }).catch(() => {});
+      const k = 'stat_' + key;
+      let val = parseInt(localStorage.getItem(k) || '0', 10);
+      localStorage.setItem(k, val + 1);
     }
+
     document.addEventListener('click', function(e) {
       const a = e.target.closest('a');
       if (!a || !a.href) return;
@@ -197,6 +198,7 @@
       else if (a.href.includes('runpod.io')) trackClick('runpod');
       else if (a.href.includes('amazon.')) trackClick('amazon');
     });
+
     function calcVram() {
       const params = parseFloat(document.getElementById('modelParams').value);
       const bits = parseFloat(document.getElementById('quantBits').value);
