@@ -4,15 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="Pn-0FZ5BG-9BSCzJeW6U0kx0t_lvUZpD5Zcp39ZTdsI" />
-  <title>Shelly Schaltplan, Beipackzettel PDF & Technische Datenblätter (2026)</title>
-  <meta name="description" content="Interaktive Shelly Schaltpläne (Ausschaltung, Wechselschaltung, Ohne Neutralleiter, Rollladen, Pro 3EM) mit kompatiblen Modulen, technischen Datenblättern und digitalem Beipackzettel (PDF)." />
-  <meta name="keywords" content="Shelly Schaltplan PDF, Shelly Beipackzettel deutsch, Shelly Bedienungsanleitung PDF, Shelly Wechselschaltung anschließen, Shelly ohne Neutralleiter Bypass, Shelly Plus 1PM technische Daten, Shelly 2PM Rollladen Schaltplan" />
+  <title>Shelly Schaltplan, Bilder-Katalog & Beipackzettel PDF (2026)</title>
+  <meta name="description" content="Originale Shelly Schaltpläne (Wechselschaltung, Ausschaltung, Ohne Neutralleiter, Rollladen, Pro 3EM) mit Gerätebildern, Preisen, technischen Datenblättern und digitalem Beipackzettel (PDF)." />
+  <meta name="keywords" content="Shelly Schaltplan Wechselschaltung, Shelly Plus 1PM anschließen, Shelly Beipackzettel PDF, Shelly ohne Neutralleiter, Shelly 2PM Rollladen Schaltplan, Wago 221 Klemmen" />
   <script defer src="/_vercel/insights/script.js"></script>
   <style>
     :root {
       --bg: #0b0f19;
       --card: #131b2e;
-      --card-hover: #19233c;
+      --card-hover: #19243d;
       --border: #23304d;
       --text: #e2e8f0;
       --muted: #94a3b8;
@@ -20,91 +20,83 @@
       --green: #10b981;
       --amber: #f59e0b;
       --amber-hover: #d97706;
-      --blue: #0ea5e9;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background: var(--bg); color: var(--text); line-height: 1.6; padding: 20px 16px; }
-    .container { max-width: 960px; margin: 0 auto; }
-    .top-nav { display: flex; justify-content: center; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
-    .nav-link { color: var(--muted); text-decoration: none; font-size: 0.84rem; font-weight: 600; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--card); transition: 0.2s; }
+    body { background: var(--bg); color: var(--text); line-height: 1.5; padding: 16px 12px; }
+    .container { max-width: 820px; margin: 0 auto; }
+    .top-nav { display: flex; justify-content: center; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+    .nav-link { color: var(--muted); text-decoration: none; font-size: 0.82rem; font-weight: 600; padding: 7px 13px; border-radius: 999px; border: 1px solid var(--border); background: var(--card); transition: 0.2s; }
     .nav-link.active, .nav-link:hover { color: #fff; border-color: var(--accent); background: rgba(56, 189, 248, 0.15); }
-    header { text-align: center; margin-bottom: 24px; }
-    .badge { display: inline-block; background: rgba(56, 189, 248, 0.12); color: var(--accent); border: 1px solid rgba(56, 189, 248, 0.35); padding: 4px 12px; border-radius: 999px; font-size: 0.8rem; font-weight: 600; margin-bottom: 10px; }
-    h1 { font-size: 1.95rem; font-weight: 800; margin-bottom: 8px; color: #fff; }
-    p.sub { color: var(--muted); font-size: 0.96rem; max-width: 720px; margin: 0 auto; }
+    header { text-align: center; margin-bottom: 20px; }
+    .badge { display: inline-block; background: rgba(56, 189, 248, 0.12); color: var(--accent); border: 1px solid rgba(56, 189, 248, 0.35); padding: 4px 12px; border-radius: 999px; font-size: 0.76rem; font-weight: 600; margin-bottom: 8px; }
+    h1 { font-size: 1.65rem; font-weight: 800; margin-bottom: 6px; color: #fff; }
+    p.sub { color: var(--muted); font-size: 0.9rem; max-width: 640px; margin: 0 auto; }
 
-    /* Schema Selector Tabs */
-    .schema-tabs { display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 10px; margin-bottom: 24px; }
-    .schema-tab { background: var(--card); border: 1px solid var(--border); color: var(--text); padding: 12px 14px; border-radius: 12px; font-size: 0.86rem; font-weight: 700; cursor: pointer; text-align: left; transition: 0.2s; }
-    .schema-tab span { display: block; font-size: 0.75rem; color: var(--muted); font-weight: 500; margin-top: 3px; }
-    .schema-tab.active, .schema-tab:hover { border-color: var(--amber); background: rgba(245, 158, 11, 0.12); }
+    /* Schema Tabs */
+    .schema-tabs { display: grid; grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); gap: 8px; margin-bottom: 18px; }
+    .schema-tab { background: var(--card); border: 1px solid var(--border); color: var(--text); padding: 10px 12px; border-radius: 10px; font-size: 0.82rem; font-weight: 700; cursor: pointer; text-align: left; transition: 0.2s; }
+    .schema-tab span { display: block; font-size: 0.72rem; color: var(--muted); font-weight: 500; margin-top: 2px; }
+    .schema-tab.active, .schema-tab:hover { border-color: var(--amber); background: rgba(245, 158, 11, 0.14); }
     .schema-tab.active span { color: #fcd34d; }
 
-    /* Schematic Workspace */
-    .schema-box { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 22px; margin-bottom: 28px; }
-    .schema-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; border-bottom: 1px solid var(--border); padding-bottom: 14px; }
-    .schema-header h2 { font-size: 1.3rem; color: #fff; }
-    .schema-layout { display: grid; grid-template-columns: 1.25fr 1fr; gap: 20px; align-items: center; }
-    @media (max-width: 780px) { .schema-layout { grid-template-columns: 1fr; } h1 { font-size: 1.55rem; } }
-    .svg-wrap { background: #070a12; border: 1px solid var(--border); border-radius: 12px; padding: 12px; text-align: center; overflow-x: auto; }
-    .pin-notes { background: #090d16; border: 1px dashed var(--accent); border-radius: 12px; padding: 16px; font-size: 0.88rem; }
-    .pin-notes h3 { color: var(--accent); font-size: 0.98rem; margin-bottom: 10px; }
-    .pin-list { list-style: none; }
-    .pin-list li { margin-bottom: 8px; padding-left: 14px; position: relative; color: #cbd5e1; }
-    .pin-list li::before { content: "•"; position: absolute; left: 0; color: var(--amber); font-weight: bold; }
+    /* Official Manufacturer Style Diagram Card */
+    .schema-box { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; margin-bottom: 24px; }
+    .schema-header { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+    .schema-header h2 { font-size: 1.12rem; color: #fff; }
+    .btn-print-top { background: rgba(56, 189, 248, 0.14); color: var(--accent); border: 1px solid rgba(56, 189, 248, 0.4); padding: 6px 12px; border-radius: 8px; font-weight: 700; font-size: 0.78rem; cursor: pointer; }
+    .svg-wrap { border-radius: 12px; overflow: hidden; border: 1px solid #cbd5e1; background: linear-gradient(135deg, #ffffff 0%, #eff6ff 55%, #dbeafe 100%); margin-bottom: 12px; }
+    .pin-bar { background: #090d16; border: 1px dashed var(--border); border-radius: 10px; padding: 10px 14px; font-size: 0.82rem; color: #cbd5e1; }
 
-    /* Compatible Products Grid */
-    .section-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; }
-    .section-head h2 { font-size: 1.25rem; color: #fff; }
-    .compat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; margin-bottom: 32px; }
-    .prod-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; justify-content: space-between; transition: 0.2s; cursor: pointer; }
-    .prod-card:hover { border-color: var(--accent); background: var(--card-hover); transform: translateY(-2px); }
-    .prod-badge { display: inline-block; background: rgba(16, 185, 129, 0.12); color: #6ee7b7; font-size: 0.74rem; font-weight: 700; padding: 3px 9px; border-radius: 6px; margin-bottom: 8px; width: fit-content; }
-    .prod-title { font-size: 1.08rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
-    .prod-short { font-size: 0.86rem; color: var(--muted); margin-bottom: 12px; }
-    .prod-mini-specs { font-size: 0.8rem; color: #cbd5e1; background: rgba(15, 23, 42, 0.6); padding: 8px 10px; border-radius: 8px; margin-bottom: 14px; }
-    .prod-actions { display: flex; flex-direction: column; gap: 8px; margin-top: auto; }
-    .btn-passport { background: rgba(56, 189, 248, 0.14); color: var(--accent); border: 1px solid rgba(56, 189, 248, 0.4); padding: 9px 12px; border-radius: 8px; font-weight: 700; font-size: 0.84rem; cursor: pointer; text-align: center; transition: 0.2s; }
-    .btn-passport:hover { background: var(--accent); color: #000; }
-    .btn-amz { background: var(--amber); color: #1e1b4b; padding: 9px 12px; border-radius: 8px; font-weight: 800; font-size: 0.85rem; text-decoration: none; text-align: center; transition: 0.2s; display: block; }
-    .btn-amz:hover { background: var(--amber-hover); color: #fff; }
+    /* 2 Square Tiles Per Row Grid */
+    .section-head { margin-bottom: 12px; }
+    .section-head h2 { font-size: 1.15rem; color: #fff; }
+    .section-head p { font-size: 0.82rem; color: var(--muted); }
+    .square-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 28px; }
+    .sq-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 12px; display: flex; flex-direction: column; align-items: center; text-align: center; justify-content: space-between; cursor: pointer; transition: 0.2s; position: relative; }
+    .sq-card:hover { border-color: var(--amber); background: var(--card-hover); transform: translateY(-2px); }
+    .sq-price { position: absolute; top: 8px; right: 8px; background: rgba(16, 185, 129, 0.18); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.4); font-size: 0.76rem; font-weight: 800; padding: 2px 7px; border-radius: 6px; }
+    .sq-type { position: absolute; top: 8px; left: 8px; background: rgba(56, 189, 248, 0.12); color: var(--accent); font-size: 0.68rem; font-weight: 700; padding: 2px 6px; border-radius: 5px; }
+    .sq-img { width: 100%; height: 118px; display: flex; align-items: center; justify-content: center; margin-top: 22px; margin-bottom: 6px; background: radial-gradient(circle, #1e293b 0%, #0f172a 100%); border-radius: 10px; border: 1px solid rgba(255,255,255,0.05); }
+    .sq-name { font-size: 0.92rem; font-weight: 800; color: #fff; line-height: 1.25; margin-bottom: 3px; }
+    .sq-role { font-size: 0.74rem; color: var(--muted); margin-bottom: 8px; line-height: 1.25; }
+    .sq-actions { width: 100%; display: flex; flex-direction: column; gap: 5px; }
+    .sq-btn-amz { display: block; width: 100%; background: var(--amber); color: #1e1b4b; font-weight: 800; font-size: 0.78rem; padding: 7px 6px; border-radius: 7px; text-decoration: none; transition: 0.2s; }
+    .sq-btn-amz:hover { background: var(--amber-hover); color: #fff; }
+    .sq-btn-info { display: block; width: 100%; background: transparent; color: var(--accent); border: 1px solid rgba(56, 189, 248, 0.35); font-weight: 700; font-size: 0.73rem; padding: 5px 6px; border-radius: 7px; cursor: pointer; }
 
-    /* Product Passport & Digital Box Modal */
-    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(5, 8, 15, 0.86); z-index: 999; padding: 20px 14px; overflow-y: auto; align-items: flex-start; justify-content: center; }
-    .modal-box { background: #111827; border: 2px solid var(--accent); border-radius: 18px; max-width: 720px; width: 100%; padding: 24px; margin: 20px auto; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.7); }
-    .modal-close { position: absolute; top: 16px; right: 16px; background: var(--card); border: 1px solid var(--border); color: #fff; width: 34px; height: 34px; border-radius: 50%; font-size: 1.1rem; cursor: pointer; font-weight: bold; }
-    .spec-table { width: 100%; border-collapse: collapse; margin: 14px 0 20px; font-size: 0.88rem; }
+    /* Modal: Full Passport & Digital Box */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(5, 8, 15, 0.88); z-index: 999; padding: 16px 10px; overflow-y: auto; align-items: flex-start; justify-content: center; }
+    .modal-box { background: #111827; border: 2px solid var(--accent); border-radius: 16px; max-width: 680px; width: 100%; padding: 20px; margin: 16px auto; position: relative; }
+    .modal-close { position: absolute; top: 12px; right: 12px; background: var(--card); border: 1px solid var(--border); color: #fff; width: 32px; height: 32px; border-radius: 50%; font-size: 1rem; cursor: pointer; font-weight: bold; }
+    .modal-top { display: flex; gap: 16px; align-items: center; margin-bottom: 14px; flex-wrap: wrap; }
+    .modal-thumb { width: 110px; height: 110px; background: #1e293b; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid var(--border); }
+    .spec-table { width: 100%; border-collapse: collapse; margin: 10px 0 16px; font-size: 0.84rem; }
     .spec-table tr { border-bottom: 1px solid var(--border); }
-    .spec-table td { padding: 9px 8px; }
-    .spec-table td:first-child { color: var(--muted); font-weight: 600; width: 42%; }
+    .spec-table td { padding: 7px 6px; }
+    .spec-table td:first-child { color: var(--muted); width: 42%; }
     .spec-table td:last-child { color: #fff; font-weight: 600; }
-    .box-docs { background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 12px; padding: 16px; margin-bottom: 18px; }
-    .box-docs h4 { color: #6ee7b7; font-size: 0.98rem; margin-bottom: 8px; }
-    .box-list { font-size: 0.86rem; color: #cbd5e1; margin-bottom: 12px; padding-left: 18px; }
-    .doc-btn-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    @media (max-width: 600px) { .doc-btn-row { grid-template-columns: 1fr; } }
-    .btn-pdf { background: #0284c7; color: #fff; border: none; padding: 11px 14px; border-radius: 9px; font-weight: 700; font-size: 0.85rem; cursor: pointer; text-decoration: none; text-align: center; display: block; }
-    .btn-pdf:hover { background: #0369a1; }
+    .box-docs { background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 12px; padding: 14px; margin-bottom: 14px; }
+    .box-docs h4 { color: #6ee7b7; font-size: 0.92rem; margin-bottom: 6px; }
+    .box-list { font-size: 0.82rem; color: #cbd5e1; margin-bottom: 10px; padding-left: 16px; }
+    .doc-btn-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    @media (max-width: 540px) { .doc-btn-row { grid-template-columns: 1fr; } }
+    .btn-pdf { background: #0284c7; color: #fff; border: none; padding: 9px 10px; border-radius: 8px; font-weight: 700; font-size: 0.8rem; cursor: pointer; text-decoration: none; text-align: center; display: block; }
 
-    /* Admin Stats Panel */
-    #adminStatsPanel { display: none; margin-top: 24px; background: #0f172a; border: 2px solid var(--accent); border-radius: 16px; padding: 20px; }
-    .stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 14px 0; }
-    .stat-item { background: var(--card); border: 1px solid var(--border); padding: 12px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; }
-    .stat-num { font-size: 1.3rem; font-weight: 800; color: var(--accent); }
-    .admin-btn { background: var(--card); color: var(--text); border: 1px solid var(--border); padding: 8px 14px; border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; margin-right: 8px; margin-top: 6px; }
-
-    .footer-note { text-align: center; color: var(--muted); font-size: 0.82rem; margin-top: 28px; }
+    /* Admin Stats */
+    #adminStatsPanel { display: none; margin-top: 20px; background: #0f172a; border: 2px solid var(--accent); border-radius: 14px; padding: 16px; }
+    .stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 12px 0; }
+    .stat-item { background: var(--card); border: 1px solid var(--border); padding: 10px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; }
+    .stat-num { font-size: 1.2rem; font-weight: 800; color: var(--accent); }
+    .admin-btn { background: var(--card); color: var(--text); border: 1px solid var(--border); padding: 7px 12px; border-radius: 8px; cursor: pointer; font-size: 0.8rem; font-weight: 600; margin-right: 6px; margin-top: 4px; }
+    .footer-note { text-align: center; color: var(--muted); font-size: 0.78rem; margin-top: 22px; }
     .footer-note a { color: var(--accent); text-decoration: none; }
 
-    /* Print-to-PDF Beipackzettel Styling */
     @media print {
-      body { background: #fff !important; color: #000 !important; padding: 0; }
-      .top-nav, .schema-tabs, .compat-grid, .footer-note, #adminStatsPanel, .doc-btn-row, .modal-close, .btn-amz { display: none !important; }
-      .modal-overlay { position: static !important; display: block !important; background: #fff !important; padding: 0 !important; }
-      .modal-box { border: 2px solid #000 !important; background: #fff !important; color: #000 !important; box-shadow: none !important; max-width: 100% !important; }
+      body { background: #fff !important; color: #000 !important; }
+      .top-nav, .schema-tabs, .square-grid, .footer-note, #adminStatsPanel, .doc-btn-row, .modal-close, .sq-btn-amz, .btn-print-top { display: none !important; }
+      .modal-overlay { position: static !important; display: block !important; background: #fff !important; }
+      .modal-box { border: 1px solid #000 !important; background: #fff !important; color: #000 !important; }
       .spec-table td { color: #000 !important; border-bottom: 1px solid #ccc !important; }
-      .box-docs { border: 1px solid #000 !important; color: #000 !important; }
-      .box-docs h4, .box-list { color: #000 !important; }
     }
   </style>
 </head>
@@ -113,94 +105,89 @@
     <nav class="top-nav">
       <a href="/" class="nav-link">🧮 Proxy & GPU</a>
       <a href="/vram.html" class="nav-link">🧠 LLM VRAM</a>
-      <a href="/shelly.html" class="nav-link active">⚡ Schaltpläne & Datenblätter (DE)</a>
+      <a href="/shelly.html" class="nav-link active">⚡ Shelly Schaltpläne (DE)</a>
     </nav>
 
     <header>
-      <span class="badge">Interaktive 230V-Schaltpläne + Digitaler Beipackzettel (PDF)</span>
-      <h1>Shelly Schaltplan-Archiv & Geräte-Datenblätter</h1>
-      <p class="sub">Wähle eine Schaltung, sieh dir den farbigen Klemmenplan an und öffne für jedes kompatible Bauteil das komplette technische Datenblatt inklusive druckbarem Original-Beipackzettel (PDF).</p>
+      <span class="badge">Originale Anschlusspläne + Geräte-Bilder & Beipackzettel (PDF)</span>
+      <h1>Shelly Schaltplan & Bauteile-Finder</h1>
+      <p class="sub">Wähle deine Schaltung: Du siehst sofort den originalgetreuen Anschlussplan und darunter alle passenden Module mit Bild, Preis und digitalem Beipackzettel.</p>
     </header>
 
-    <!-- 1. SCHALTPLAN AUSWAHL -->
+    <!-- 1. SCHALTUNG WÄHLEN -->
     <div class="schema-tabs">
-      <button class="schema-tab active" onclick="selectSchema('aus', this)">
-        1. Ausschaltung (Mit N)
-        <span>1 Schalter / Steckdose • 3-Draht</span>
+      <button class="schema-tab active" onclick="selectSchema('wechsel', this)">
+        1. Wechselschaltung
+        <span>2 Schalter • 1 Lampe</span>
       </button>
-      <button class="schema-tab" onclick="selectSchema('wechsel', this)">
-        2. Wechselschaltung
-        <span>2 Schalter • Flur / Treppenhaus</span>
+      <button class="schema-tab" onclick="selectSchema('aus', this)">
+        2. Ausschaltung
+        <span>1 Schalter / Steckdose</span>
       </button>
       <button class="schema-tab" onclick="selectSchema('ohneneutral', this)">
-        3. Altbau OHNE Neutralleiter
-        <span>2-Draht Dose • Inkl. Shelly Bypass</span>
+        3. Ohne Neutralleiter
+        <span>Altbau 2-Draht + Bypass</span>
       </button>
       <button class="schema-tab" onclick="selectSchema('rollladen', this)">
-        4. Rollladen & Jalousie
-        <span>Rohrmotor Auf/Ab • Endlagen</span>
+        4. Rollladen (Auf/Ab)
+        <span>Rohrmotor • Plus 2PM</span>
       </button>
       <button class="schema-tab" onclick="selectSchema('pro3em', this)">
-        5. Zählerschrank 3-Phasen
-        <span>Hutschiene • Balkonkraftwerk & Haus</span>
+        5. 3-Phasen Zähler
+        <span>Hutschiene • Pro 3EM</span>
       </button>
     </div>
 
-    <!-- 2. AKTIVER SCHALTPLAN -->
+    <!-- 2. HERSTELLER-SCHALTPLAN -->
     <div class="schema-box">
       <div class="schema-header">
-        <div>
-          <h2 id="schemaTitle">🔌 Schaltung 1: Klassische Ausschaltung / Tasterschaltung (mit Neutralleiter N)</h2>
-          <p id="schemaSub" style="color:var(--muted); font-size:0.9rem; margin-top:4px;">Standard-Anschluss in einer 60mm Unterputzdose hinter dem Lichtschalter mit blauem Neutralleiter.</p>
-        </div>
-        <button class="btn-passport" onclick="window.print()" style="width:auto;">🖨️ Diesen Schaltplan als PDF speichern</button>
+        <h2 id="schemaTitle">🔌 Wechselschaltung — Shelly Plus 1PM / Mini Gen3</h2>
+        <button class="btn-print-top" onclick="window.print()">🖨️ Schaltplan als PDF drucken</button>
       </div>
-
-      <div class="schema-layout">
-        <div class="svg-wrap" id="svgContainer"></div>
-        <div class="pin-notes">
-          <h3>📌 Klemmenbelegung & Verdrahtungs-Checkliste</h3>
-          <ul class="pin-list" id="pinList"></ul>
-        </div>
-      </div>
+      <div class="svg-wrap" id="svgContainer"></div>
+      <div class="pin-bar" id="pinHint"></div>
     </div>
 
-    <!-- 3. KOMPATIBLE GERÄTE FÜR DIESE SCHALTUNG -->
+    <!-- 3. PASSENDE GERÄTE (2 QUADRAT-KARTEN PRO ZEILE) -->
     <div class="section-head">
-      <h2>🛠️ Kompatible Module & Bauteile für diese Schaltung</h2>
-      <span style="font-size:0.85rem; color:var(--muted);">Klicke auf ein Bauteil für technische Daten & PDF-Beipackzettel</span>
+      <h2>👇 Passende Bauteile für diesen Schaltplan</h2>
+      <p>Klicke auf ein Feld für das komplette Datenblatt & den gedruckten Beipackzettel (PDF)</p>
     </div>
 
-    <div class="compat-grid" id="compatGrid"></div>
+    <div class="square-grid" id="compatGrid"></div>
 
-    <!-- 4. MODAL: TECHNISCHES DATENBLATT & DIGITALER BEIPACKZETTEL -->
+    <!-- 4. MODAL: DATENBLATT & BEIPACKZETTEL -->
     <div class="modal-overlay" id="prodModal" onclick="if(event.target===this)closeModal()">
       <div class="modal-box">
         <button class="modal-close" onclick="closeModal()">✕</button>
-        <span class="prod-badge" id="mBadge">Technisches Datenblatt & Beipackzettel</span>
-        <h2 id="mTitle" style="color:#fff; font-size:1.45rem; margin-bottom:6px;"></h2>
-        <p id="mDesc" style="color:var(--muted); font-size:0.92rem; margin-bottom:14px;"></p>
-
-        <h3 style="color:var(--accent); font-size:1rem;">📐 Vollständige Technische Spezifikationen</h3>
-        <table class="spec-table" id="mSpecTable"></table>
-
-        <div class="box-docs">
-          <h4>📦 Digitaler Lieferumfang & Gedruckte Beilage (PDF-Version)</h4>
-          <p style="font-size:0.84rem; color:#94a3b8; margin-bottom:8px;">Original-Inhalt der Verkaufsverpackung in elektronischer Form zum Nachschlagen oder Ausdrucken:</p>
-          <ul class="box-list" id="mBoxContents"></ul>
-          <div class="doc-btn-row">
-            <button class="btn-pdf" onclick="window.print()">📥 Beipackzettel & Datenblatt als PDF speichern</button>
-            <a id="mDocLink" href="#" target="_blank" rel="noopener sponsored" class="btn-pdf" style="background:#334155;">📄 Original PDF-Handbuch auf Amazon.de (Produktdokumente)</a>
+        <div class="modal-top">
+          <div class="modal-thumb" id="mThumb"></div>
+          <div style="flex:1; min-width:200px;">
+            <span id="mBadge" style="color:#6ee7b7; font-size:0.78rem; font-weight:700;"></span>
+            <h2 id="mTitle" style="color:#fff; font-size:1.25rem; margin:3px 0;"></h2>
+            <p id="mRole" style="color:var(--muted); font-size:0.84rem;"></p>
           </div>
         </div>
 
-        <a id="mBuyBtn" href="#" target="_blank" rel="noopener sponsored" class="btn-amz" style="padding:14px; font-size:1rem;">
-          🛒 Jetzt Preis & Verfügbarkeit auf Amazon.de prüfen →
+        <h3 style="color:var(--accent); font-size:0.92rem;">📐 Technische Daten (vom Gehäuse & Datenblatt)</h3>
+        <table class="spec-table" id="mSpecTable"></table>
+
+        <div class="box-docs">
+          <h4>📦 Gedruckte Beilage aus der Originalverpackung (Digital / PDF)</h4>
+          <ul class="box-list" id="mBoxContents"></ul>
+          <div class="doc-btn-row">
+            <button class="btn-pdf" onclick="window.print()">📥 Beipackzettel als PDF speichern</button>
+            <a id="mKbLink" href="#" target="_blank" rel="noopener" class="btn-pdf" style="background:#334155;">📘 Offizielles Shelly Handbuch & Schaltplan</a>
+          </div>
+        </div>
+
+        <a id="mBuyBtn" href="#" target="_blank" rel="noopener sponsored" class="sq-btn-amz" style="padding:12px; font-size:0.95rem;">
+          🛒 Auf Amazon.de ansehen & bestellen →
         </a>
       </div>
     </div>
 
-    <!-- SECRET ADMIN STATS PANEL -->
+    <!-- ADMIN STATS -->
     <div id="adminStatsPanel">
       <h3 style="color:#fff; margin-bottom:6px;">📊 Глобальная статистика кликов</h3>
       <div class="stat-grid">
@@ -215,8 +202,8 @@
     </div>
 
     <div class="footer-note">
-      <a href="/">← Proxy & GPU Calculator</a> • <a href="/vram.html">LLM VRAM Calculator</a> • <a href="https://github.com/alekseev04051988-blip/ai-cost-calculator" target="_blank" rel="noopener">GitHub</a> • <span onclick="toggleAdminPanel()" style="cursor:pointer; opacity:0.6;" title="Stats">📊</span>
-      <div style="margin-top:6px; font-size:0.75rem; opacity:0.75;">Als Amazon-Partner verdiene ich an qualifizierten Verkäufen (As an Amazon Associate I earn from qualifying purchases). Arbeiten an 230V-Netzen nur im spannungsfreien Zustand nach VDE 0100.</div>
+      <a href="/">← Proxy & GPU</a> • <a href="/vram.html">LLM VRAM</a> • <a href="https://github.com/alekseev04051988-blip/ai-cost-calculator" target="_blank" rel="noopener">GitHub</a> • <span onclick="toggleAdminPanel()" style="cursor:pointer; opacity:0.6;">📊</span>
+      <div style="margin-top:6px; font-size:0.74rem; opacity:0.75;">Als Amazon-Partner verdiene ich an qualifizierten Verkäufen.</div>
     </div>
   </div>
 
@@ -235,330 +222,386 @@
       if (a.href.includes('amazon.')) trackClick('amazon');
     });
 
+    // Visual Device Icons (Realistic Hardware Drawings)
+    function relayIcon(bodyColor, labelTop, labelSub, terminals) {
+      return `<svg viewBox="0 0 120 100" width="96" height="84">
+        <rect x="24" y="10" width="76" height="80" rx="12" fill="${bodyColor}" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+        <rect x="20" y="16" width="16" height="68" rx="3" fill="#0284c7" stroke="#0369a1" stroke-width="1"/>
+        <circle cx="28" cy="24" r="3.5" fill="#cbd5e1" stroke="#334155"/><circle cx="28" cy="34" r="3.5" fill="#cbd5e1" stroke="#334155"/>
+        <circle cx="28" cy="44" r="3.5" fill="#cbd5e1" stroke="#334155"/><circle cx="28" cy="54" r="3.5" fill="#cbd5e1" stroke="#334155"/>
+        <circle cx="28" cy="64" r="3.5" fill="#cbd5e1" stroke="#334155"/><circle cx="28" cy="74" r="3.5" fill="#cbd5e1" stroke="#334155"/>
+        <text x="41" y="27" fill="#fff" font-size="6.5" font-weight="bold">${terminals}</text>
+        <text x="66" y="48" fill="#fff" font-size="11" font-weight="900" font-style="italic" text-anchor="middle">Shelly</text>
+        <text x="66" y="62" fill="#fff" font-size="8.5" font-weight="bold" text-anchor="middle">${labelTop}</text>
+        <rect x="46" y="68" width="40" height="11" rx="2" fill="rgba(255,255,255,0.9)"/>
+        <text x="66" y="76" fill="#000" font-size="6.5" font-weight="bold" text-anchor="middle">${labelSub}</text>
+      </svg>`;
+    }
+
     const PRODUCTS = {
       plus1pm: {
-        name: 'Shelly Plus 1PM (Gen3 / Gen4)',
-        badge: 'Bestseller • Mit Leistungsmessung',
-        price: '~17,90 €',
-        short: '1-Kanal Unterputz-Relais bis 16A (3500W) mit Echtzeit-Strommessung, WLAN & Bluetooth.',
-        miniSpecs: 'Maße: 37×42×16 mm | Max: 16A / 3500W | N-Leiter: Ja',
+        name: 'Shelly Plus 1PM',
+        type: 'Smart-Relais',
+        role: 'Rotes Unterputz-Relais mit Strommessung (bis 16A)',
+        price: '17,90 €',
         amzQuery: 'Shelly+Plus+1PM+Gen3',
+        kbUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-plus-1pm',
+        icon: relayIcon('#dc2626', 'PLUS 1PM', 'MAX 16A', 'O SW L N'),
         specs: [
-          ['Abmessungen (H×B×T)', '37 × 42 × 16 mm (passt in 60mm UP-Dose)'],
-          ['Versorgungsspannung', '110–240 V AC (50/60 Hz) oder 24–30 V DC'],
-          ['Max. Schaltstrom / Leistung', '16 A / 3500 W (ohmsche Last)'],
-          ['Leistungsmessung (Watt/kWh)', 'Ja, integrierter Präzisions-Shunt'],
-          ['Funkprotokolle', 'Wi-Fi 802.11 b/g/n (2,4 GHz) + Bluetooth 4.2 Gateway'],
-          ['Klemmenquerschnitt', '0,5 bis 1,5 mm² (starr / flexibel mit Aderendhülse)'],
-          ['Sicherheit & Schutz', 'Überhitzungsschutz, Überlast- & Überspannungsschutz']
+          ['Gerätetyp', 'WLAN & Bluetooth Unterputz-Schaltrelais mit Leistungsmessung'],
+          ['Abmessungen', '37 × 42 × 16 mm (für 60mm Schalterdosen)'],
+          ['Max. Schaltleistung', '16 A / 3500 W (230V AC)'],
+          ['Klemmen am Gehäuse', 'O (Ausgang), SW (Schalter), 3× L (Phase), 2× N (Neutral)']
         ],
         box: [
-          '1× Shelly Plus 1PM Gen3 Unterputz-Modul',
-          'Mehrsprachiger Falt-Beipackzettel (DE/EN) mit Klemmenplan L, N, SW, O',
-          'Sicherheitshinweise nach EN 60669-1 / VDE-Konformitätserklärung',
-          'QR-Code & Seriennummer für SmartThings / Home Assistant / Shelly Smart Control'
+          '1× Shelly Plus 1PM Relais (Rotes Gehäuse)',
+          'Gedruckter Beipackzettel (DE/EN) mit Wechselschaltung & Ausschaltung',
+          'Sicherheitshinweise nach DIN EN 60669-1'
         ]
       },
       mini1pm: {
         name: 'Shelly 1PM Mini Gen3',
-        badge: 'Ultra-Kompakt • Für flache Dosen',
-        price: '~14,90 €',
-        short: '35% kleiner als Standard-Relais. Ideal bei extrem wenig Platz hinter Schaltern oder Steckdosen.',
-        miniSpecs: 'Maße: 29×34×16 mm | Max: 8A / 2000W | N-Leiter: Ja',
+        type: 'Mini-Relais',
+        role: 'Extra-kleines Relais für flache & volle Schalterdosen',
+        price: '14,90 €',
         amzQuery: 'Shelly+1PM+Mini+Gen3',
+        kbUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-1pm-mini-gen3',
+        icon: relayIcon('#b91c1c', '1PM MINI', 'MAX 8A', 'O SW L N'),
         specs: [
-          ['Abmessungen (H×B×T)', '29 × 34 × 16 mm (Ultra-Mini-Format)'],
-          ['Versorgungsspannung', '110–240 V AC (50/60 Hz)'],
-          ['Max. Schaltstrom / Leistung', '8 A / 2000 W'],
-          ['Leistungsmessung', 'Ja (Echtzeit W & kWh Export)'],
-          ['Prozessor & Speicher', 'ESP-Shelly-C38F (8 MB Flash, Gen3 Chip)'],
-          ['Klemmenbelegung', 'N, L, L (Brücke), SW, O']
+          ['Gerätetyp', 'Ultra-kompaktes Unterputz-Relais (35% kleiner)'],
+          ['Abmessungen', '29 × 34 × 16 mm'],
+          ['Max. Schaltleistung', '8 A / 2000 W inkl. Watt-Messung'],
+          ['Klemmen am Gehäuse', 'N, L, L, SW, O']
         ],
         box: [
-          '1× Shelly 1PM Mini Gen3 Relais',
-          'Gedruckter Mini-Schaltplan (Beipackzettel DE/EN) für Schalter- und Steckdosenmontage',
-          'CE- & RoHS-Prüfblatt'
+          '1× Shelly 1PM Mini Gen3',
+          'Faltblatt-Beipackzettel mit Anschlussplan für Licht & Steckdosen'
         ]
       },
       mini1: {
-        name: 'Shelly 1 Mini Gen3 (Potenzialfrei)',
-        badge: 'Potenzialfreier Kontakt (Dry Contact)',
-        price: '~13,90 €',
-        short: 'Mit getrenntem Ein-/Ausgang (I/O). Perfekt für Lichtschalter, Garagentore, Klingeln & Heizthermen.',
-        miniSpecs: 'Maße: 29×34×16 mm | Max: 8A | Potenzialfrei I/O',
+        name: 'Shelly 1 Mini Gen3',
+        type: 'Relais (Blau)',
+        role: 'Klassisches Smart-Relais für Lichtschalter & Taster',
+        price: '13,50 €',
         amzQuery: 'Shelly+1+Mini+Gen3',
+        kbUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-1-mini-gen3',
+        icon: relayIcon('#1d4ed8', '1 MINI Gen3', 'DRY 8A', 'I O SW L N'),
         specs: [
-          ['Abmessungen (H×B×T)', '29 × 34 × 16 mm'],
-          ['Versorgungsspannung', '110–240 V AC'],
-          ['Relais-Kontakt', 'Potenzialfrei (Dry Contact: Klemmen I und O getrennt von L)'],
-          ['Max. Schaltleistung', '8 A bei 240V AC / 5 A bei 30V DC'],
-          ['Funk', 'WLAN 2,4 GHz + Bluetooth BLE Repeater']
+          ['Gerätetyp', 'Unterputz-Relais mit potenzialfreiem Kontakt (I/O)'],
+          ['Abmessungen', '29 × 34 × 16 mm'],
+          ['Max. Schaltleistung', '8 A / 2000 W (230V AC oder 12/24V DC)'],
+          ['Klemmen am Gehäuse', 'SW, L, N sowie I (Eingang) & O (Ausgang)']
         ],
         box: [
-          '1× Shelly 1 Mini Gen3 Modul',
-          'Beipackzettel mit 230V-Schaltplan & 12V/24V Garagentor-Anschlussplan',
-          'Montage- und Sicherheitshinweise (Deutsch)'
+          '1× Shelly 1 Mini Gen3 (Blaues Gehäuse)',
+          'Original-Beipackzettel mit 230V Licht- & Garagentor-Schaltplan'
         ]
       },
       shelly1l: {
-        name: 'Shelly 1L + Shelly Bypass Set',
-        badge: 'Speziallösung OHNE Neutralleiter',
-        price: '~22,90 €',
-        short: 'Schaltet Lampen in Altbau-Schalterdosen mit nur 2 Adern (Phase + Lampendraht ohne blauen N-Leiter).',
-        miniSpecs: 'Maße: 42×36×14 mm | Max: 4,1A | Ohne N-Leiter',
+        name: 'Shelly 1L + Bypass',
+        type: 'Ohne N-Leiter',
+        role: 'Spezial-Relais für Altbau (wenn blauer Draht fehlt)',
+        price: '21,90 €',
         amzQuery: 'Shelly+1L+Bypass+ohne+Neutralleiter',
+        kbUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-1l',
+        icon: relayIcon('#ea580c', 'SHELLY 1L', 'NO NEUTRAL', 'O L SW1 SW2'),
         specs: [
-          ['Abmessungen (H×B×T)', '42 × 36 × 14 mm'],
-          ['Neutralleiter erforderlich?', 'NEIN (arbeitet im 2-Draht-Betrieb über den Lampenstromkreis)'],
-          ['Mindestlast / Bypass', 'Ab 20W ohne Bypass; unter 20W (LED) wird der Bypass parallel zur Lampe geklemmt'],
-          ['Max. Schaltstrom', '4,1 A (ca. 1000 W)'],
-          ['Schaltereingänge', 'SW1 und SW2 (auch für Wechselschaltung ohne N nutzbar)']
+          ['Gerätetyp', '2-Draht Smart-Relais ohne Neutralleiter'],
+          ['Abmessungen', '42 × 36 × 14 mm'],
+          ['Max. Last', '4,1 A (ca. 1000 W) • Inkl. Bypass für LEDs <20W'],
+          ['Klemmen am Gehäuse', 'O, L, Sx, SW1, SW2']
         ],
         box: [
-          '1× Shelly 1L Unterputz-Relais',
-          '1× Shelly Bypass (Lastwiderstand für LED-Leuchtmittel <20W)',
-          'Spezial-Beipackzettel: 2-Draht-Anschlussplan mit Bypass-Position an der Deckenleuchte'
+          '1× Shelly 1L Relais (Oranges Gehäuse) + 1× weißer Shelly Bypass',
+          'Beipackzettel: 2-Draht-Anschlussplan mit Bypass an der Lampe'
         ]
       },
       plus2pm: {
-        name: 'Shelly Plus 2PM Gen3 (2-Kanal / Rollladen)',
-        badge: 'Rollladen-Steuerung & Doppel-Relais',
-        price: '~26,90 €',
-        short: 'Steuert Rohrmotoren (Auf/Ab mit automatischer Endlagen-Kalibrierung) oder 2 getrennte Lichtkreise.',
-        miniSpecs: 'Maße: 37×42×16 mm | 2× 10A (max 16A) | Rollladen-Modus',
+        name: 'Shelly Plus 2PM',
+        type: 'Rollladen-Relais',
+        role: 'Steuert elektrische Rollläden (Auf/Ab) oder 2 Lampen',
+        price: '26,90 €',
         amzQuery: 'Shelly+Plus+2PM+Gen3+Rollladen',
+        kbUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-plus-2pm',
+        icon: relayIcon('#1e293b', 'PLUS 2PM', '2x 10A', 'O1 O2 S1 S2'),
         specs: [
-          ['Abmessungen (H×B×T)', '37 × 42 × 16 mm'],
-          ['Betriebsmodi', 'Cover/Roller Mode (Rollladen mit Hinderniserkennung) oder 2-Kanal-Schalter'],
-          ['Max. Schaltleistung', '10 A pro Kanal (16 A Gesamtstrom)'],
-          ['Leistungsmessung', '2 unabhängige Messkanäle (erkennt Endanschlag des Motors automatisch)'],
-          ['Prozent-Steuerung', 'Ja (z.B. Rollladen auf exakt 60% Position fahren)']
+          ['Gerätetyp', '2-Kanal Relais & Rollladensteuerung mit Endlagenerkennung'],
+          ['Abmessungen', '37 × 42 × 16 mm'],
+          ['Max. Last', '2× 10 A (max. 16 A gesamt)'],
+          ['Klemmen am Gehäuse', 'N, L, L, S1, S2, O1, O2']
         ],
         box: [
-          '1× Shelly Plus 2PM Gen3 Modul',
-          'Beipackzettel mit 2 Schaltplänen: Rollladenmotor (O1/O2, S1/S2) & Serienschaltung (2 Lampen)',
-          'Anleitung zur automatischen Kalibrierung der Rollladen-Endlagen'
+          '1× Shelly Plus 2PM (Schwarzes Gehäuse)',
+          'Beipackzettel mit Rollladenmotor-Schaltplan & Kalibrier-Anleitung'
         ]
       },
       pro3em: {
-        name: 'Shelly Pro 3EM (120A 3-Phasen Smart Meter)',
-        badge: 'Hutschiene (DIN-Rail) • PV & Hauszähler',
-        price: '~109,00 €',
-        short: '4-Quadranten-Energiezähler für den Zählerschrank inklusive 3× 120A Klapp-Stromwandlern.',
-        miniSpecs: 'DIN-Hutschiene (1 TE) | 3× 120A Wandler | LAN + WLAN',
+        name: 'Shelly Pro 3EM (120A)',
+        type: 'Stromzähler',
+        role: '3-Phasen Hutschienen-Zähler inkl. 3 Mess-Spulen',
+        price: '109,00 €',
         amzQuery: 'Shelly+Pro+3EM+120A+Smart+Meter',
+        kbUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-pro-3em',
+        icon: `<svg viewBox="0 0 120 100" width="96" height="84">
+          <rect x="34" y="8" width="52" height="84" rx="5" fill="#f8fafc" stroke="#64748b" stroke-width="2"/>
+          <rect x="38" y="12" width="44" height="12" fill="#0284c7"/><rect x="38" y="76" width="44" height="12" fill="#0284c7"/>
+          <rect x="42" y="32" width="36" height="34" rx="3" fill="#0f172a"/>
+          <text x="60" y="48" fill="#38bdf8" font-size="8" font-weight="bold" text-anchor="middle">PRO 3EM</text>
+          <text x="60" y="59" fill="#10b981" font-size="7" text-anchor="middle">3x 120A</text>
+        </svg>`,
         specs: [
-          ['Montageart', 'DIN-Hutschiene im Zählerschrank (nur 1 Teilungseinheit breit)'],
-          ['Messbereich', '3 Phasen bis je 120 A (inkl. Phasen-Saldierung und PV-Einspeisung)'],
-          ['Messgenauigkeit', 'Klasse B (IEC 62053-21) — 1% Genauigkeit'],
-          ['Schnittstellen', 'RJ45 Ethernet-LAN + WLAN + Bluetooth + Modbus TCP'],
-          ['Datenspeicher', '60 Tage interner 1-Minuten-Verlaufsspeicher + Echtzeit-API']
+          ['Gerätetyp', '3-Phasen Hutschienen-Energiezähler (DIN-Rail)'],
+          ['Messbereich', '3× bis 120 A über mitgelieferte Klapp-Stromwandler'],
+          ['Verbindung', 'LAN (RJ45) + WLAN + Bluetooth'],
+          ['Klemmen', 'VA, VB, VC, N sowie Wandler-Eingänge IA, IB, IC']
         ],
         box: [
-          '1× Shelly Pro 3EM Hutschienen-Zähler',
-          '3× Klapp-Stromwandler (CT-Klemmen IA, IB, IC bis 120A) mit markierten Leitungen',
-          'Ausführliches Installations-Faltblatt (Phasenzuordnung VA/IA, VB/IB, VC/IC & Neutralleiter N)'
+          '1× Shelly Pro 3EM Hutschienen-Modul',
+          '3× 120A Klapp-Stromwandler (CT-Klemmen A, B, C)',
+          'Mehrsprachiger Zählerschrank-Anschlussplan (Beipackzettel)'
         ]
       },
       wago221: {
-        name: 'WAGO 221 Kompakt-Hebelklemmen Sortiment',
-        badge: 'Pflicht-Zubehör für jede UP-Dose',
-        price: '~14,90 €',
-        short: 'Flache Verbindungsklemmen (2er, 3er, 5er) zum Aufteilen von Dauerphase (L) und Neutralleiter (N) in engen Dosen.',
-        miniSpecs: 'Querschnitt: 0,14–4 mm² | Bis 32A / 450V | Transparent',
+        name: 'WAGO 221 Klemmen-Box',
+        type: 'Verbindungsklemmen',
+        role: 'Hebelklemmen zum Verteilen von Phase (L) & Neutral (N)',
+        price: '14,90 €',
         amzQuery: 'WAGO+221+Klemmen+Set+Sortiment',
+        kbUrl: 'https://www.wago.com/de/installationsklemmen/verbindungsklemmen-221',
+        icon: `<svg viewBox="0 0 120 100" width="96" height="84">
+          <rect x="22" y="24" width="76" height="52" rx="6" fill="rgba(226,232,240,0.85)" stroke="#94a3b8" stroke-width="2"/>
+          <rect x="28" y="18" width="18" height="36" rx="3" fill="#ea580c"/><rect x="51" y="18" width="18" height="36" rx="3" fill="#ea580c"/><rect x="74" y="18" width="18" height="36" rx="3" fill="#ea580c"/>
+          <text x="60" y="69" fill="#0f172a" font-size="9" font-weight="900" text-anchor="middle">WAGO 221</text>
+        </svg>`,
         specs: [
-          ['Enthaltene Typen', 'WAGO 221-412 (2-Leiter), 221-413 (3-Leiter), 221-415 (5-Leiter)'],
-          ['Leiterquerschnitt', '0,14 bis 4,0 mm² (starr, mehrdrähtig und feindrähtig ohne Aderendhülse)'],
-          ['Nennstrom / Spannung', 'Bis 32 A / 450 V (VDE- & ENEC-geprüft)'],
-          ['Prüföffnung', 'Zwei Prüföffnungen für alle gängigen Duspol- und Multimeter-Spitzen']
+          ['Inhalt', '2er (221-412), 3er (221-413) & 5er (221-415) Hebelklemmen'],
+          ['Querschnitt', '0,14 bis 4,0 mm² (starr & flexibel ohne Werkzeug)'],
+          ['Belastbarkeit', '32 A / 450 V (VDE-zertifiziert)']
         ],
         box: [
-          'Sortimentsbox mit WAGO 221-412, 221-413 und 221-415 Hebelklemmen',
-          'Abisolierlängen-Schablone (11 mm Markierung direkt auf jeder Klemme)',
-          'VDE-Prüfdatenblatt auf dem Box-Einleger'
+          'Original WAGO 221 Sortimentskasten',
+          'Einleger mit Abisolierlänge (11 mm) & VDE-Spezifikation'
         ]
       },
       duspol: {
-        name: 'Benning DUSPOL Zweipoliger Spannungsprüfer',
-        badge: 'VDE-Sicherheit • Phasen- & Durchgangsprüfung',
-        price: '~44,90 €',
-        short: 'Unverzichtbar zum sicheren Feststellen der Spannungsfreiheit und zum Finden der Dauerphase (L) in Wechselschaltungen.',
-        miniSpecs: '12–1000 V AC/DC | Lastzuschaltung (FI-Test) | VDE 0682',
+        name: 'Benning DUSPOL Prüfer',
+        type: 'Messgerät',
+        role: '2-poliger Spannungsprüfer zum Finden von Phase & Null',
+        price: '44,90 €',
         amzQuery: 'Benning+Duspol+Spannungspr%C3%BCfer',
+        kbUrl: 'https://www.amazon.de/s?k=Benning+Duspol+Spannungspr%C3%BCfer&tag=alekseevtech-21',
+        icon: `<svg viewBox="0 0 120 100" width="96" height="84">
+          <rect x="28" y="14" width="22" height="72" rx="8" fill="#dc2626" stroke="#111827" stroke-width="2"/>
+          <rect x="66" y="10" width="28" height="76" rx="8" fill="#dc2626" stroke="#111827" stroke-width="2"/>
+          <rect x="71" y="26" width="18" height="22" rx="2" fill="#fef08a"/>
+          <line x1="39" y1="4" x2="39" y2="14" stroke="#cbd5e1" stroke-width="3"/><line x1="80" y1="2" x2="80" y2="10" stroke="#cbd5e1" stroke-width="3"/>
+          <path d="M 39 86 Q 60 98 80 86" fill="none" stroke="#111827" stroke-width="3"/>
+        </svg>`,
         specs: [
-          ['Spannungsbereich', '12 V bis 1000 V AC/DC'],
-          ['Lastzuschaltung', 'Vibrationsmotor + 30 mA FI/RCD-Auslösetest per Knopfdruck'],
-          ['Schutzart / Norm', 'IP65 staub-/wasserdicht, CAT IV 600V, DIN EN 61243-3 (VDE 0682)'],
-          ['Besonderheit', 'Zeigt echte Spannung ohne Geisterspannung (im Gegensatz zum 1-poligen Phasenprüfer)']
+          ['Messbereich', '12 – 1000 V AC/DC (zweipolig nach VDE 0682)'],
+          ['Funktionen', 'Phasenprüfung, Durchgang, FI/RCD-Auslösetest (30mA)']
         ],
         box: [
-          '1× Original Benning DUSPOL Spannungsprüfer mit Messspitzenschutz',
-          'Gedrucktes VDE-Bedienhandbuch (DE) inkl. Anleitung zur Phasen- & Drehfeldprüfung',
-          'Batteriesatz & Kalibrierzertifikat'
+          '1× Benning DUSPOL Spannungsprüfer',
+          'Gedrucktes deutsches VDE-Prüfhandbuch'
         ]
       }
     };
 
+    // Manufacturer-Style Diagrams (replicating official Shelly graphic style)
     const SCHEMAS = {
-      aus: {
-        title: '🔌 Schaltung 1: Klassische Ausschaltung / Tasterschaltung (mit Neutralleiter N)',
-        sub: 'Standard-Anschluss in einer 60mm Unterputzdose hinter dem Lichtschalter mit blauem Neutralleiter.',
-        pins: [
-          '<strong>L (Braun):</strong> Dauerphase 230V über eine 3er WAGO 221 Klemme aufteilen → 1× an Shelly-Klemme <code>L</code> und 1× an den Eingang des bestehenden Wandschalters.',
-          '<strong>N (Blau):</strong> Neutralleiter über WAGO 221 Klemme mit Shelly-Klemme <code>N</code> und dem Neutralleiter der Deckenlampe verbinden.',
-          '<strong>SW (Schwarz/Grau):</strong> Vom Ausgang des Wandschalters direkt in die Shelly-Klemme <code>SW</code> führen.',
-          '<strong>O (Geschaltete Phase):</strong> Lampendraht von Shelly-Klemme <code>O</code> direkt zur Deckenleuchte.',
-          '<strong>PE (Grün-Gelb):</strong> Schutzleiter durchgehend in der Dose verbunden lassen (nicht am Shelly anklemmen).'
-        ],
+      wechsel: {
+        title: '🔌 Wechselschaltung — Shelly Plus 1PM / 1 Mini (Original-Layout)',
+        hint: '<strong>So funktioniert der Plan:</strong> Oben laufen Phase <code>L</code> (Braun), Neutralleiter <code>N</code> (Blau) und <code>PE</code>. Die zwei Wechselschalter bleiben verbunden; der Ausgang des zweiten Schalters geht in <code>SW</code>, die Lampe an <code>O</code>.',
         items: ['plus1pm', 'mini1pm', 'mini1', 'wago221', 'duspol'],
-        svg: `<svg viewBox="0 0 540 240" width="100%" height="220" xmlns="http://www.w3.org/2000/svg">
-          <rect width="540" height="240" rx="10" fill="#070a12"/>
-          <text x="20" y="38" fill="#d97706" font-size="13" font-weight="bold">L (230V Braun)</text>
-          <line x1="125" y1="34" x2="210" y2="34" stroke="#b45309" stroke-width="4"/>
-          <line x1="165" y1="34" x2="165" y2="115" stroke="#b45309" stroke-width="4"/>
-          <line x1="165" y1="115" x2="310" y2="115" stroke="#b45309" stroke-width="4"/>
-          <text x="20" y="195" fill="#38bdf8" font-size="13" font-weight="bold">N (Neutral Blau)</text>
-          <line x1="125" y1="190" x2="470" y2="190" stroke="#0284c7" stroke-width="4"/>
-          <line x1="340" y1="155" x2="340" y2="190" stroke="#0284c7" stroke-width="4"/>
-          <rect x="210" y="16" width="80" height="50" rx="6" fill="#1e293b" stroke="#94a3b8" stroke-width="2"/>
-          <text x="250" y="45" fill="#fff" font-size="12" text-anchor="middle" font-weight="bold">Schalter</text>
-          <line x1="290" y1="42" x2="355" y2="42" stroke="#94a3b8" stroke-width="3.5" stroke-dasharray="5,3"/>
-          <line x1="355" y1="42" x2="355" y2="85" stroke="#94a3b8" stroke-width="3.5" stroke-dasharray="5,3"/>
-          <rect x="310" y="85" width="110" height="70" rx="10" fill="#1d4ed8" stroke="#60a5fa" stroke-width="2.5"/>
-          <text x="365" y="118" fill="#fff" font-size="14" text-anchor="middle" font-weight="bold">SHELLY</text>
-          <text x="365" y="136" fill="#bfdbfe" font-size="10" text-anchor="middle">L  |  N  |  SW  |  O</text>
-          <line x1="420" y1="115" x2="470" y2="115" stroke="#ef4444" stroke-width="4"/>
-          <circle cx="470" cy="152" r="22" fill="#fef08a" stroke="#f59e0b" stroke-width="3"/>
-          <line x1="470" y1="115" x2="470" y2="130" stroke="#ef4444" stroke-width="4"/>
-          <line x1="470" y1="174" x2="470" y2="190" stroke="#0284c7" stroke-width="4"/>
-          <text x="470" y="156" fill="#000" font-size="11" text-anchor="middle" font-weight="bold">Lampe</text>
+        svg: `<svg viewBox="0 0 600 350" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <!-- Bus bars L, N, PE -->
+          <text x="22" y="29" fill="#92400e" font-size="15" font-weight="bold">L</text>
+          <line x1="42" y1="24" x2="560" y2="24" stroke="#b45309" stroke-width="3"/>
+          <text x="20" y="47" fill="#0369a1" font-size="15" font-weight="bold">N</text>
+          <line x1="42" y1="42" x2="560" y2="42" stroke="#0284c7" stroke-width="3"/>
+          <text x="14" y="65" fill="#65a30d" font-size="15" font-weight="bold">PE</text>
+          <line x1="42" y1="60" x2="560" y2="60" stroke="#eab308" stroke-width="2.5"/>
+          <line x1="42" y1="60" x2="560" y2="60" stroke="#22c55e" stroke-width="2.5" stroke-dasharray="10,10"/>
+
+          <!-- Junction dots -->
+          <circle cx="105" cy="24" r="4.5" fill="#b45309"/>
+          <circle cx="340" cy="24" r="4.5" fill="#b45309"/>
+          <circle cx="275" cy="42" r="4.5" fill="#0284c7"/>
+          <circle cx="375" cy="42" r="4.5" fill="#0284c7"/>
+
+          <!-- Switch 1 & Switch 2 (3D White Rockers) -->
+          <rect x="60" y="95" width="90" height="90" rx="12" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="3"/>
+          <rect x="72" y="107" width="66" height="66" rx="6" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.5"/>
+          <circle cx="105" cy="122" r="3" fill="#0f172a"/><circle cx="90" cy="156" r="3" fill="#0f172a"/><circle cx="120" cy="156" r="3" fill="#0f172a"/>
+          <line x1="105" y1="122" x2="118" y2="156" stroke="#0f172a" stroke-width="2.5"/>
+
+          <rect x="175" y="95" width="90" height="90" rx="12" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="3"/>
+          <rect x="187" y="107" width="66" height="66" rx="6" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.5"/>
+          <circle cx="220" cy="122" r="3" fill="#0f172a"/><circle cx="205" cy="156" r="3" fill="#0f172a"/><circle cx="235" cy="156" r="3" fill="#0f172a"/>
+          <line x1="220" y1="122" x2="233" y2="156" stroke="#0f172a" stroke-width="2.5"/>
+
+          <!-- Wires to switches -->
+          <line x1="105" y1="24" x2="105" y2="122" stroke="#b45309" stroke-width="2.5"/>
+          <polyline points="90,156 90,210 205,210 205,156" fill="none" stroke="#1e293b" stroke-width="2.5"/>
+          <polyline points="120,156 120,198 235,198 235,156" fill="none" stroke="#1e293b" stroke-width="2.5"/>
+          <!-- Wire from Switch 2 to SW -->
+          <polyline points="220,122 220,76 312,76 312,243 402,243" fill="none" stroke="#94a3b8" stroke-width="2.5"/>
+
+          <!-- Wires to Shelly L and N -->
+          <polyline points="340,24 340,207 402,207" fill="none" stroke="#b45309" stroke-width="2.5"/>
+          <polyline points="375,42 375,171 402,171" fill="none" stroke="#0284c7" stroke-width="2.5"/>
+
+          <!-- Bulb (3D LED Lamp) -->
+          <path d="M 155 255 C 155 220, 215 220, 215 255 C 215 272, 200 282, 198 295 L 172 295 C 170 282, 155 272, 155 255 Z" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+          <rect x="172" y="295" width="26" height="18" rx="3" fill="#94a3b8" stroke="#64748b" stroke-width="1.5"/>
+          <line x1="172" y1="301" x2="198" y2="301" stroke="#475569" stroke-width="2"/>
+          <line x1="172" y1="307" x2="198" y2="307" stroke="#475569" stroke-width="2"/>
+          <!-- Neutral & Output O to Bulb -->
+          <polyline points="275,42 275,302 198,302" fill="none" stroke="#0284c7" stroke-width="2.5"/>
+          <polyline points="185,313 185,330 296,330 296,261 402,261" fill="none" stroke="#1e293b" stroke-width="2.5"/>
+
+          <!-- Realistic Red Shelly Plus 1PM Module -->
+          <path d="M 402 145 L 515 145 L 542 172 L 542 252 L 515 278 L 402 278 Z" fill="#dc2626" stroke="#b91c1c" stroke-width="2"/>
+          <!-- Blue 7-Terminal Block -->
+          <rect x="400" y="152" width="22" height="118" rx="3" fill="#0284c7" stroke="#0369a1" stroke-width="1.5"/>
+          <circle cx="411" cy="161" r="5" fill="#e2e8f0" stroke="#334155" stroke-width="1.5"/>
+          <circle cx="411" cy="177" r="5" fill="#e2e8f0" stroke="#334155" stroke-width="1.5"/>
+          <circle cx="411" cy="193" r="5" fill="#e2e8f0" stroke="#334155" stroke-width="1.5"/>
+          <circle cx="411" cy="209" r="5" fill="#e2e8f0" stroke="#334155" stroke-width="1.5"/>
+          <circle cx="411" cy="225" r="5" fill="#e2e8f0" stroke="#334155" stroke-width="1.5"/>
+          <circle cx="411" cy="243" r="5" fill="#e2e8f0" stroke="#334155" stroke-width="1.5"/>
+          <circle cx="411" cy="261" r="5" fill="#e2e8f0" stroke="#334155" stroke-width="1.5"/>
+          <!-- Terminal Labels on Shelly Body -->
+          <text x="427" y="175" fill="#fff" font-size="9" font-weight="bold">N</text>
+          <text x="427" y="212" fill="#fff" font-size="9" font-weight="bold">L</text>
+          <text x="426" y="246" fill="#fff" font-size="8.5" font-weight="bold">SW</text>
+          <text x="427" y="264" fill="#fff" font-size="9" font-weight="bold">O</text>
+          <text x="498" y="218" fill="#fff" font-size="18" font-weight="900" font-style="italic" text-anchor="middle" transform="rotate(-90 498 218)">Shelly</text>
+          <text x="458" y="272" fill="#fff" font-size="8" font-weight="bold">MAX 16A</text>
+
+          <!-- Bottom Title Badge -->
+          <text x="455" y="318" fill="#334155" font-size="20" font-weight="800" text-anchor="middle">Wechselschaltung</text>
+          <text x="455" y="340" fill="#dc2626" font-size="15" font-weight="900" text-anchor="middle">Shelly Plus 1PM / Mini Gen3</text>
         </svg>`
       },
-      wechsel: {
-        title: '🔄 Schaltung 2: Wechselschaltung (2 Schalter steuern 1 Lampe)',
-        sub: 'Das Shelly-Modul sitzt in der letzten Schalterdose, in der der Lampendraht zur Deckenleuchte abgeht.',
-        pins: [
-          '<strong>Wichtig vorab:</strong> Mit dem Benning Duspol prüfen, in welcher der beiden Dosen der Draht zur Lampe liegt und ob dort Dauerphase (L) + Neutralleiter (N) vorhanden sind.',
-          '<strong>Korrespondierende Drähte:</strong> Die beiden Wechselschalter bleiben wie gewohnt über die zwei Korrespondierenden verbunden.',
-          '<strong>SW-Eingang:</strong> Der geschaltete Ausgang des zweiten Wechselschalters (früher Lampendraht) kommt in die Shelly-Klemme <code>SW</code>.',
-          '<strong>O-Ausgang:</strong> Der eigentliche Lampendraht zur Leuchte wird an Shelly-Klemme <code>O</code> angeschlossen.',
-          '<strong>Einstellung in der App:</strong> Schaltertyp auf <em>„Edge Switch“ (Umschalter)</em> stellen — jede Betätigung eines beliebigen Schalters schaltet das Licht um.'
-        ],
-        items: ['mini1pm', 'plus1pm', 'mini1', 'wago221', 'duspol'],
-        svg: `<svg viewBox="0 0 540 240" width="100%" height="220" xmlns="http://www.w3.org/2000/svg">
-          <rect width="540" height="240" rx="10" fill="#070a12"/>
-          <rect x="30" y="30" width="85" height="55" rx="6" fill="#1e293b" stroke="#94a3b8" stroke-width="2"/>
-          <text x="72" y="62" fill="#fff" font-size="11" text-anchor="middle" font-weight="bold">Wechsel 1</text>
-          <rect x="175" y="30" width="85" height="55" rx="6" fill="#1e293b" stroke="#94a3b8" stroke-width="2"/>
-          <text x="217" y="62" fill="#fff" font-size="11" text-anchor="middle" font-weight="bold">Wechsel 2</text>
-          <line x1="115" y1="45" x2="175" y2="45" stroke="#a855f7" stroke-width="3"/>
-          <line x1="115" y1="70" x2="175" y2="70" stroke="#a855f7" stroke-width="3"/>
-          <text x="145" y="38" fill="#c084fc" font-size="10" text-anchor="middle">Korresp.</text>
-          <line x1="260" y1="58" x2="355" y2="58" stroke="#94a3b8" stroke-width="3.5" stroke-dasharray="5,3"/>
-          <line x1="355" y1="58" x2="355" y2="90" stroke="#94a3b8" stroke-width="3.5" stroke-dasharray="5,3"/>
-          <rect x="310" y="90" width="110" height="65" rx="10" fill="#1d4ed8" stroke="#60a5fa" stroke-width="2.5"/>
-          <text x="365" y="120" fill="#fff" font-size="13" text-anchor="middle" font-weight="bold">SHELLY Gen3</text>
-          <text x="365" y="138" fill="#bfdbfe" font-size="10" text-anchor="middle">SW (Edge) → O</text>
-          <line x1="420" y1="122" x2="480" y2="122" stroke="#ef4444" stroke-width="4"/>
-          <circle cx="480" cy="160" r="22" fill="#fef08a" stroke="#f59e0b" stroke-width="3"/>
-          <line x1="480" y1="122" x2="480" y2="138" stroke="#ef4444" stroke-width="4"/>
-          <text x="480" y="164" fill="#000" font-size="11" text-anchor="middle" font-weight="bold">Lampe</text>
-          <line x1="30" y1="198" x2="480" y2="198" stroke="#0284c7" stroke-width="4"/>
-          <line x1="340" y1="155" x2="340" y2="198" stroke="#0284c7" stroke-width="4"/>
-          <line x1="480" y1="182" x2="480" y2="198" stroke="#0284c7" stroke-width="4"/>
-          <text x="85" y="216" fill="#38bdf8" font-size="12" font-weight="bold">N (Blau) + L (Braun 230V) in Dose 2</text>
+      aus: {
+        title: '🔌 Ausschaltung (1 Schalter & Lampe) — Shelly Plus 1PM / 1 Mini',
+        hint: '<strong>Klassischer Anschluss:</strong> Dauerphase <code>L</code> (Braun) an Schalter und Shelly <code>L</code>; Schalterausgang an <code>SW</code>; Lampe an <code>O</code>; Neutralleiter (Blau) an <code>N</code>.',
+        items: ['plus1pm', 'mini1pm', 'mini1', 'wago221', 'duspol'],
+        svg: `<svg viewBox="0 0 600 340" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <text x="22" y="29" fill="#92400e" font-size="15" font-weight="bold">L</text>
+          <line x1="42" y1="24" x2="560" y2="24" stroke="#b45309" stroke-width="3"/>
+          <text x="20" y="47" fill="#0369a1" font-size="15" font-weight="bold">N</text>
+          <line x1="42" y1="42" x2="560" y2="42" stroke="#0284c7" stroke-width="3"/>
+          <circle cx="140" cy="24" r="4.5" fill="#b45309"/><circle cx="340" cy="24" r="4.5" fill="#b45309"/>
+          <circle cx="260" cy="42" r="4.5" fill="#0284c7"/><circle cx="375" cy="42" r="4.5" fill="#0284c7"/>
+          <rect x="95" y="95" width="90" height="90" rx="12" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="3"/>
+          <rect x="107" y="107" width="66" height="66" rx="6" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.5"/>
+          <line x1="140" y1="24" x2="140" y2="122" stroke="#b45309" stroke-width="2.5"/>
+          <line x1="140" y1="122" x2="152" y2="155" stroke="#0f172a" stroke-width="2.5"/>
+          <polyline points="140,156 140,243 402,243" fill="none" stroke="#94a3b8" stroke-width="2.5"/>
+          <polyline points="340,24 340,207 402,207" fill="none" stroke="#b45309" stroke-width="2.5"/>
+          <polyline points="375,42 375,171 402,171" fill="none" stroke="#0284c7" stroke-width="2.5"/>
+          <path d="M 195 255 C 195 220, 255 220, 255 255 C 255 272, 240 282, 238 295 L 212 295 C 210 282, 195 272, 195 255 Z" fill="#fef08a" stroke="#f59e0b" stroke-width="2"/>
+          <rect x="212" y="295" width="26" height="18" rx="3" fill="#94a3b8"/>
+          <polyline points="260,42 260,302 238,302" fill="none" stroke="#0284c7" stroke-width="2.5"/>
+          <polyline points="225,313 225,326 310,326 310,261 402,261" fill="none" stroke="#1e293b" stroke-width="2.5"/>
+          <path d="M 402 145 L 515 145 L 542 172 L 542 252 L 515 278 L 402 278 Z" fill="#dc2626" stroke="#b91c1c" stroke-width="2"/>
+          <rect x="400" y="152" width="22" height="118" rx="3" fill="#0284c7"/>
+          <text x="427" y="175" fill="#fff" font-size="9" font-weight="bold">N</text>
+          <text x="427" y="212" fill="#fff" font-size="9" font-weight="bold">L</text>
+          <text x="426" y="246" fill="#fff" font-size="8.5" font-weight="bold">SW</text>
+          <text x="427" y="264" fill="#fff" font-size="9" font-weight="bold">O</text>
+          <text x="498" y="218" fill="#fff" font-size="18" font-weight="900" font-style="italic" text-anchor="middle" transform="rotate(-90 498 218)">Shelly</text>
+          <text x="455" y="318" fill="#334155" font-size="20" font-weight="800" text-anchor="middle">Ausschaltung (1 Schalter)</text>
         </svg>`
       },
       ohneneutral: {
-        title: '🏚️ Schaltung 3: Altbau-Lichtschalter OHNE Neutralleiter (2-Draht mit Bypass)',
-        sub: 'Wenn in der Schalterdose nur 2 Drähte liegen (ankommende Phase L und abgehender Lampendraht O) ohne blauen Neutralleiter.',
-        pins: [
-          '<strong>L (Braun):</strong> Ankommende Dauerphase in der Schalterdose an Klemme <code>L</code> des Shelly 1L anschließen.',
-          '<strong>O (Lampendraht):</strong> Abgehende Leitung zur Deckenleuchte an Klemme <code>O</code>.',
-          '<strong>Sx & SW1:</strong> Bestehenden Wandschalter zwischen den Klemmen <code>Sx</code> und <code>SW1</code> des Shelly 1L anschließen.',
-          '<strong>Shelly Bypass an der Lampe:</strong> Bei LED-Lampen unter 20W wird das kleine Bypass-Bauteil oben im Baldachin der Deckenlampe parallel zwischen Lampendraht und Neutralleiter geklemmt.'
-        ],
+        title: '🏚️ Altbau OHNE Neutralleiter — Shelly 1L + Bypass',
+        hint: '<strong>Kein blauer Draht in der Dose:</strong> Dauerphase an <code>L</code>, Lampendraht an <code>O</code>, Schalter an <code>Sx / SW1</code>. Der kleine weiße Bypass kommt oben parallel an die Lampe.',
         items: ['shelly1l', 'wago221', 'duspol'],
-        svg: `<svg viewBox="0 0 540 240" width="100%" height="220" xmlns="http://www.w3.org/2000/svg">
-          <rect width="540" height="240" rx="10" fill="#070a12"/>
-          <text x="20" y="115" fill="#d97706" font-size="13" font-weight="bold">L (230V)</text>
-          <line x1="85" y1="110" x2="210" y2="110" stroke="#b45309" stroke-width="4"/>
-          <rect x="210" y="75" width="120" height="75" rx="10" fill="#059669" stroke="#34d399" stroke-width="2.5"/>
-          <text x="270" y="108" fill="#fff" font-size="14" text-anchor="middle" font-weight="bold">SHELLY 1L</text>
-          <text x="270" y="128" fill="#d1fae5" font-size="10" text-anchor="middle">Ohne N-Leiter!</text>
-          <rect x="225" y="14" width="90" height="38" rx="6" fill="#1e293b" stroke="#94a3b8" stroke-width="2"/>
-          <text x="270" y="37" fill="#fff" font-size="11" text-anchor="middle">Schalter (Sx/SW1)</text>
-          <line x1="250" y1="52" x2="250" y2="75" stroke="#94a3b8" stroke-width="3"/>
-          <line x1="290" y1="52" x2="290" y2="75" stroke="#94a3b8" stroke-width="3"/>
-          <line x1="330" y1="110" x2="465" y2="110" stroke="#ef4444" stroke-width="4"/>
-          <rect x="370" y="132" width="62" height="32" rx="5" fill="#334155" stroke="#f59e0b" stroke-width="2"/>
-          <text x="401" y="152" fill="#fcd34d" font-size="10" text-anchor="middle" font-weight="bold">BYPASS</text>
-          <line x1="401" y1="110" x2="401" y2="132" stroke="#ef4444" stroke-width="2.5"/>
-          <line x1="401" y1="164" x2="401" y2="195" stroke="#0284c7" stroke-width="2.5"/>
-          <circle cx="465" cy="152" r="22" fill="#fef08a" stroke="#f59e0b" stroke-width="3"/>
-          <line x1="465" y1="110" x2="465" y2="130" stroke="#ef4444" stroke-width="4"/>
-          <line x1="465" y1="174" x2="465" y2="195" stroke="#0284c7" stroke-width="4"/>
-          <line x1="350" y1="195" x2="490" y2="195" stroke="#0284c7" stroke-width="4"/>
-          <text x="465" y="156" fill="#000" font-size="11" text-anchor="middle" font-weight="bold">LED</text>
+        svg: `<svg viewBox="0 0 600 340" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <text x="22" y="29" fill="#92400e" font-size="15" font-weight="bold">L</text>
+          <line x1="42" y1="24" x2="560" y2="24" stroke="#b45309" stroke-width="3"/>
+          <text x="20" y="47" fill="#0369a1" font-size="15" font-weight="bold">N (nur oben an der Deckenlampe)</text>
+          <line x1="42" y1="42" x2="310" y2="42" stroke="#0284c7" stroke-width="3"/>
+          <rect x="85" y="100" width="85" height="85" rx="12" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="3"/>
+          <text x="127" y="147" fill="#0f172a" font-size="12" font-weight="bold" text-anchor="middle">Schalter</text>
+          <polyline points="170,125 320,125 320,175 402,175" fill="none" stroke="#64748b" stroke-width="2.5"/>
+          <polyline points="170,155 300,155 300,195 402,195" fill="none" stroke="#64748b" stroke-width="2.5"/>
+          <polyline points="355,24 355,225 402,225" fill="none" stroke="#b45309" stroke-width="3"/>
+          <rect x="195" y="195" width="75" height="32" rx="6" fill="#fff" stroke="#ea580c" stroke-width="2.5"/>
+          <text x="232" y="215" fill="#ea580c" font-size="11" font-weight="900" text-anchor="middle">BYPASS</text>
+          <circle cx="232" cy="285" r="24" fill="#fef08a" stroke="#f59e0b" stroke-width="2.5"/>
+          <text x="232" y="289" fill="#000" font-size="11" font-weight="bold" text-anchor="middle">LED</text>
+          <polyline points="200,42 200,285 208,285" fill="none" stroke="#0284c7" stroke-width="2.5"/>
+          <line x1="200" y1="211" x2="195" y2="211" stroke="#0284c7" stroke-width="2.5"/>
+          <polyline points="402,255 265,255 265,285 256,285" fill="none" stroke="#1e293b" stroke-width="2.5"/>
+          <line x1="265" y1="211" x2="270" y2="211" stroke="#1e293b" stroke-width="2.5"/>
+          <path d="M 402 145 L 515 145 L 542 172 L 542 252 L 515 278 L 402 278 Z" fill="#ea580c" stroke="#c2410c" stroke-width="2"/>
+          <rect x="400" y="152" width="22" height="118" rx="3" fill="#0284c7"/>
+          <text x="427" y="178" fill="#fff" font-size="8.5" font-weight="bold">Sx</text>
+          <text x="427" y="198" fill="#fff" font-size="8.5" font-weight="bold">SW1</text>
+          <text x="427" y="228" fill="#fff" font-size="9" font-weight="bold">L</text>
+          <text x="427" y="258" fill="#fff" font-size="9" font-weight="bold">O</text>
+          <text x="498" y="218" fill="#fff" font-size="17" font-weight="900" text-anchor="middle" transform="rotate(-90 498 218)">Shelly 1L</text>
         </svg>`
       },
       rollladen: {
-        title: '🪟 Schaltung 4: Elektrischer Rollladenmotor / Jalousie (Auf & Ab)',
-        sub: 'Gegenseitig verriegelte 2-Kanal-Steuerung mit Leistungsmessung für automatische Endlagenerkennung.',
-        pins: [
-          '<strong>L & N:</strong> Dauerphase (Braun) an <code>L</code>, Neutralleiter (Blau) gemeinsam mit dem blauen Motorkabel über WAGO 221 an <code>N</code>.',
-          '<strong>O1 & O2 (Motor):</strong> Braunes und schwarzes Motorkabel (Aufwärts / Abwärts) an die Ausgänge <code>O1</code> und <code>O2</code>.',
-          '<strong>S1 & S2 (Wipptaster):</strong> Die beiden Ausgänge des Rollladentasters (Auf/Ab) an <code>S1</code> und <code>S2</code>.',
-          '<strong>Sicherheit:</strong> Im „Cover-Modus“ verriegelt der Shelly Plus 2PM beide Kanäle per Software, sodass niemals Auf und Ab gleichzeitig Strom bekommen.'
-        ],
+        title: '🪟 Rollladen- & Jalousie-Steuerung — Shelly Plus 2PM',
+        hint: '<strong>Auf & Ab Steuerung:</strong> Doppeltaster an <code>S1</code> und <code>S2</code>; Motorleitungen (Auf/Ab) an <code>O1</code> und <code>O2</code>; Phase an <code>L</code>, Neutral an <code>N</code>.',
         items: ['plus2pm', 'wago221', 'duspol'],
-        svg: `<svg viewBox="0 0 540 240" width="100%" height="220" xmlns="http://www.w3.org/2000/svg">
-          <rect width="540" height="240" rx="10" fill="#070a12"/>
-          <rect x="30" y="65" width="95" height="75" rx="6" fill="#1e293b" stroke="#94a3b8" stroke-width="2"/>
-          <text x="77" y="98" fill="#fff" font-size="11" text-anchor="middle" font-weight="bold">Doppeltaster</text>
-          <text x="77" y="116" fill="#94a3b8" font-size="10" text-anchor="middle">▲ S1  |  ▼ S2</text>
-          <line x1="125" y1="88" x2="215" y2="88" stroke="#94a3b8" stroke-width="3"/>
-          <line x1="125" y1="118" x2="215" y2="118" stroke="#94a3b8" stroke-width="3"/>
-          <rect x="215" y="60" width="125" height="90" rx="10" fill="#7c3aed" stroke="#c4b5fd" stroke-width="2.5"/>
-          <text x="277" y="98" fill="#fff" font-size="13" text-anchor="middle" font-weight="bold">SHELLY 2PM</text>
-          <text x="277" y="118" fill="#ddd6fe" font-size="10" text-anchor="middle">O1 (Auf) | O2 (Ab)</text>
-          <line x1="340" y1="88" x2="430" y2="88" stroke="#f59e0b" stroke-width="4"/>
-          <line x1="340" y1="118" x2="430" y2="118" stroke="#ef4444" stroke-width="4"/>
-          <circle cx="465" cy="105" r="35" fill="#1e293b" stroke="#38bdf8" stroke-width="3"/>
-          <text x="465" y="102" fill="#fff" font-size="11" text-anchor="middle" font-weight="bold">MOTOR</text>
-          <text x="465" y="118" fill="#38bdf8" font-size="10" text-anchor="middle">230V AC</text>
-          <line x1="215" y1="195" x2="465" y2="195" stroke="#0284c7" stroke-width="4"/>
-          <line x1="277" y1="150" x2="277" y2="195" stroke="#0284c7" stroke-width="4"/>
-          <line x1="465" y1="140" x2="465" y2="195" stroke="#0284c7" stroke-width="4"/>
+        svg: `<svg viewBox="0 0 600 340" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <text x="22" y="29" fill="#92400e" font-size="15" font-weight="bold">L</text>
+          <line x1="42" y1="24" x2="560" y2="24" stroke="#b45309" stroke-width="3"/>
+          <text x="20" y="47" fill="#0369a1" font-size="15" font-weight="bold">N</text>
+          <line x1="42" y1="42" x2="560" y2="42" stroke="#0284c7" stroke-width="3"/>
+          <rect x="75" y="95" width="95" height="90" rx="12" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="3"/>
+          <text x="122" y="135" fill="#0f172a" font-size="12" font-weight="bold" text-anchor="middle">Rollladen</text>
+          <text x="122" y="155" fill="#0f172a" font-size="13" font-weight="bold" text-anchor="middle">▲ Auf | ▼ Ab</text>
+          <line x1="122" y1="24" x2="122" y2="95" stroke="#b45309" stroke-width="2.5"/>
+          <polyline points="170,125 320,125 320,195 402,195" fill="none" stroke="#64748b" stroke-width="2.5"/>
+          <polyline points="170,155 305,155 305,215 402,215" fill="none" stroke="#64748b" stroke-width="2.5"/>
+          <circle cx="195" cy="265" r="38" fill="#1e293b" stroke="#0284c7" stroke-width="3"/>
+          <text x="195" y="262" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">ROHRMOTOR</text>
+          <text x="195" y="278" fill="#38bdf8" font-size="10" text-anchor="middle">Auf / Ab / N</text>
+          <polyline points="233,252 335,252 335,240 402,240" fill="none" stroke="#b45309" stroke-width="3"/>
+          <polyline points="233,275 350,275 350,260 402,260" fill="none" stroke="#0f172a" stroke-width="3"/>
+          <polyline points="195,42 195,227" fill="none" stroke="#0284c7" stroke-width="2.5"/>
+          <polyline points="355,24 355,175 402,175" fill="none" stroke="#b45309" stroke-width="2.5"/>
+          <polyline points="375,42 375,158 402,158" fill="none" stroke="#0284c7" stroke-width="2.5"/>
+          <path d="M 402 145 L 515 145 L 542 172 L 542 252 L 515 278 L 402 278 Z" fill="#1e293b" stroke="#0f172a" stroke-width="2"/>
+          <rect x="400" y="152" width="22" height="118" rx="3" fill="#0284c7"/>
+          <text x="427" y="162" fill="#fff" font-size="8" font-weight="bold">N</text>
+          <text x="427" y="178" fill="#fff" font-size="8" font-weight="bold">L</text>
+          <text x="427" y="198" fill="#fff" font-size="8" font-weight="bold">S1</text>
+          <text x="427" y="218" fill="#fff" font-size="8" font-weight="bold">S2</text>
+          <text x="427" y="242" fill="#fff" font-size="8" font-weight="bold">O1</text>
+          <text x="427" y="262" fill="#fff" font-size="8" font-weight="bold">O2</text>
+          <text x="498" y="218" fill="#fff" font-size="16" font-weight="900" text-anchor="middle" transform="rotate(-90 498 218)">Plus 2PM</text>
         </svg>`
       },
       pro3em: {
-        title: '⚡ Schaltung 5: 3-Phasen Hutschienen-Stromzähler (Balkonkraftwerk & Hausverbrauch)',
-        sub: 'Berührungslose Strommessung über 3 Klapp-Wandler (IA, IB, IC) direkt nach dem Hauptzähler im Sicherungskasten.',
-        pins: [
-          '<strong>Spannungsabgriff (VA, VB, VC & N):</strong> Die drei Außenleiter L1, L2, L3 (abgesichert) an die Klemmen <code>VA</code>, <code>VB</code>, <code>VC</code> sowie den blauen Neutralleiter an <code>N</code> anklemmen.',
-          '<strong>Stromwandler-Klemmen (IA, IB, IC):</strong> Die 3 mitgelieferten 120A Klapp-Spulen um die Hauptleitungen L1, L2, L3 klipsen (Pfeilrichtung K→L beachten!).',
-          '<strong>Phasentreue beachten:</strong> Spule A muss zwingend auf derselben Phase L1 sitzen wie Spannungsanschluss VA (sonst zeigt der Zähler negative Werte).'
-        ],
+        title: '⚡ 3-Phasen Hutschienen-Stromzähler — Shelly Pro 3EM',
+        hint: '<strong>Montage im Zählerschrank:</strong> 3 Klapp-Wandler (IA, IB, IC) um L1, L2, L3 klipsen und Phasenspannungen an VA, VB, VC + N anschließen.',
         items: ['pro3em', 'plus1pm', 'wago221', 'duspol'],
-        svg: `<svg viewBox="0 0 540 240" width="100%" height="220" xmlns="http://www.w3.org/2000/svg">
-          <rect width="540" height="240" rx="10" fill="#070a12"/>
-          <line x1="30" y1="45" x2="510" y2="45" stroke="#b45309" stroke-width="4"/>
-          <line x1="30" y1="75" x2="510" y2="75" stroke="#111827" stroke-width="4"/>
-          <line x1="30" y1="75" x2="510" y2="75" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6,3"/>
-          <line x1="30" y1="105" x2="510" y2="105" stroke="#64748b" stroke-width="4"/>
-          <line x1="30" y1="195" x2="510" y2="195" stroke="#0284c7" stroke-width="4"/>
-          <text x="40" y="37" fill="#f59e0b" font-size="11" font-weight="bold">L1 / L2 / L3 Hauptleitungen (bis 120A)</text>
-          <circle cx="170" cy="45" r="10" fill="none" stroke="#10b981" stroke-width="3"/>
-          <circle cx="210" cy="75" r="10" fill="none" stroke="#10b981" stroke-width="3"/>
-          <circle cx="250" cy="105" r="10" fill="none" stroke="#10b981" stroke-width="3"/>
-          <line x1="170" y1="55" x2="170" y2="135" stroke="#10b981" stroke-width="2"/>
-          <line x1="210" y1="85" x2="210" y2="135" stroke="#10b981" stroke-width="2"/>
-          <line x1="250" y1="115" x2="250" y2="135" stroke="#10b981" stroke-width="2"/>
-          <rect x="145" y="135" width="230" height="50" rx="8" fill="#0284c7" stroke="#7dd3fc" stroke-width="2.5"/>
-          <text x="260" y="160" fill="#fff" font-size="13" text-anchor="middle" font-weight="bold">SHELLY PRO 3EM (DIN-Rail)</text>
-          <text x="260" y="176" fill="#e0f2fe" font-size="10" text-anchor="middle">IA  |  IB  |  IC  |  VA  |  VB  |  VC  |  N</text>
+        svg: `<svg viewBox="0 0 600 320" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <text x="18" y="35" fill="#92400e" font-size="13" font-weight="bold">L1</text><line x1="45" y1="30" x2="560" y2="30" stroke="#b45309" stroke-width="3.5"/>
+          <text x="18" y="65" fill="#0f172a" font-size="13" font-weight="bold">L2</text><line x1="45" y1="60" x2="560" y2="60" stroke="#1e293b" stroke-width="3.5"/>
+          <text x="18" y="95" fill="#475569" font-size="13" font-weight="bold">L3</text><line x1="45" y1="90" x2="560" y2="90" stroke="#64748b" stroke-width="3.5"/>
+          <text x="18" y="125" fill="#0284c7" font-size="13" font-weight="bold">N</text><line x1="45" y1="120" x2="560" y2="120" stroke="#0284c7" stroke-width="3.5"/>
+          <ellipse cx="170" cy="30" rx="9" ry="13" fill="none" stroke="#dc2626" stroke-width="3.5"/>
+          <ellipse cx="220" cy="60" rx="9" ry="13" fill="none" stroke="#dc2626" stroke-width="3.5"/>
+          <ellipse cx="270" cy="90" rx="9" ry="13" fill="none" stroke="#dc2626" stroke-width="3.5"/>
+          <line x1="170" y1="43" x2="170" y2="175" stroke="#dc2626" stroke-width="2"/>
+          <line x1="220" y1="73" x2="220" y2="175" stroke="#dc2626" stroke-width="2"/>
+          <line x1="270" y1="103" x2="270" y2="175" stroke="#dc2626" stroke-width="2"/>
+          <rect x="145" y="175" width="270" height="110" rx="10" fill="#f8fafc" stroke="#334155" stroke-width="3"/>
+          <rect x="155" y="182" width="250" height="22" rx="4" fill="#0284c7"/>
+          <text x="280" y="197" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">IA   |   IB   |   IC   |   VA   |   VB   |   VC   |   N</text>
+          <text x="280" y="242" fill="#0f172a" font-size="20" font-weight="900" text-anchor="middle">Shelly PRO 3EM</text>
+          <text x="280" y="264" fill="#0284c7" font-size="12" font-weight="bold" text-anchor="middle">3-Phasen Hutschienen-Smart-Meter (120A)</text>
         </svg>`
       }
     };
@@ -570,29 +613,27 @@
       }
       const s = SCHEMAS[key];
       document.getElementById('schemaTitle').innerText = s.title;
-      document.getElementById('schemaSub').innerText = s.sub;
       document.getElementById('svgContainer').innerHTML = s.svg;
-      document.getElementById('pinList').innerHTML = s.pins.map(p => `<li>${p}</li>`).join('');
+      document.getElementById('pinHint').innerHTML = s.hint;
 
       const grid = document.getElementById('compatGrid');
       grid.innerHTML = s.items.map(id => {
         const p = PRODUCTS[id];
         const amzUrl = `https://www.amazon.de/s?k=${p.amzQuery}&tag=alekseevtech-21`;
         return `
-          <div class="prod-card" onclick="openModal('${id}')">
-            <div>
-              <span class="prod-badge">${p.badge}</span>
-              <div class="prod-title">${p.name}</div>
-              <div class="prod-short">${p.short}</div>
-              <div class="prod-mini-specs">⚙️ ${p.miniSpecs}</div>
-            </div>
-            <div class="prod-actions">
-              <button class="btn-passport" onclick="event.stopPropagation(); openModal('${id}')">
-                📄 Datenblatt & Beipackzettel (PDF) öffnen
-              </button>
-              <a href="${amzUrl}" target="_blank" rel="noopener sponsored" class="btn-amz" onclick="event.stopPropagation(); trackClick('amazon')">
-                🛒 Auf Amazon.de prüfen (${p.price}) →
+          <div class="sq-card" onclick="openModal('${id}')">
+            <span class="sq-type">${p.type}</span>
+            <span class="sq-price">${p.price}</span>
+            <div class="sq-img">${p.icon}</div>
+            <div class="sq-name">${p.name}</div>
+            <div class="sq-role">${p.role}</div>
+            <div class="sq-actions">
+              <a href="${amzUrl}" target="_blank" rel="noopener sponsored" class="sq-btn-amz" onclick="event.stopPropagation(); trackClick('amazon')">
+                🛒 Amazon.de (${p.price})
               </a>
+              <button class="sq-btn-info" onclick="event.stopPropagation(); openModal('${id}')">
+                📄 Daten & Beipackzettel (PDF)
+              </button>
             </div>
           </div>
         `;
@@ -603,12 +644,13 @@
       const p = PRODUCTS[id];
       if (!p) return;
       const amzUrl = `https://www.amazon.de/s?k=${p.amzQuery}&tag=alekseevtech-21`;
-      document.getElementById('mBadge').innerText = p.badge + ' • ' + p.price;
+      document.getElementById('mThumb').innerHTML = p.icon;
+      document.getElementById('mBadge').innerText = p.type + ' • ca. ' + p.price;
       document.getElementById('mTitle').innerText = p.name;
-      document.getElementById('mDesc').innerText = p.short;
+      document.getElementById('mRole').innerText = p.role;
       document.getElementById('mSpecTable').innerHTML = p.specs.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('');
       document.getElementById('mBoxContents').innerHTML = p.box.map(b => `<li>${b}</li>`).join('');
-      document.getElementById('mDocLink').href = amzUrl;
+      document.getElementById('mKbLink').href = p.kbUrl;
       document.getElementById('mBuyBtn').href = amzUrl;
       document.getElementById('prodModal').style.display = 'flex';
     }
@@ -654,7 +696,7 @@
     }
 
     if (window.location.search.includes('stats=1')) toggleAdminPanel();
-    selectSchema('aus');
+    selectSchema('wechsel');
   </script>
 </body>
 </html>
