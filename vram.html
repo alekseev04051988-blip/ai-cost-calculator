@@ -184,10 +184,12 @@
   </div>
 
   <script>
+    const API_BASE = 'https://countapi.mileshilliard.com/api/v1';
+    const PREFIX = 'alekseev_2026_';
+
     function trackClick(key) {
-      const k = 'stat_' + key;
-      let val = parseInt(localStorage.getItem(k) || '0', 10);
-      localStorage.setItem(k, val + 1);
+      if (localStorage.getItem('ignore_my_clicks') === '1') return;
+      fetch(API_BASE + '/hit/' + PREFIX + key, { keepalive: true }).catch(() => {});
     }
 
     document.addEventListener('click', function(e) {
