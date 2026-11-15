@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="Pn-0FZ5BG-9BSCzJeW6U0kx0t_lvUZpD5Zcp39ZTdsI" />
-  <title>AI & Proxy Pool Cost Calculator + Proxy6, Webshare, RunPod & GPU Deals (2026)</title>
+  <title>AI & Proxy Pool Cost Calculator + Proxy6, Webshare, RunPod, Amazon & GPU Deals (2026)</title>
   <meta name="description" content="Free interactive calculator to estimate monthly costs for IPv6/IPv4 scraping proxy pools and cloud or local GPUs (RTX 4090, A100, H100). Claim 10 free Webshare proxies, 5% OFF Proxy6 promo code sSTnLrQf8p, and $5 RunPod GPU credit." />
   <meta name="keywords" content="Proxy6 promo code, Proxy6 coupon code 2026, sSTnLrQf8p, Webshare free proxies, RunPod promo credit, IPv6 proxy calculator, web scraping proxy cost, GPU cost estimator" />
   <script defer src="/_vercel/insights/script.js"></script>
@@ -29,7 +29,7 @@
     body { background: var(--bg); color: var(--text); line-height: 1.6; padding: 20px 16px; }
     .container { max-width: 880px; margin: 0 auto; }
     .top-nav { display: flex; justify-content: center; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
-    .nav-link { color: var(--muted); text-decoration: none; font-size: 0.88rem; font-weight: 600; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--border); background: var(--card); transition: 0.2s; }
+    .nav-link { color: var(--muted); text-decoration: none; font-size: 0.82rem; font-weight: 600; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--card); transition: 0.2s; }
     .nav-link.active, .nav-link:hover { color: #fff; border-color: var(--accent); background: rgba(56, 189, 248, 0.15); }
     header { text-align: center; margin-bottom: 28px; }
     .badge { display: inline-block; background: rgba(56, 189, 248, 0.12); color: var(--accent); border: 1px solid rgba(56, 189, 248, 0.3); padding: 4px 12px; border-radius: 999px; font-size: 0.8rem; font-weight: 600; margin-bottom: 12px; }
@@ -77,8 +77,9 @@
 <body>
   <div class="container">
     <nav class="top-nav">
-      <a href="/" class="nav-link active">🧮 Proxy & GPU Cost Calculator</a>
-      <a href="/vram.html" class="nav-link">🧠 LLM VRAM Calculator (New)</a>
+      <a href="/" class="nav-link active">🧮 Proxy & GPU</a>
+      <a href="/vram.html" class="nav-link">🧠 LLM VRAM</a>
+      <a href="/shelly.html" class="nav-link">⚡ Smart Home (DE)</a>
     </nav>
 
     <header>
@@ -177,8 +178,7 @@
     </div>
 
     <div id="adminStatsPanel">
-      <h3 style="color:#fff; margin-bottom:6px;">📊 Внутренняя статистика кликов (Оба калькулятора)</h3>
-      <p style="font-size:0.85rem; color:var(--muted);">Показывает реальные нажатия посетителей со всего мира в реальном времени:</p>
+      <h3 style="color:#fff; margin-bottom:6px;">📊 Внутренняя статистика кликов</h3>
       <div class="stat-grid">
         <div class="stat-item"><span>📋 Копирование промокода:</span> <span class="stat-num" id="st_copy">...</span></div>
         <div class="stat-item"><span>🔥 Клики на Webshare:</span> <span class="stat-num" id="st_webshare">...</span></div>
@@ -191,19 +191,17 @@
     </div>
 
     <div class="footer-note">
-      Built for data engineers & AI builders • <a href="/vram.html">LLM VRAM Calculator</a> • <a href="https://github.com/alekseev04051988-blip/ai-cost-calculator" target="_blank" rel="noopener">GitHub</a> • Partners: <a href="https://www.webshare.io/?referral_code=g8vopl2g9jh6" target="_blank" rel="noopener">Webshare</a> • <a href="https://proxy6.net/d/1085217" target="_blank" rel="noopener">Proxy6</a> • <a href="https://runpod.io?ref=un6lqx4m" target="_blank" rel="noopener">RunPod</a> • <a href="https://www.amazon.de/s?k=NVIDIA+RTX+GPU&tag=alekseevtech-21" target="_blank" rel="noopener sponsored">Amazon</a> • <span onclick="toggleAdminPanel()" style="cursor:pointer; opacity:0.6;" title="Статистика кликов">📊</span>
+      Built for data engineers • <a href="/vram.html">LLM VRAM</a> • <a href="/shelly.html">Smart Home (DE)</a> • <a href="https://github.com/alekseev04051988-blip/ai-cost-calculator" target="_blank" rel="noopener">GitHub</a> • <span onclick="toggleAdminPanel()" style="cursor:pointer; opacity:0.6;" title="Stats">📊</span>
       <div style="margin-top:6px; font-size:0.75rem; opacity:0.75;">As an Amazon Associate I earn from qualifying purchases (Als Amazon-Partner verdiene ich an qualifizierten Verkäufen).</div>
     </div>
   </div>
 
   <script>
     const NS = 'alekseev_ai_calc_2026';
-
     function trackClick(key) {
       if (localStorage.getItem('ignore_my_clicks') === '1') return;
       fetch('https://api.counterapi.dev/v1/' + NS + '/' + key + '/up', { keepalive: true }).catch(() => {});
     }
-
     document.addEventListener('click', function(e) {
       const a = e.target.closest('a');
       if (!a || !a.href) return;
@@ -212,50 +210,39 @@
       else if (a.href.includes('runpod.io')) trackClick('runpod');
       else if (a.href.includes('amazon.')) trackClick('amazon');
     });
-
     function calc() {
       const count = parseInt(document.getElementById('proxyCount').value, 10);
       const proxyPrice = parseFloat(document.getElementById('proxyType').value);
       const gpuRate = parseFloat(document.getElementById('gpuType').value);
       const gpuHours = parseInt(document.getElementById('gpuHours').value, 10);
-
       document.getElementById('proxyCountVal').innerText = count + ' IPs';
       document.getElementById('gpuHoursVal').innerText = gpuHours + ' hrs/day';
-
       const legacyProxyMonthly = count * 3.50;
       const optimizedProxyMonthly = count * proxyPrice * 0.95;
       const gpuMonthly = gpuRate * gpuHours * 30;
       const total = optimizedProxyMonthly + gpuMonthly;
       const saved = Math.max(0, legacyProxyMonthly - optimizedProxyMonthly);
-
       document.getElementById('legacyCost').innerText = '$' + legacyProxyMonthly.toFixed(2) + '/mo';
       document.getElementById('proxyCost').innerText = '$' + optimizedProxyMonthly.toFixed(2) + '/mo';
       document.getElementById('gpuCost').innerText = '$' + gpuMonthly.toFixed(2) + '/mo';
       document.getElementById('totalCost').innerText = '$' + total.toFixed(2) + '/mo';
       document.getElementById('savingsText').innerText = '🔥 You save $' + saved.toFixed(2) + '/month vs legacy providers!';
     }
-
     function copyCode(trackSeparately) {
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText('sSTnLrQf8p');
-      }
+      if (navigator.clipboard) navigator.clipboard.writeText('sSTnLrQf8p');
       if (trackSeparately) trackClick('copy_coupon');
       const btn = document.getElementById('copyBtn');
       btn.innerText = '✅ Copied: sSTnLrQf8p';
       setTimeout(() => { btn.innerText = '📋 Copy Coupon Code'; }, 3000);
     }
-
     async function fetchCount(key, elId) {
       try {
         const res = await fetch('https://api.counterapi.dev/v1/' + NS + '/' + key + '/');
         if (!res.ok) { document.getElementById(elId).innerText = '0'; return; }
         const data = await res.json();
         document.getElementById(elId).innerText = data.count || 0;
-      } catch (e) {
-        document.getElementById(elId).innerText = '0';
-      }
+      } catch (e) { document.getElementById(elId).innerText = '0'; }
     }
-
     function loadAdminStats() {
       fetchCount('copy_coupon', 'st_copy');
       fetchCount('webshare', 'st_webshare');
@@ -264,35 +251,22 @@
       fetchCount('amazon', 'st_amazon');
       updateIgnoreBtn();
     }
-
     function updateIgnoreBtn() {
       const ignored = localStorage.getItem('ignore_my_clicks') === '1';
       const btn = document.getElementById('ignoreToggleBtn');
-      btn.innerText = ignored ? '🙈 Мои клики НЕ считаются (Вкл)' : '👀 Мои клики сейчас считаются (Выкл)';
+      btn.innerText = ignored ? '🙈 Мои клики НЕ считаются (Вкл)' : '👀 Мои клики считаются (Выкл)';
       btn.style.borderColor = ignored ? '#10b981' : '#38bdf8';
     }
-
     function toggleIgnoreMe() {
-      const cur = localStorage.getItem('ignore_my_clicks') === '1';
-      localStorage.setItem('ignore_my_clicks', cur ? '0' : '1');
+      localStorage.setItem('ignore_my_clicks', localStorage.getItem('ignore_my_clicks') === '1' ? '0' : '1');
       updateIgnoreBtn();
     }
-
     function toggleAdminPanel() {
       const p = document.getElementById('adminStatsPanel');
-      if (p.style.display === 'block') {
-        p.style.display = 'none';
-      } else {
-        p.style.display = 'block';
-        loadAdminStats();
-        p.scrollIntoView({ behavior: 'smooth' });
-      }
+      if (p.style.display === 'block') { p.style.display = 'none'; }
+      else { p.style.display = 'block'; loadAdminStats(); p.scrollIntoView({ behavior: 'smooth' }); }
     }
-
-    if (window.location.search.includes('stats=1')) {
-      toggleAdminPanel();
-    }
-
+    if (window.location.search.includes('stats=1')) toggleAdminPanel();
     calc();
   </script>
 </body>
