@@ -178,16 +178,16 @@
     </div>
 
     <div id="adminStatsPanel">
-      <h3 style="color:#fff; margin-bottom:6px;">📊 Внутренняя статистика кликов (Локальная)</h3>
+      <h3 style="color:#fff; margin-bottom:6px;">📊 Глобальная статистика кликов</h3>
       <div class="stat-grid">
-        <div class="stat-item"><span>📋 Копирование промокода:</span> <span class="stat-num" id="st_copy">0</span></div>
-        <div class="stat-item"><span>🔥 Клики на Webshare:</span> <span class="stat-num" id="st_webshare">0</span></div>
-        <div class="stat-item"><span>🚀 Клики на Proxy6:</span> <span class="stat-num" id="st_proxy6">0</span></div>
-        <div class="stat-item"><span>⚡ Клики на RunPod:</span> <span class="stat-num" id="st_runpod">0</span></div>
-        <div class="stat-item"><span>🛒 Клики на Amazon:</span> <span class="stat-num" id="st_amazon">0</span></div>
+        <div class="stat-item"><span>📋 Копирование промокода:</span> <span class="stat-num" id="st_copy">...</span></div>
+        <div class="stat-item"><span>🔥 Клики на Webshare:</span> <span class="stat-num" id="st_webshare">...</span></div>
+        <div class="stat-item"><span>🚀 Клики на Proxy6:</span> <span class="stat-num" id="st_proxy6">...</span></div>
+        <div class="stat-item"><span>⚡ Клики на RunPod:</span> <span class="stat-num" id="st_runpod">...</span></div>
+        <div class="stat-item"><span>🛒 Клики на Amazon:</span> <span class="stat-num" id="st_amazon">...</span></div>
       </div>
       <button class="admin-btn" onclick="loadAdminStats()">🔄 Обновить цифры</button>
-      <button class="admin-btn" onclick="resetStats()" style="border-color:#ef4444; color:#fca5a5;">🗑️ Сбросить нули</button>
+      <button class="admin-btn" id="ignoreToggleBtn" onclick="toggleIgnoreMe()"></button>
     </div>
 
     <div class="footer-note">
@@ -197,10 +197,12 @@
   </div>
 
   <script>
+    const API_BASE = 'https://countapi.mileshilliard.com/api/v1';
+    const PREFIX = 'alekseev_2026_';
+
     function trackClick(key) {
-      const k = 'stat_' + key;
-      let val = parseInt(localStorage.getItem(k) || '0', 10);
-      localStorage.setItem(k, val + 1);
+      if (localStorage.getItem('ignore_my_clicks') === '1') return;
+      fetch(API_BASE + '/hit/' + PREFIX + key, { keepalive: true }).catch(() => {});
     }
 
     document.addEventListener('click', function(e) {
@@ -239,16 +241,34 @@
       setTimeout(() => { btn.innerText = '📋 Copy Coupon Code'; }, 3000);
     }
 
-    function loadAdminStats() {
-      ['copy_coupon', 'webshare', 'proxy6', 'runpod', 'amazon'].forEach(k => {
-        const elMap = {copy_coupon: 'st_copy', webshare: 'st_webshare', proxy6: 'st_proxy6', runpod: 'st_runpod', amazon: 'st_amazon'};
-        document.getElementById(elMap[k]).innerText = localStorage.getItem('stat_' + k) || '0';
-      });
+    async function fetchCount(key, elId) {
+      try {
+        const res = await fetch(API_BASE + '/get/' + PREFIX + key);
+        if (!res.ok) { document.getElementById(elId).innerText = '0'; return; }
+        const data = await res.json();
+        document.getElementById(elId).innerText = data.value !== undefined ? data.value : '0';
+      } catch (e) { document.getElementById(elId).innerText = '0'; }
     }
 
-    function resetStats() {
-      ['copy_coupon', 'webshare', 'proxy6', 'runpod', 'amazon'].forEach(k => localStorage.setItem('stat_' + k, '0'));
-      loadAdminStats();
+    function loadAdminStats() {
+      fetchCount('copy_coupon', 'st_copy');
+      fetchCount('webshare', 'st_webshare');
+      fetchCount('proxy6', 'st_proxy6');
+      fetchCount('runpod', 'st_runpod');
+      fetchCount('amazon', 'st_amazon');
+      updateIgnoreBtn();
+    }
+
+    function updateIgnoreBtn() {
+      const ignored = localStorage.getItem('ignore_my_clicks') === '1';
+      const btn = document.getElementById('ignoreToggleBtn');
+      btn.innerText = ignored ? '🙈 Мои клики НЕ считаются (Вкл)' : '👀 Мои клики считаются (Выкл)';
+      btn.style.borderColor = ignored ? '#10b981' : '#38bdf8';
+    }
+
+    function toggleIgnoreMe() {
+      localStorage.setItem('ignore_my_clicks', localStorage.getItem('ignore_my_clicks') === '1' ? '0' : '1');
+      updateIgnoreBtn();
     }
 
     function toggleAdminPanel() {
