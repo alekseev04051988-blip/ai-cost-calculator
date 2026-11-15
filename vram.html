@@ -30,7 +30,7 @@
     body { background: var(--bg); color: var(--text); line-height: 1.6; padding: 20px 16px; }
     .container { max-width: 880px; margin: 0 auto; }
     .top-nav { display: flex; justify-content: center; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
-    .nav-link { color: var(--muted); text-decoration: none; font-size: 0.88rem; font-weight: 600; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--border); background: var(--card); transition: 0.2s; }
+    .nav-link { color: var(--muted); text-decoration: none; font-size: 0.82rem; font-weight: 600; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--card); transition: 0.2s; }
     .nav-link.active, .nav-link:hover { color: #fff; border-color: var(--accent); background: rgba(56, 189, 248, 0.15); }
     header { text-align: center; margin-bottom: 28px; }
     .badge { display: inline-block; background: rgba(139, 92, 246, 0.15); color: #c4b5fd; border: 1px solid rgba(139, 92, 246, 0.4); padding: 4px 12px; border-radius: 999px; font-size: 0.8rem; font-weight: 600; margin-bottom: 10px; }
@@ -73,8 +73,9 @@
 <body>
   <div class="container">
     <nav class="top-nav">
-      <a href="/" class="nav-link">🧮 Proxy & GPU Cost Calculator</a>
-      <a href="/vram.html" class="nav-link active">🧠 LLM VRAM Calculator (New)</a>
+      <a href="/" class="nav-link">🧮 Proxy & GPU</a>
+      <a href="/vram.html" class="nav-link active">🧠 LLM VRAM</a>
+      <a href="/shelly.html" class="nav-link">⚡ Smart Home (DE)</a>
     </nav>
 
     <header>
@@ -174,23 +175,20 @@
       <h3>💡 Cloud GPUs vs. Local Workstation Upgrades for LLMs (2026)</h3>
       <p>• <strong>Instant Cloud GPU Pods ($5 Free Credit):</strong> Deploy pre-configured Ollama, vLLM, or ComfyUI templates on <a href="https://runpod.io?ref=un6lqx4m" target="_blank" rel="noopener">RunPod Cloud GPUs</a> starting at $0.44/hr and claim a <strong>$5 signup bonus</strong>.</p>
       <p>• <strong>Upgrade Local GPU & Unified Memory Hardware:</strong> Building a local AI rig? Check current prices on <a href="https://www.amazon.de/s?k=NVIDIA+RTX+4090+24GB+GPU&tag=alekseevtech-21" target="_blank" rel="noopener sponsored">24GB NVIDIA RTX GPUs</a>, <a href="https://www.amazon.de/s?k=DDR5+RAM+64GB+Kit&tag=alekseevtech-21" target="_blank" rel="noopener sponsored">64GB–128GB DDR5 RAM kits for CPU offloading</a>, and <a href="https://www.amazon.de/s?k=NVMe+SSD+4TB+PCIe+4.0&tag=alekseevtech-21" target="_blank" rel="noopener sponsored">high-speed 4TB NVMe SSDs on Amazon</a>.</p>
-      <p>• <strong>Free Proxies for Web-Browsing AI Agents:</strong> Connecting DeepSeek or LangChain agents to live web data? Grab <strong>10 free high-speed datacenter proxies</strong> on <a href="https://www.webshare.io/?referral_code=g8vopl2g9jh6" target="_blank" rel="noopener">Webshare.io</a> or use promo code <strong><code>sSTnLrQf8p</code></strong> for <strong>5% OFF</strong> IPv6 pools at <a href="https://proxy6.net/en/?r=1085217" target="_blank" rel="noopener">Proxy6.net</a>.</p>
     </div>
 
     <div class="footer-note">
-      <a href="/">← Back to AI & Proxy Pool Cost Calculator</a> • <a href="https://github.com/alekseev04051988-blip/ai-cost-calculator" target="_blank" rel="noopener">GitHub</a> • Partners: <a href="https://runpod.io?ref=un6lqx4m" target="_blank" rel="noopener">RunPod</a> • <a href="https://www.amazon.de/s?k=NVIDIA+RTX+GPU&tag=alekseevtech-21" target="_blank" rel="noopener sponsored">Amazon</a> • <a href="https://www.webshare.io/?referral_code=g8vopl2g9jh6" target="_blank" rel="noopener">Webshare</a> • <a href="https://proxy6.net/d/1085217" target="_blank" rel="noopener">Proxy6</a> • <a href="/?stats=1" style="text-decoration:none; opacity:0.6;">📊</a>
+      <a href="/">← Proxy & GPU</a> • <a href="/shelly.html">Smart Home (DE)</a> • <a href="https://github.com/alekseev04051988-blip/ai-cost-calculator" target="_blank" rel="noopener">GitHub</a> • <span style="opacity:0.6;">📊</span>
       <div style="margin-top:6px; font-size:0.75rem; opacity:0.75;">As an Amazon Associate I earn from qualifying purchases (Als Amazon-Partner verdiene ich an qualifizierten Verkäufen).</div>
     </div>
   </div>
 
   <script>
     const NS = 'alekseev_ai_calc_2026';
-
     function trackClick(key) {
       if (localStorage.getItem('ignore_my_clicks') === '1') return;
       fetch('https://api.counterapi.dev/v1/' + NS + '/' + key + '/up', { keepalive: true }).catch(() => {});
     }
-
     document.addEventListener('click', function(e) {
       const a = e.target.closest('a');
       if (!a || !a.href) return;
@@ -199,23 +197,18 @@
       else if (a.href.includes('runpod.io')) trackClick('runpod');
       else if (a.href.includes('amazon.')) trackClick('amazon');
     });
-
     function calcVram() {
       const params = parseFloat(document.getElementById('modelParams').value);
       const bits = parseFloat(document.getElementById('quantBits').value);
       const ctx = parseInt(document.getElementById('ctxLen').value, 10);
       const local = parseFloat(document.getElementById('localVram').value);
-
       document.getElementById('ctxVal').innerText = ctx.toLocaleString() + ' tok';
-
       const weights = params * (bits / 8) * 1.05;
       const kv = (ctx / 4096) * (params * 0.04) + 1.2;
       const total = weights + kv;
-
       document.getElementById('weightsMem').innerText = weights.toFixed(1) + ' GB';
       document.getElementById('kvMem').innerText = kv.toFixed(1) + ' GB';
       document.getElementById('totalVram').innerText = total.toFixed(1) + ' GB';
-
       const banner = document.getElementById('statusBanner');
       if (total > local) {
         const diff = (total - local).toFixed(1);
@@ -225,11 +218,9 @@
         banner.className = 'status-banner status-ok';
         banner.innerText = '✅ Fits in Local VRAM! (' + (local - total).toFixed(1) + ' GB headroom remaining)';
       }
-
       let rec = '1x NVIDIA RTX 4090 (24GB) — $0.44/hr';
       let amzText = '🛒 Check RTX 4090 (24GB) Deals on Amazon →';
       let amzUrl = 'https://www.amazon.de/s?k=NVIDIA+GeForce+RTX+4090+24GB&tag=alekseevtech-21';
-
       if (total <= 15) {
         amzText = '🛒 Check RTX 4070 Ti Super (16GB) on Amazon →';
         amzUrl = 'https://www.amazon.de/s?k=RTX+4070+Ti+Super+16GB&tag=alekseevtech-21';
@@ -251,7 +242,6 @@
       amzBtn.innerText = amzText;
       amzBtn.href = amzUrl;
     }
-
     calcVram();
   </script>
 </body>
