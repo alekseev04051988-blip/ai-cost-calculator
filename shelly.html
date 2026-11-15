@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="Pn-0FZ5BG-9BSCzJeW6U0kx0t_lvUZpD5Zcp39ZTdsI" />
+  <title>Smart Home & Shelly Schaltplan Konfigurator (2026) — Relais, WAGO & Heizung</title>
+  <meta name="description" content="Kostenloser interaktiver Smart-Home-Konfigurator & Anschlussplan-Rechner: Welches Shelly Relais für Lichtschalter, Wechselschaltung, Rollladen oder Heizkörperthermostat? Inkl. Klemmenbelegung und Teileliste." />
+  <meta name="keywords" content="Shelly Schaltplan, Shelly Wechselschaltung anschließen, Shelly ohne Neutralleiter, Wago 221 Klemmen, Smart Home Heizkörperthermostat Fensterkontakt, Rollladen smart machen, Shelly Plus 1PM, Shelly 2PM" />
+  <script defer src="/_vercel/insights/script.js"></script>
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card: #131b2e;
+      --border: #23304d;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --green: #10b981;
+      --amber: #f59e0b;
+      --amber-hover: #d97706;
+      --blue: #0ea5e9;
+      --blue-hover: #0284c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background: var(--bg); color: var(--text); line-height: 1.6; padding: 20px 16px; }
+    .container { max-width: 880px; margin: 0 auto; }
+    .top-nav { display: flex; justify-content: center; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
+    .nav-link { color: var(--muted); text-decoration: none; font-size: 0.86rem; font-weight: 600; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--card); transition: 0.2s; }
+    .nav-link.active, .nav-link:hover { color: #fff; border-color: var(--accent); background: rgba(56, 189, 248, 0.15); }
+    header { text-align: center; margin-bottom: 28px; }
+    .badge { display: inline-block; background: rgba(245, 158, 11, 0.15); color: #fcd34d; border: 1px solid rgba(245, 158, 11, 0.4); padding: 4px 12px; border-radius: 999px; font-size: 0.8rem; font-weight: 600; margin-bottom: 10px; }
+    h1 { font-size: 1.9rem; font-weight: 800; margin-bottom: 8px; color: #fff; }
+    p.sub { color: var(--muted); font-size: 0.96rem; max-width: 660px; margin: 0 auto; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+    @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } h1 { font-size: 1.55rem; } }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; }
+    .card h2 { font-size: 1.18rem; margin-bottom: 18px; color: #fff; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+    .control { margin-bottom: 18px; }
+    .control label { display: flex; justify-content: space-between; font-weight: 600; font-size: 0.92rem; margin-bottom: 8px; }
+    .val { color: var(--accent); font-weight: 700; }
+    select, input[type="range"] { width: 100%; }
+    select { padding: 10px 12px; border-radius: 8px; background: var(--bg); color: #fff; border: 1px solid var(--border); font-size: 0.93rem; }
+    input[type="range"] { accent-color: var(--amber); cursor: pointer; }
+    .pinout-box { background: #090d16; border: 1px dashed var(--accent); border-radius: 12px; padding: 14px; margin-bottom: 16px; font-size: 0.88rem; }
+    .pinout-title { color: var(--accent); font-weight: 700; margin-bottom: 6px; display: block; }
+    .pinout-code { font-family: monospace; color: #cbd5e1; line-height: 1.5; white-space: pre-line; }
+    .res-box { background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+    .res-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.92rem; }
+    .res-total { display: flex; justify-content: space-between; font-size: 1.25rem; font-weight: 800; color: #fff; border-top: 1px solid var(--border); padding-top: 10px; margin-top: 8px; }
+    .cta-stack { display: flex; flex-direction: column; gap: 10px; }
+    .cta-btn { display: block; width: 100%; text-align: center; font-weight: 800; text-decoration: none; padding: 12px 14px; border-radius: 10px; font-size: 0.93rem; transition: 0.2s; }
+    .cta-btn.amazon { background: var(--amber); color: #1e1b4b; }
+    .cta-btn.amazon:hover { background: var(--amber-hover); color: #fff; }
+    .cta-btn.secondary { background: var(--blue); color: #fff; }
+    .cta-btn.secondary:hover { background: var(--blue-hover); }
+    .seo-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 20px 24px; font-size: 0.91rem; color: var(--muted); }
+    .seo-card h3 { color: #fff; font-size: 1.05rem; margin-bottom: 10px; }
+    .seo-card p { margin-bottom: 10px; }
+    .seo-card a { color: var(--amber); text-decoration: none; font-weight: 600; }
+    .footer-note { text-align: center; color: var(--muted); font-size: 0.82rem; margin-top: 24px; }
+    .footer-note a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="top-nav">
+      <a href="/" class="nav-link">🧮 Proxy & GPU Calculator</a>
+      <a href="/vram.html" class="nav-link">🧠 LLM VRAM Calculator</a>
+      <a href="/shelly.html" class="nav-link active">⚡ Smart Home & Shelly Konfigurator (DE)</a>
+    </nav>
+
+    <header>
+      <span class="badge">Smart Home Schaltplan & Teile-Rechner 2026</span>
+      <h1>Shelly & Smart Home Konfigurator</h1>
+      <p class="sub">Finde das exakt passende Unterputz-Relais, Klemmenbelegung und Zubehör für Lichtschalter, Wechselschaltung, Rollläden, Balkonkraftwerk und smarte Heizkörper.</p>
+    </header>
+
+    <div class="grid">
+      <div class="card">
+        <h2>⚙️ 1. Projekt & Schaltung wählen</h2>
+
+        <div class="control">
+          <label><span>Anwendung / Schaltungstyp</span></label>
+          <select id="projType" onchange="calcShelly()">
+            <option value="1pm" selected>Lichtschalter / Steckdose (mit Neutralleiter N)</option>
+            <option value="1l">Lichtschalter OHNE Neutralleiter (Altbau 2-Draht)</option>
+            <option value="2pm">Rollladen / Jalousie / Doppelschalter (2 Kanäle)</option>
+            <option value="trv">Heizkörperthermostat + Fenster-Offen-Sensor</option>
+            <option value="3em">Balkonkraftwerk / 3-Phasen Stromzähler (Hutschiene)</option>
+          </select>
+        </div>
+
+        <div class="control">
+          <label><span>Anzahl der Schalter / Räume</span> <span class="val" id="roomCountVal">3 Stück</span></label>
+          <input type="range" id="roomCount" min="1" max="12" step="1" value="3" oninput="calcShelly()" />
+        </div>
+
+        <div class="control">
+          <label><span>Montage- & Installationspaket</span></label>
+          <select id="wagoPack" onchange="calcShelly()">
+            <option value="14.90" selected>Inkl. WAGO 221 Kompaktklemmen-Sortiment (~14,90 €)</option>
+            <option value="0">Ohne Verbindungsklemmen (bereits vorhanden)</option>
+          </select>
+        </div>
+
+        <div class="pinout-box">
+          <span class="pinout-title" id="pinTitle">🔌 Klemmenbelegung (Shelly Plus 1PM / Mini):</span>
+          <div class="pinout-code" id="pinCode">• L: Dauerphase (230V Braun/Schwarz)
+• N: Neutralleiter (Blau) via WAGO 221
+• SW: Schaltausgang vom bestehenden Wippschalter
+• O: Geschaltete Phase zur Lampe / Verbraucher</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>🛒 2. Empfohlene Bauteile & Kosten</h2>
+
+        <div class="res-box">
+          <div class="res-row">
+            <span>Empfohlenes Modul:</span>
+            <span id="modName" style="color: var(--accent); font-weight: 700;">3x Shelly Plus 1PM</span>
+          </div>
+          <div class="res-row">
+            <span>Geschätzter Modulpreis:</span>
+            <span id="modCost">~53,70 €</span>
+          </div>
+          <div class="res-row">
+            <span>WAGO 221 Klemmen-Box:</span>
+            <span id="wagoCost">~14,90 €</span>
+          </div>
+          <div class="res-total">
+            <span>Gesamtbudget (ca.):</span>
+            <span id="totalEur">~68,60 €</span>
+          </div>
+        </div>
+
+        <div class="cta-stack">
+          <a id="amzMainBtn" href="https://www.amazon.de/s?k=Shelly+Plus+1PM+Mini+Gen3&tag=alekseevtech-21" target="_blank" rel="noopener sponsored" class="cta-btn amazon">
+            🛒 Shelly Plus 1PM / Mini auf Amazon.de prüfen →
+          </a>
+          <a href="https://www.amazon.de/s?k=WAGO+221+Klemmen+Set+Sortiment&tag=alekseevtech-21" target="_blank" rel="noopener sponsored" class="cta-btn amazon">
+            🧰 WAGO 221 Klemmen-Sortiment auf Amazon.de →
+          </a>
+          <a id="amzExtraBtn" href="https://www.amazon.de/s?k=Shelly+BLU+Door+Window+Sensor+TRV&tag=alekseevtech-21" target="_blank" rel="noopener sponsored" class="cta-btn secondary">
+            🌡️ Smarte Heizkörperthermostate & Fenstersensoren →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="seo-card">
+      <h3>💡 Smart Home Nachrüstung ohne Kabelschlitzen: Ratgeber & Teileliste (2026)</h3>
+      <p>• <strong>Unterputz-Relais für jeden Lichtschalter:</strong> Mit kompakten WLAN/Bluetooth- und Zigbee-Modulen wie dem <a href="https://www.amazon.de/s?k=Shelly+Mini+Gen3+Relais&tag=alekseevtech-21" target="_blank" rel="noopener sponsored">Shelly Mini Gen3 / Plus 1PM auf Amazon.de</a> bleiben bestehende Wandtaster voll nutzbar, während Licht und Steckdosen per App, Alexa oder SmartThings steuerbar werden.</p>
+      <p>• <strong>Sichere Verdrahtung in engen Schalterdosen:</strong> Verwende flache <a href="https://www.amazon.de/s?k=WAGO+221-413+221-415+Set&tag=alekseevtech-21" target="_blank" rel="noopener sponsored">WAGO 221 Hebelklemmen (3er & 5er Set)</a> sowie einen zweipoligen <a href="https://www.amazon.de/s?k=Benning+Duspol+Spannungspr%C3%BCfer&tag=alekseevtech-21" target="_blank" rel="noopener sponsored">VDE Spannungsprüfer (Duspol)</a> zur sicheren Phasenprüfung vor dem Einbau.</p>
+      <p>• <strong>Heizkosten senken mit Fenster-Offen-Automatisierung:</strong> Kopple <a href="https://www.amazon.de/s?k=Shelly+Heizk%C3%B6rperthermostat+TRV+Fensterkontakt&tag=alekseevtech-21" target="_blank" rel="noopener sponsored">smarte Heizkörperthermostate (TRV) und Bluetooth/Zigbee Tür- & Fenstersensoren</a>, um Heizkörper beim Lüften automatisch abzudrehen.</p>
+    </div>
+
+    <div class="footer-note">
+      <a href="/">← AI & Proxy Calculator</a> • <a href="/vram.html">LLM VRAM Calculator</a> • <a href="https://github.com/alekseev04051988-blip/ai-cost-calculator" target="_blank" rel="noopener">GitHub</a> • <a href="/?stats=1" style="text-decoration:none; opacity:0.6;">📊</a>
+      <div style="margin-top:6px; font-size:0.75rem; opacity:0.75;">Als Amazon-Partner verdiene ich an qualifizierten Verkäufen (As an Amazon Associate I earn from qualifying purchases). Hinweis: Arbeiten an 230V-Anlagen nur im spannungsfreien Zustand durch Fachpersonal.</div>
+    </div>
+  </div>
+
+  <script>
+    const NS = 'alekseev_ai_calc_2026';
+
+    function trackClick(key) {
+      if (localStorage.getItem('ignore_my_clicks') === '1') return;
+      fetch('https://api.counterapi.dev/v1/' + NS + '/' + key + '/up', { keepalive: true }).catch(() => {});
+    }
+
+    document.addEventListener('click', function(e) {
+      const a = e.target.closest('a');
+      if (!a || !a.href) return;
+      if (a.href.includes('amazon.')) trackClick('amazon');
+    });
+
+    function calcShelly() {
+      const type = document.getElementById('projType').value;
+      const count = parseInt(document.getElementById('roomCount').value, 10);
+      const wago = parseFloat(document.getElementById('wagoPack').value);
+
+      document.getElementById('roomCountVal').innerText = count + ' Stück';
+
+      let unitPrice = 17.90;
+      let name = count + 'x Shelly Plus 1PM Gen3';
+      let pinTitle = '🔌 Klemmenbelegung (Shelly Plus 1PM / Mini):';
+      let pinCode = '• L: Dauerphase (230V Braun/Schwarz)\n• N: Neutralleiter (Blau) via WAGO 221\n• SW: Schaltausgang vom bestehenden Wippschalter\n• O: Geschaltete Phase zur Lampe / Verbraucher';
+      let btnText = '🛒 Shelly Plus 1PM / Mini auf Amazon.de prüfen →';
+      let btnUrl = 'https://www.amazon.de/s?k=Shelly+Plus+1PM+Gen3&tag=alekseevtech-21';
+
+      if (type === '1l') {
+        unitPrice = 19.90;
+        name = count + 'x Shelly 1L + Bypass (Ohne N)';
+        pinTitle = '🔌 Klemmenbelegung (Ohne Neutralleiter):';
+        pinCode = '• L: Dauerphase (230V)\n• O: Lampendraht (Bypass parallel zur Lampe bei <20W LED)\n• SW1: Bestehender Lichtschalter\n• Kein blauer Neutralleiter in der Dose erforderlich!';
+        btnText = '🛒 Shelly 1L & Bypass auf Amazon.de prüfen →';
+        btnUrl = 'https://www.amazon.de/s?k=Shelly+1L+Bypass+ohne+Neutralleiter&tag=alekseevtech-21';
+      } else if (type === '2pm') {
+        unitPrice = 26.90;
+        name = count + 'x Shelly Plus 2PM (Rollladen)';
+        pinTitle = '🔌 Klemmenbelegung (Rollladenmotor Auf/Ab):';
+        pinCode = '• L & N: 230V Versorgung + Neutralleiter\n• O1 & O2: Motorleitung Aufwärts / Abwärts\n• S1 & S2: Wipptaster für manuelle Steuerung\n• Inkl. automatischer Endlagenerkennung (Kalibrierung)';
+        btnText = '🛒 Shelly Plus 2PM Rollladen-Relais auf Amazon.de →';
+        btnUrl = 'https://www.amazon.de/s?k=Shelly+Plus+2PM+Rollladen&tag=alekseevtech-21';
+      } else if (type === 'trv') {
+        unitPrice = 54.90;
+        name = count + 'x Smartes TRV Thermostat + Fenstersensor';
+        pinTitle = '🌡️ Kopplung (Heizkörper + Fensterkontakt):';
+        pinCode = '• M30x1.5 Gewinde direkt am Heizkörperventil montieren\n• BLU Door/Window Sensor am Fensterrahmen ankleben\n• Regel: Fenster offen -> Heizventil schließt sofort auf 5°C';
+        btnText = '🛒 Shelly TRV & Fenstersensor auf Amazon.de →';
+        btnUrl = 'https://www.amazon.de/s?k=Shelly+TRV+Heizk%C3%B6rperthermostat+BLU+Door+Window&tag=alekseevtech-21';
+      } else if (type === '3em') {
+        unitPrice = 109.00;
+        name = count + 'x Shelly Pro 3EM (3-Phasen Zähler)';
+        pinTitle = '⚡ Montage im Zählerschrank (Hutschiene):';
+        pinCode = '• Phasen A, B, C über 3x 120A Stromwandler-Klemmen\n• Echtzeit-Messung für Balkonkraftwerk, Wärmepumpe & Hausverbrauch\n• Direkt kompatibel mit Home Assistant & SmartThings';
+        btnText = '🛒 Shelly Pro 3EM Stromzähler auf Amazon.de →';
+        btnUrl = 'https://www.amazon.de/s?k=Shelly+Pro+3EM+Smart+Meter&tag=alekseevtech-21';
+      }
+
+      const modTotal = count * unitPrice;
+      const total = modTotal + wago;
+
+      document.getElementById('modName').innerText = name;
+      document.getElementById('modCost').innerText = '~' + modTotal.toFixed(2).replace('.', ',') + ' €';
+      document.getElementById('wagoCost').innerText = '~' + wago.toFixed(2).replace('.', ',') + ' €';
+      document.getElementById('totalEur').innerText = '~' + total.toFixed(2).replace('.', ',') + ' €';
+      document.getElementById('pinTitle').innerText = pinTitle;
+      document.getElementById('pinCode').innerText = pinCode;
+
+      const mainBtn = document.getElementById('amzMainBtn');
+      mainBtn.innerText = btnText;
+      mainBtn.href = btnUrl;
+    }
+
+    calcShelly();
+  </script>
+</body>
+</html>
