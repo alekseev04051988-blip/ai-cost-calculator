@@ -1,30 +1,35 @@
-# 🧮 Open-Source AI & Scraping Proxy Pool Cost Calculator (2026)
+# 🚀 AI Infrastructure, LLM VRAM & Smart Home Cost Calculators (2026)
 
-Interactive web calculator to estimate and cut monthly costs for **IPv6 / IPv4 scraping proxy pools** and **on-demand Cloud GPUs (NVIDIA RTX 4090, A100, H100)**.
-
-👉 **Live Calculator:** **[https://ai-cost-calculator-snowy.vercel.app](https://ai-cost-calculator-snowy.vercel.app)**
+A collection of free, zero-bloat interactive web calculators and technical reference tools built for AI engineers, self-hosters, and smart home enthusiasts.
 
 ---
 
-## 🎁 Verified Partner Deals & Free Infrastructure Credits (2026)
-
-### 🔥 1. Webshare.io — Claim 10 Free Scraping Proxies
-Test your Python, Playwright, or Puppeteer scrapers with **10 free datacenter proxies** (1GB/mo bandwidth included, no credit card required to test) before upgrading to high-speed rotating pools:
-* 🌐 **Activate 10 Free Proxies:** **[https://www.webshare.io/?referral_code=g8vopl2g9jh6](https://www.webshare.io/?referral_code=g8vopl2g9jh6)**
-
-### 🏷️ 2. Proxy6.net — 5% OFF Promo Code (`sSTnLrQf8p`)
-Use the official partner coupon code at checkout to get an instant **5% discount** on dedicated IPv6 ($0.20/IP), IPv4 ($1.77/IP), and Shared SOCKS5/HTTPS proxy pools:
-* 🎫 **Coupon Code:** `sSTnLrQf8p`
-* 🌍 **Proxy6 English Portal:** **[https://proxy6.net/en/?r=1085217](https://proxy6.net/en/?r=1085217)**
-* 🔗 **Direct Partner Link:** **[https://proxy6.net/d/1085217](https://proxy6.net/d/1085217)**
-
-### ⚡ 3. RunPod Cloud GPUs — $5 Bonus Credit
-Deploy containerized NVIDIA RTX 4090 ($0.44/hr), A100 ($1.65/hr), and H100 ($2.89/hr) instances for LLM agents, audio separation, and AI inference:
-* 🚀 **Claim $5 GPU Bonus Credit:** **[https://runpod.io?ref=un6lqx4m](https://runpod.io?ref=un6lqx4m)**
+## 🧮 1. AI & Proxy Pool Cost Calculator
+Estimate and reduce monthly cloud GPU compute and dedicated IPv6 / IPv4 scraping proxy budgets for AI agents, web crawlers, and automation pipelines.
+* 👉 **[Launch AI & Proxy Cost Calculator](https://ai-cost-calculator-snowy.vercel.app/)**
+* **Features:** Real-time ROI comparison between legacy IPv4 and dedicated IPv6 pools, GPU hourly runtime cost estimator (RTX 4090, A100, H100), and verified partner deals (10 free proxies on Webshare, 5% OFF Proxy6 promo code `sSTnLrQf8p`, and $5 RunPod credit).
 
 ---
 
-## ⚙️ Features
-* **Real-Time Proxy Pool ROI:** Compare legacy IPv4 datacenter rates against dedicated IPv6 scraping pools.
-* **Cloud GPU Estimator:** Calculate exact monthly runtimes for RTX 4090, A100, and H100 pods.
-* **One-Click Coupon Copy:** Instant clipboard copy for partner discounts.
+## 🧠 2. LLM & AI GPU VRAM Calculator (2026)
+Check whether your local graphics card has enough video memory (VRAM) to run DeepSeek-R1, Qwen 2.5, Llama 3.3, Mistral Large 2, or Flux.1 locally.
+* 👉 **[Launch LLM VRAM Calculator](https://ai-cost-calculator-snowy.vercel.app/vram.html)**
+* **Features:** Calculates exact model weights + KV cache overhead across FP16, Q8_0, Q4_K_M, and Q3_K_M quantizations with context windows up to 128k tokens. Compares local GPU headroom (6GB–24GB) against cloud GPU pods and local workstation hardware.
+
+---
+
+## ⚡ 3. Shelly Smart-Home Berater & Schaltplan-Zentrale (DE)
+Interaktiver Smart-Home Projekt-Assistent, Komplett-Sortiment (24 Geräte) und alle 14 offiziellen 230V-Schaltpläne mit PDF-Beipackzetteln für Deutschland & DACH.
+* 👉 **[Shelly Smart-Home Projekt-Assistent starten](https://ai-cost-calculator-snowy.vercel.app/shelly.html)**
+* **Funktionen:**
+  * **Einsteiger-Wunschberater:** Automatische Bedarfsermittlung & Einkaufsliste für Lichtschalter, Rollläden, Heizkörperthermostate (TRV), Balkonkraftwerke (BKW) und Garagentore.
+  * **Alle 14 Schaltplan-Varianten:** Ausschaltung, Serienschaltung, Wechselschaltung, Spar-Wechselschaltung, Kreuzschaltung, Tasterschaltung (direkt & mit Stromstoßrelais / Eltako), 2-Draht-Altbau ohne Neutralleiter (`Shelly 1L + Bypass`), Rollladen (`Plus 2PM`) und 3-Phasen Hutschienen-Smart-Meter (`Pro 3EM`).
+  * **Digitale Beipackzettel (PDF):** Vollständige technische Datenblätter und Original-Verpackungsbeilagen zu allen Shelly Gen3 / Pro / BLU Modulen sowie WAGO 221 Klemmen.
+
+---
+
+### 🛠️ Tech Stack & Architecture
+* Pure HTML5, CSS3, and Vanilla JavaScript (zero heavy frameworks, instant mobile load speed)
+* Hosted on Vercel with automated XML Sitemap indexing
+
+*Disclosure: As an Amazon Associate I earn from qualifying purchases (Als Amazon-Partner verdiene ich an qualifizierten Verkäufen).*
