@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="Pn-0FZ5BG-9BSCzJeW6U0kx0t_lvUZpD5Zcp39ZTdsI" />
-  <title>Shelly Smart-Home Berater, Komplett-Sortiment & Alle 14 Schaltpläne (2026)</title>
-  <meta name="description" content="Der interaktive Shelly Smart-Home Finder für Einsteiger & Profis: Wähle einfach dein Vorhaben (Licht, Rollladen, Heizung, Balkonkraftwerk, Garagentor, Sensoren) und erhalte sofort die passenden Geräte, Schaltpläne und PDF-Beipackzettel." />
-  <meta name="keywords" content="Shelly Berater, Welcher Shelly für was, Shelly Komplettsortiment, Shelly Schaltplan Wechselschaltung, Shelly Einsteiger Guide, Shelly ohne Neutralleiter, Shelly Rollladen, Shelly Balkonkraftwerk, Shelly Beipackzettel PDF" />
+  <title>Interaktiver Shelly Smart-Home Berater (2026) — Von der Idee bis zum Anschluss</title>
+  <meta name="description" content="Dein digitaler Smart-Home Fachberater: Beantworte 3 einfache Fragen zu deinem Raum und erhalte deine exakte Einkaufsliste, den passenden 230V-Schaltplan, App-Einstellungen und Original-Beipackzettel (PDF)." />
+  <meta name="keywords" content="Shelly Berater, Welcher Shelly für mein Projekt, Shelly Schritt für Schritt Anleitung, Shelly Wechselschaltung Anleitung, Shelly ohne Neutralleiter, Shelly Einkaufsliste, Shelly Beipackzettel PDF" />
   <script defer src="/_vercel/insights/script.js"></script>
   <style>
     :root {
@@ -22,69 +22,93 @@
       --amber-hover: #d97706;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background: var(--bg); color: var(--text); line-height: 1.45; padding: 14px 10px; }
-    .container { max-width: 860px; margin: 0 auto; }
+    body { background: var(--bg); color: var(--text); line-height: 1.48; padding: 14px 10px; }
+    .container { max-width: 880px; margin: 0 auto; }
     .top-nav { display: flex; justify-content: center; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
     .nav-link { color: var(--muted); text-decoration: none; font-size: 0.8rem; font-weight: 600; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--border); background: var(--card); transition: 0.2s; }
     .nav-link.active, .nav-link:hover { color: #fff; border-color: var(--accent); background: rgba(56, 189, 248, 0.15); }
     header { text-align: center; margin-bottom: 18px; }
-    .badge { display: inline-block; background: rgba(16, 185, 129, 0.14); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.4); padding: 3px 11px; border-radius: 999px; font-size: 0.74rem; font-weight: 700; margin-bottom: 6px; }
-    h1 { font-size: 1.55rem; font-weight: 800; margin-bottom: 5px; color: #fff; }
-    p.sub { color: var(--muted); font-size: 0.86rem; max-width: 670px; margin: 0 auto; }
+    .badge { display: inline-block; background: rgba(16, 185, 129, 0.14); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.4); padding: 4px 12px; border-radius: 999px; font-size: 0.75rem; font-weight: 700; margin-bottom: 6px; }
+    h1 { font-size: 1.6rem; font-weight: 800; margin-bottom: 5px; color: #fff; }
+    p.sub { color: var(--muted); font-size: 0.88rem; max-width: 680px; margin: 0 auto; }
 
-    /* Mode Switcher */
-    .mode-switch { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 18px; background: #080b12; padding: 6px; border-radius: 12px; border: 1px solid var(--border); }
-    .mode-btn { background: transparent; border: none; color: var(--muted); padding: 10px 8px; border-radius: 9px; font-size: 0.81rem; font-weight: 800; cursor: pointer; transition: 0.2s; text-align: center; }
+    /* Top Mode Tabs */
+    .mode-switch { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 18px; background: #080b12; padding: 6px; border-radius: 12px; border: 1px solid var(--border); }
+    .mode-btn { background: transparent; border: none; color: var(--muted); padding: 10px 6px; border-radius: 9px; font-size: 0.8rem; font-weight: 800; cursor: pointer; transition: 0.2s; }
     .mode-btn.active { background: var(--accent); color: #080b12; }
 
-    /* Beginner Wish Wizard */
-    .wizard-box { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; margin-bottom: 20px; }
-    .wizard-title { font-size: 1.05rem; font-weight: 800; color: #fff; margin-bottom: 4px; }
-    .wizard-sub { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; }
-    .wish-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 14px; }
-    @media (max-width: 520px) { .wish-grid { grid-template-columns: 1fr; } }
-    .wish-btn { background: #0c1220; border: 1px solid var(--border); color: var(--text); padding: 10px 12px; border-radius: 10px; text-align: left; cursor: pointer; transition: 0.2s; display: flex; align-items: center; gap: 10px; }
-    .wish-btn:hover, .wish-btn.active { border-color: var(--amber); background: rgba(245, 158, 11, 0.14); }
-    .wish-icon { font-size: 1.35rem; flex-shrink: 0; }
-    .wish-text strong { display: block; font-size: 0.83rem; color: #fff; }
-    .wish-text span { font-size: 0.71rem; color: var(--muted); }
-    .beginner-advice { background: rgba(16, 185, 129, 0.09); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 12px; padding: 12px 14px; font-size: 0.82rem; color: #e2e8f0; }
-    .beginner-advice h3 { color: #6ee7b7; font-size: 0.92rem; margin-bottom: 4px; }
+    /* Consultant Step Cards */
+    .step-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; margin-bottom: 16px; }
+    .step-badge { display: inline-block; background: rgba(56, 189, 248, 0.15); color: var(--accent); font-size: 0.72rem; font-weight: 800; padding: 2px 8px; border-radius: 6px; margin-bottom: 6px; text-transform: uppercase; }
+    .step-title { font-size: 1.08rem; font-weight: 800; color: #fff; margin-bottom: 4px; }
+    .step-sub { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; }
 
-    /* Category Filter Bar (Full Assortment) */
-    .cat-bar { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 6px; margin-bottom: 14px; }
-    .cat-btn { background: var(--card); border: 1px solid var(--border); color: var(--muted); padding: 7px 12px; border-radius: 9px; font-size: 0.78rem; font-weight: 700; cursor: pointer; white-space: nowrap; transition: 0.2s; }
-    .cat-btn.active, .cat-btn:hover { color: #1e1b4b; border-color: var(--amber); background: var(--amber); }
+    /* Goal Selection Grid */
+    .goal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    @media (max-width: 640px) { .goal-grid { grid-template-columns: repeat(2, 1fr); } }
+    .goal-btn { background: #0c1220; border: 1px solid var(--border); color: var(--text); padding: 11px 10px; border-radius: 12px; text-align: left; cursor: pointer; transition: 0.2s; display: flex; flex-direction: column; gap: 4px; }
+    .goal-btn:hover, .goal-btn.active { border-color: var(--amber); background: rgba(245, 158, 11, 0.14); }
+    .goal-icon { font-size: 1.4rem; }
+    .goal-btn strong { font-size: 0.83rem; color: #fff; line-height: 1.2; }
+    .goal-btn span { font-size: 0.7rem; color: var(--muted); line-height: 1.2; }
 
-    /* Wiring Diagram Section */
-    .variant-bar { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; background: rgba(15, 23, 42, 0.75); padding: 10px; border-radius: 12px; border: 1px solid var(--border); }
-    .var-label { width: 100%; font-size: 0.74rem; color: var(--muted); font-weight: 600; margin-bottom: 2px; }
-    .var-btn { background: var(--card); border: 1px solid var(--border); color: var(--text); padding: 6px 10px; border-radius: 8px; font-size: 0.76rem; font-weight: 700; cursor: pointer; }
-    .var-btn.active { background: var(--amber); color: #1e1b4b; border-color: var(--amber); }
-    .schema-box { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 14px; margin-bottom: 20px; }
-    .schema-header { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
-    .schema-header h2 { font-size: 1rem; color: #fff; }
-    .btn-mini-action { background: rgba(56, 189, 248, 0.14); color: var(--accent); border: 1px solid rgba(56, 189, 248, 0.4); padding: 5px 10px; border-radius: 7px; font-weight: 700; font-size: 0.73rem; cursor: pointer; text-decoration: none; }
-    .svg-wrap { border-radius: 12px; overflow: hidden; border: 1px solid #cbd5e1; background: linear-gradient(135deg, #ffffff 0%, #eff6ff 55%, #dbeafe 100%); margin-bottom: 10px; }
-    .pin-bar { background: #090d16; border: 1px dashed var(--border); border-radius: 10px; padding: 9px 12px; font-size: 0.8rem; color: #cbd5e1; }
+    /* Interactive Diagnostic Questions */
+    .q-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 8px; }
+    @media (max-width: 640px) { .q-grid { grid-template-columns: 1fr; } }
+    .q-block { background: #0b101d; border: 1px solid var(--border); border-radius: 12px; padding: 12px; }
+    .q-label { font-size: 0.82rem; font-weight: 700; color: #fff; margin-bottom: 8px; display: flex; justify-content: space-between; }
+    .q-opts { display: flex; flex-direction: column; gap: 6px; }
+    .q-opt { background: var(--card); border: 1px solid var(--border); color: var(--text); padding: 8px 10px; border-radius: 8px; font-size: 0.78rem; font-weight: 600; text-align: left; cursor: pointer; transition: 0.15s; }
+    .q-opt.active { border-color: var(--green); background: rgba(16, 185, 129, 0.15); color: #fff; }
+    .q-help { font-size: 0.72rem; color: var(--muted); margin-top: 6px; }
+    input[type="range"] { width: 100%; accent-color: var(--amber); cursor: pointer; margin-top: 6px; }
 
-    /* 2 Square Cards Per Row (Photo + Name + Narrow Price Button) */
+    /* Consultant Verdict & Shopping List */
+    .verdict-banner { background: linear-gradient(135deg, rgba(16, 185, 129, 0.16), rgba(56, 189, 248, 0.12)); border: 1px solid rgba(16, 185, 129, 0.45); border-radius: 14px; padding: 14px 16px; margin-bottom: 16px; }
+    .verdict-banner h3 { color: #6ee7b7; font-size: 0.98rem; margin-bottom: 4px; }
+    .verdict-banner p { font-size: 0.84rem; color: #f1f5f9; }
+    .bom-box { background: #090d16; border: 1px solid var(--border); border-radius: 12px; padding: 14px; margin-bottom: 16px; }
+    .bom-title { font-size: 0.9rem; font-weight: 800; color: var(--amber); margin-bottom: 8px; display: flex; justify-content: space-between; }
+    .bom-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 0.82rem; gap: 8px; }
+    .bom-row:last-child { border-bottom: none; }
+    .bom-qty { background: var(--amber); color: #1e1b4b; font-weight: 900; padding: 2px 7px; border-radius: 5px; font-size: 0.75rem; margin-right: 6px; }
+    .bom-total { display: flex; justify-content: space-between; margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--border); font-weight: 800; font-size: 0.95rem; color: #fff; }
+
+    /* 2 Square Cards Per Row */
     .section-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; flex-wrap: wrap; gap: 6px; }
-    .section-head h2 { font-size: 1.08rem; color: #fff; }
-    .section-head p { font-size: 0.76rem; color: var(--muted); }
-    .square-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 24px; }
-    .sq-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 10px; display: flex; flex-direction: column; align-items: center; text-align: center; justify-content: space-between; cursor: pointer; transition: 0.2s; aspect-ratio: 1 / 1.1; }
+    .section-head h2 { font-size: 1.05rem; color: #fff; }
+    .section-head p { font-size: 0.75rem; color: var(--muted); }
+    .square-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+    .sq-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 10px; display: flex; flex-direction: column; align-items: center; text-align: center; justify-content: space-between; cursor: pointer; transition: 0.2s; aspect-ratio: 1 / 1.12; position: relative; }
     .sq-card:hover { border-color: var(--amber); background: var(--card-hover); transform: translateY(-2px); }
-    .sq-photo-box { width: 100%; height: 53%; background: #ffffff; border-radius: 10px; display: flex; align-items: center; justify-content: center; padding: 6px; margin-bottom: 5px; position: relative; overflow: hidden; }
+    .sq-photo-box { width: 100%; height: 52%; background: #ffffff; border-radius: 10px; display: flex; align-items: center; justify-content: center; padding: 6px; margin-bottom: 5px; position: relative; overflow: hidden; }
     .sq-photo-box img { max-width: 88%; max-height: 88%; object-fit: contain; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.18)); }
-    .sq-kind { position: absolute; top: 5px; left: 5px; background: #0f172a; color: #38bdf8; font-size: 0.61rem; font-weight: 800; padding: 2px 5px; border-radius: 4px; }
-    .sq-easy { position: absolute; top: 5px; right: 5px; background: #ecfdf5; color: #047857; border: 1px solid #6ee7b7; font-size: 0.59rem; font-weight: 800; padding: 1px 5px; border-radius: 4px; }
+    .sq-kind { position: absolute; top: 5px; left: 5px; background: #0f172a; color: #38bdf8; font-size: 0.6rem; font-weight: 800; padding: 2px 5px; border-radius: 4px; }
+    .sq-qty-badge { position: absolute; top: 5px; right: 5px; background: #10b981; color: #052e16; font-size: 0.64rem; font-weight: 900; padding: 2px 6px; border-radius: 5px; }
     .sq-info { width: 100%; display: flex; flex-direction: column; gap: 2px; }
     .sq-title { font-size: 0.83rem; font-weight: 800; color: #fff; line-height: 1.15; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .sq-human { font-size: 0.69rem; color: var(--muted); line-height: 1.15; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; height: 2.3em; }
+    .sq-human { font-size: 0.68rem; color: var(--muted); line-height: 1.15; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; height: 2.3em; }
     .sq-narrow-btn { display: flex; justify-content: space-between; align-items: center; width: 100%; background: var(--amber); color: #1e1b4b; font-weight: 800; font-size: 0.73rem; padding: 5px 8px; border-radius: 7px; text-decoration: none; margin-top: 2px; }
     .sq-narrow-btn:hover { background: var(--amber-hover); color: #fff; }
-    .sq-pdf-hint { font-size: 0.64rem; color: var(--accent); font-weight: 600; margin-top: 1px; }
+    .sq-pdf-hint { font-size: 0.63rem; color: var(--accent); font-weight: 600; margin-top: 1px; }
+
+    /* Step-by-Step Implementation & Diagram Box */
+    .impl-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 14px; align-items: start; }
+    @media (max-width: 720px) { .impl-grid { grid-template-columns: 1fr; } }
+    .svg-wrap { border-radius: 12px; overflow: hidden; border: 1px solid #cbd5e1; background: linear-gradient(135deg, #ffffff 0%, #eff6ff 55%, #dbeafe 100%); }
+    .roadmap-list { background: #090d16; border: 1px solid var(--border); border-radius: 12px; padding: 14px; }
+    .roadmap-step { margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 0.8rem; }
+    .roadmap-step:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .roadmap-step strong { color: var(--accent); display: block; margin-bottom: 2px; font-size: 0.83rem; }
+
+    /* Catalog & Schema Filter Bars */
+    .cat-bar { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 6px; margin-bottom: 12px; }
+    .cat-btn { background: var(--card); border: 1px solid var(--border); color: var(--muted); padding: 7px 12px; border-radius: 9px; font-size: 0.78rem; font-weight: 700; cursor: pointer; white-space: nowrap; }
+    .cat-btn.active { color: #1e1b4b; border-color: var(--amber); background: var(--amber); }
+    .variant-bar { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; background: rgba(15, 23, 42, 0.75); padding: 10px; border-radius: 12px; border: 1px solid var(--border); }
+    .var-btn { background: var(--card); border: 1px solid var(--border); color: var(--text); padding: 6px 10px; border-radius: 8px; font-size: 0.76rem; font-weight: 700; cursor: pointer; }
+    .var-btn.active { background: var(--amber); color: #1e1b4b; border-color: var(--amber); }
+    .btn-mini-action { background: rgba(56, 189, 248, 0.14); color: var(--accent); border: 1px solid rgba(56, 189, 248, 0.4); padding: 5px 10px; border-radius: 7px; font-weight: 700; font-size: 0.73rem; cursor: pointer; text-decoration: none; }
 
     /* Modal */
     .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(5, 8, 15, 0.88); z-index: 999; padding: 14px 10px; overflow-y: auto; align-items: flex-start; justify-content: center; }
@@ -105,7 +129,6 @@
     @media (max-width: 540px) { .doc-btn-row { grid-template-columns: 1fr; } }
     .btn-pdf { background: #0284c7; color: #fff; border: none; padding: 9px 10px; border-radius: 8px; font-weight: 700; font-size: 0.78rem; cursor: pointer; text-decoration: none; text-align: center; display: block; }
 
-    /* Admin Stats */
     #adminStatsPanel { display: none; margin-top: 20px; background: #0f172a; border: 2px solid var(--accent); border-radius: 14px; padding: 16px; }
     .stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 12px 0; }
     .stat-item { background: var(--card); border: 1px solid var(--border); padding: 10px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; font-size: 0.84rem; }
@@ -120,90 +143,118 @@
     <nav class="top-nav">
       <a href="/" class="nav-link">🧮 Proxy & GPU</a>
       <a href="/vram.html" class="nav-link">🧠 LLM VRAM</a>
-      <a href="/shelly.html" class="nav-link active">⚡ Shelly Smart-Home Berater (DE)</a>
+      <a href="/shelly.html" class="nav-link active">⚡ Smart-Home Fachberater (DE)</a>
     </nav>
 
     <header>
-      <span class="badge">Einsteiger-Assistent • Komplettes Shelly-Sortiment (24 Geräte) • 14 Schaltpläne</span>
-      <h1>Shelly Smart-Home Finder & Schaltplan-Zentrale</h1>
-      <p class="sub">Kein Fachchinesisch: Wähle einfach aus, was du zu Hause smart machen möchtest — wir zeigen dir genau, welches Bauteil du brauchst, wie es angeschlossen wird und den PDF-Beipackzettel.</p>
+      <span class="badge">Interaktiver Fachberater • Von der Idee bis zur fertigen Montage</span>
+      <h1>Shelly Smart-Home Projekt-Assistent</h1>
+      <p class="sub">Wie beim Profi-Berater im Fachmarkt: Wähle dein Projekt, beantworte 3 kurze Fragen zu deiner Wohnung und erhalte deinen maßgeschneiderten Einkaufszettel, den exakten Schaltplan und die Schritt-für-Schritt-Einrichtung.</p>
     </header>
 
-    <!-- 3 MODES SWITCHER -->
+    <!-- 3 MODES -->
     <div class="mode-switch">
-      <button class="mode-btn active" id="tabWizard" onclick="switchMode('wizard')">🧭 1. Wunsch-Berater</button>
-      <button class="mode-btn" id="tabCatalog" onclick="switchMode('catalog')">📦 2. Komplett-Sortiment (24)</button>
-      <button class="mode-btn" id="tabSchemas" onclick="switchMode('schemas')">🔌 3. Schaltpläne (14)</button>
+      <button class="mode-btn active" id="tabWizard" onclick="switchMode('wizard')">🧑‍🔧 1. Projekt-Berater (Start)</button>
+      <button class="mode-btn" id="tabCatalog" onclick="switchMode('catalog')">📦 2. Alle 24 Geräte</button>
+      <button class="mode-btn" id="tabSchemas" onclick="switchMode('schemas')">🔌 3. Alle 14 Schaltpläne</button>
     </div>
 
-    <!-- MODE 1: BEGINNER WISH WIZARD -->
-    <div id="viewWizard" class="wizard-box">
-      <div class="wizard-title">👋 Was möchtest du zu Hause smart machen?</div>
-      <div class="wizard-sub">Tippe einfach auf dein Vorhaben — auch ohne Vorkenntnisse siehst du sofort die beste Lösung:</div>
+    <!-- ==========================================
+         MODE 1: INTERACTIVE CONSULTANT (STEP 1..4)
+         ========================================== -->
+    <div id="viewWizard">
+      <!-- STEP 1: WAS MÖCHTEST DU UMSETZEN? -->
+      <div class="step-card">
+        <span class="step-badge">Schritt 1 von 4 • Deine Idee</span>
+        <div class="step-title">Was möchtest du bei dir zu Hause smart machen?</div>
+        <div class="step-sub">Wähle einen Bereich — der Berater passt alle Fragen sofort an dein Vorhaben an:</div>
 
-      <div class="wish-grid">
-        <button class="wish-btn active" onclick="selectWish('light_std', this)">
-          <span class="wish-icon">💡</span>
-          <div class="wish-text">
-            <strong>Deckenlampe & Lichtschalter</strong>
-            <span>Bestehende Wandschalter behalten + per Handy steuern</span>
-          </div>
-        </button>
-        <button class="wish-btn" onclick="selectWish('plug_easy', this)">
-          <span class="wish-icon">🔌</span>
-          <div class="wish-text">
-            <strong>Ohne Schrauben (Steckerfertig)</strong>
-            <span>Steckdosen, Kaffeemaschine, Waschmaschine & Garten</span>
-          </div>
-        </button>
-        <button class="wish-btn" onclick="selectWish('shutter', this)">
-          <span class="wish-icon">🪟</span>
-          <div class="wish-text">
-            <strong>Rollläden, Jalousien & Markisen</strong>
-            <span>Automatisch nach Sonnenaufgang oder per App fahren</span>
-          </div>
-        </button>
-        <button class="wish-btn" onclick="selectWish('dim_rgb', this)">
-          <span class="wish-icon">🔆</span>
-          <div class="wish-text">
-            <strong>Licht dimmen & LED-Streifen</strong>
-            <span>Helligkeit sanft regeln oder bunte RGBW-LEDs steuern</span>
-          </div>
-        </button>
-        <button class="wish-btn" onclick="selectWish('heating', this)">
-          <span class="wish-icon">🌡️</span>
-          <div class="wish-text">
-            <strong>Heizung sparen & Raumklima</strong>
-            <span>Heizkörper automatisch abdrehen, wenn das Fenster aufgeht</span>
-          </div>
-        </button>
-        <button class="wish-btn" onclick="selectWish('solar_em', this)">
-          <span class="wish-icon">☀️</span>
-          <div class="wish-text">
-            <strong>Balkonkraftwerk & Haus-Stromzähler</strong>
-            <span>Solar-Ertrag und Stromfresser im Haus live messen</span>
-          </div>
-        </button>
-        <button class="wish-btn" onclick="selectWish('garage_door', this)">
-          <span class="wish-icon">🚗</span>
-          <div class="wish-text">
-            <strong>Garagentor, Haustür & Klingel</strong>
-            <span>Torantrieb oder 12V-Türöffner per Smartphone öffnen</span>
-          </div>
-        </button>
-        <button class="wish-btn" onclick="selectWish('security_sensors', this)">
-          <span class="wish-icon">🚨</span>
-          <div class="wish-text">
-            <strong>Bewegung, Rauch- & Wassermelder</strong>
-            <span>Funk-Sensoren ohne Kabel für Licht & Sicherheit</span>
-          </div>
-        </button>
+        <div class="goal-grid">
+          <button class="goal-btn active" onclick="setGoal('light', this)">
+            <span class="goal-icon">💡</span>
+            <strong>Licht & Wandschalter</strong>
+            <span>Alte Schalter behalten + per App & Sprachbefehl schalten</span>
+          </button>
+          <button class="goal-btn" onclick="setGoal('shutter', this)">
+            <span class="goal-icon">🪟</span>
+            <strong>Rollläden & Jalousien</strong>
+            <span>Elektromotoren automatisch nach Zeit & Sonne fahren</span>
+          </button>
+          <button class="goal-btn" onclick="setGoal('heating', this)">
+            <span class="goal-icon">🌡️</span>
+            <strong>Heizung & Fenster-Stopp</strong>
+            <span>Heizkörper per Zeitplan regeln & beim Lüften abdrehen</span>
+          </button>
+          <button class="goal-btn" onclick="setGoal('solar', this)">
+            <span class="goal-icon">☀️</span>
+            <strong>Balkonkraftwerk & Zähler</strong>
+            <span>Solar-Ertrag (800W) und Hausverbrauch live messen</span>
+          </button>
+          <button class="goal-btn" onclick="setGoal('plugs', this)">
+            <span class="goal-icon">🔌</span>
+            <strong>Ohne Werkzeug (Stecker)</strong>
+            <span>Steckdosen, Waschmaschine, Kaffeemaschine & LED</span>
+          </button>
+          <button class="goal-btn" onclick="setGoal('garage', this)">
+            <span class="goal-icon">🚗</span>
+            <strong>Garagentor & Sicherheit</strong>
+            <span>Torantrieb, Türöffner, Bewegungsmelder & Rauchschutz</span>
+          </button>
+        </div>
       </div>
 
-      <div class="beginner-advice" id="wishAdvice"></div>
+      <!-- STEP 2: 3 KURZE FRAGEN ZUR BESTANDSAUFNAHME -->
+      <div class="step-card">
+        <span class="step-badge">Schritt 2 von 4 • Kurze Diagnose wie im Fachmarkt</span>
+        <div class="step-title" id="diagTitle">Beantworte 3 kurze Fragen zu deiner vorhandenen Installation:</div>
+        <div class="q-grid" id="diagQuestions"></div>
+      </div>
+
+      <!-- STEP 3: PERSÖNLICHE EMPFEHLUNG & EINKAUFSZETTEL -->
+      <div class="step-card">
+        <span class="step-badge">Schritt 3 von 4 • Deine fertige Teileliste & Direktkauf</span>
+        <div class="verdict-banner" id="verdictBox"></div>
+
+        <div class="bom-box">
+          <div class="bom-title">
+            <span>🧾 Dein exakter Einkaufszettel für dieses Projekt:</span>
+            <span id="bomDifficulty" style="color:#6ee7b7; font-size:0.78rem;"></span>
+          </div>
+          <div id="bomRows"></div>
+          <div class="bom-total">
+            <span>Geschätztes Gesamtbudget (Richtpreis):</span>
+            <span id="bomTotalSum" style="color:var(--green);"></span>
+          </div>
+        </div>
+
+        <div class="section-head">
+          <h2>📦 Deine ausgewählten Bauteile (Mit Direktlink zum Artikel)</h2>
+          <p>Tippe auf ein Gerät für das technische Datenblatt & den PDF-Beipackzettel aus der Box</p>
+        </div>
+        <div class="square-grid" id="wizardProductGrid"></div>
+      </div>
+
+      <!-- STEP 4: SCHRITT-FÜR-SCHRITT REALISIERUNG & SCHALTPLAN -->
+      <div class="step-card">
+        <span class="step-badge">Schritt 4 von 4 • Umsetzung & Einbau-Anleitung</span>
+        <div class="schema-header" style="margin-bottom:10px;">
+          <h2 id="wizSchemaTitle" style="font-size:1.05rem; color:#fff;"></h2>
+          <div style="display:flex; gap:6px;">
+            <a id="wizGalleryLink" href="https://community.shelly.cloud/gallery/category/3-wiring-diagrams/" target="_blank" rel="noopener" class="btn-mini-action">🖼️ Original Shelly-Plan</a>
+            <button class="btn-mini-action" onclick="window.print()">🖨️ Projektplan als PDF drucken</button>
+          </div>
+        </div>
+
+        <div class="impl-grid">
+          <div class="svg-wrap" id="wizSvgContainer"></div>
+          <div class="roadmap-list" id="wizRoadmap"></div>
+        </div>
+      </div>
     </div>
 
-    <!-- MODE 2: FULL CATALOG FILTER BAR -->
+    <!-- ==========================================
+         MODE 2: FULL 24-DEVICE CATALOG
+         ========================================== -->
     <div id="viewCatalog" style="display:none;">
       <div class="cat-bar">
         <button class="cat-btn active" onclick="filterFullCatalog('all', this)">🔍 Alle 24 Geräte</button>
@@ -214,11 +265,14 @@
         <button class="cat-btn" onclick="filterFullCatalog('climate', this)">🌡️ Heizung & Wand-Display</button>
         <button class="cat-btn" onclick="filterFullCatalog('blu', this)">👁️ Bluetooth & Gefahrenmelder</button>
         <button class="cat-btn" onclick="filterFullCatalog('pro', this)">📊 Zählerschrank (Pro / EM)</button>
-        <button class="cat-btn" onclick="filterFullCatalog('tools', this)">🧰 Klemmen & Schalter</button>
+        <button class="cat-btn" onclick="filterFullCatalog('tools', this)">🧰 Klemmen & Prüfgerät</button>
       </div>
+      <div class="square-grid" id="catalogGrid"></div>
     </div>
 
-    <!-- MODE 3: 14 WIRING DIAGRAMS -->
+    <!-- ==========================================
+         MODE 3: ALL 14 WIRING DIAGRAMS
+         ========================================== -->
     <div id="viewSchemas" style="display:none;">
       <div class="cat-bar" id="schemaCatBar">
         <button class="cat-btn active" onclick="selectSchemaCategory('wechsel_cat', this)">🔄 Wechsel- & Kreuzschaltung (3)</button>
@@ -228,33 +282,20 @@
         <button class="cat-btn" onclick="selectSchemaCategory('motor_cat', this)">🪟 Rollladen, Tor & 3-Phasen (3)</button>
       </div>
       <div class="variant-bar">
-        <div class="var-label">👇 Mögliche Varianten dieser Schaltung wählen:</div>
         <div id="variantButtons" style="display:flex; gap:6px; flex-wrap:wrap; width:100%;"></div>
       </div>
-    </div>
-
-    <!-- ACTIVE DIAGRAM BOX (Shown in Wizard & Schemas Mode) -->
-    <div class="schema-box" id="diagramSection">
-      <div class="schema-header">
-        <h2 id="schemaTitle"></h2>
-        <div style="display:flex; gap:6px;">
-          <a id="officialGalleryLink" href="https://community.shelly.cloud/gallery/category/3-wiring-diagrams/" target="_blank" rel="noopener" class="btn-mini-action">🖼️ Original Shelly-Galerie</a>
-          <button class="btn-mini-action" onclick="window.print()">🖨️ Plan als PDF</button>
+      <div class="step-card">
+        <div class="schema-header" style="margin-bottom:10px;">
+          <h2 id="schemaTitle" style="font-size:1.02rem; color:#fff;"></h2>
+          <a id="officialGalleryLink" href="#" target="_blank" rel="noopener" class="btn-mini-action">🖼️ Original Shelly-Galerie</a>
         </div>
+        <div class="svg-wrap" id="svgContainer" style="margin-bottom:10px;"></div>
+        <div id="pinHint" style="background:#090d16; padding:10px; border-radius:8px; font-size:0.8rem;"></div>
       </div>
-      <div class="svg-wrap" id="svgContainer"></div>
-      <div class="pin-bar" id="pinHint"></div>
+      <div class="square-grid" id="schemaProductGrid"></div>
     </div>
 
-    <!-- PRODUCTS GRID (2 SQUARE CARDS PER ROW) -->
-    <div class="section-head">
-      <h2 id="gridHeading">📦 Empfohlene Geräte & Zubehör</h2>
-      <p>Tippe auf ein Gerät für technische Daten & den gedruckten Beipackzettel (PDF)</p>
-    </div>
-
-    <div class="square-grid" id="compatGrid"></div>
-
-    <!-- MODAL: PASS & ORIGINAL PDF -->
+    <!-- PRODUCT PASSPORT & DIGITAL BOX MODAL -->
     <div class="modal-overlay" id="prodModal" onclick="if(event.target===this)closeModal()">
       <div class="modal-box">
         <button class="modal-close" onclick="closeModal()">✕</button>
@@ -266,10 +307,8 @@
             <p id="mHuman" style="color:var(--muted); font-size:0.82rem;"></p>
           </div>
         </div>
-
         <h3 style="color:var(--accent); font-size:0.88rem;">📐 Einfach erklärt & Technische Daten</h3>
         <table class="spec-table" id="mSpecTable"></table>
-
         <div class="box-docs">
           <h4>📄 Gedruckte Beilage aus der Verpackung (Digitaler PDF-Download)</h4>
           <ul class="box-list" id="mBoxContents"></ul>
@@ -278,9 +317,8 @@
             <a id="mKbUrl" href="#" target="_blank" rel="noopener" class="btn-pdf" style="background:#334155;">📘 Shelly Wissensdatenbank & Pläne</a>
           </div>
         </div>
-
         <a id="mBuyBtn" href="#" target="_blank" rel="noopener sponsored" class="sq-narrow-btn" style="padding:12px 16px; font-size:0.9rem; justify-content:center; gap:8px;">
-          <span>🛒 Aktuellen Tagespreis auf Amazon.de prüfen</span> <span id="mBuyPrice"></span>
+          <span>🛒 Direkt zum Gerät auf Amazon.de</span> <span id="mBuyPrice"></span>
         </a>
       </div>
     </div>
@@ -309,6 +347,7 @@
     const API_BASE = 'https://countapi.mileshilliard.com/api/v1';
     const PREFIX = 'alekseev_2026_';
     const SHOPIFY = 'https://cdn.shopify.com/s/files/1/0871/9967/8813/files/';
+    const PARTNER_TAG = 'alekseevtech-21';
 
     function trackClick(key) {
       if (localStorage.getItem('ignore_my_clicks') === '1') return;
@@ -326,341 +365,328 @@
       return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
     }
 
-    // COMPLETE 24-ITEM SHELLY & SMART HOME ASSORTMENT
+    function getAmazonLink(p) {
+      if (p.asin) return `https://www.amazon.de/dp/${p.asin}?tag=${PARTNER_TAG}`;
+      return `https://www.amazon.de/s?k=${encodeURIComponent(p.exactSearch)}&tag=${PARTNER_TAG}`;
+    }
+
     const PRODUCTS = {
       mini1pm: {
         name: 'Shelly 1PM Mini Gen3', cat: 'mini', easy: '🟡 Unterputz',
-        kind: 'Mini-Relais + Messung', price: 'ca. 14,90 €',
+        kind: 'Mini-Relais + Messung', price: 'ca. 14,90 €', numPrice: 14.90,
         human: 'Kleinster Funkschalter mit Strommessung für Licht & Steckdosen',
         img: SHOPIFY + 'Shelly-1PM-Mini-Gen3-main-image.png', fallback: makeFallback('#dc2626', '1PM MINI', '8A + WATT'),
-        amzQuery: 'Shelly+1PM+Mini+Gen3',
+        asin: 'B0DFHL9CRH', exactSearch: '3800235261590 "Shelly 1PM Mini Gen3"',
         pdfUrl: 'https://kb.shelly.cloud/__attachments/a_bed7e32c2f004bcf0354cf4798c6337d04ae8875bc096904e0e57fd2520fd421/Shelly%201PM%20Mini%20Gen3%20multilingual%20printed%20user%20and%20safety%20guide.pdf',
         kbUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-1pm-mini-gen3',
-        specs: [['Einsatzort', 'Unsichtbar in der Wanddose hinter dem bestehenden Lichtschalter'], ['Größe', '29 × 34 × 16 mm (passt auch in flache Dosen)'], ['Max. Last', '8 A / 2000 W inkl. Watt-Zähler'], ['Neutralleiter (Blau)', 'Ja, erforderlich']],
+        specs: [['EAN / ASIN', '3800235261590 / B0DFHL9CRH'], ['Größe', '29 × 34 × 16 mm (passt in jede flache Dose)'], ['Max. Last', '8 A / 2000 W inkl. Watt-Zähler']],
         box: ['1× Shelly 1PM Mini Gen3 (Rot)', 'Gedruckter Beipackzettel (DE/EN) mit Schaltplan']
       },
       mini1: {
         name: 'Shelly 1 Mini Gen3', cat: 'mini', easy: '🟡 Unterputz',
-        kind: 'Mini-Relais (Blau)', price: 'ca. 13,50 €',
+        kind: 'Mini-Relais (Blau)', price: 'ca. 13,50 €', numPrice: 13.50,
         human: 'Winziges Smart-Relais für Lichtschalter, Taster & Garagentor',
         img: SHOPIFY + 'Shelly-1-Mini-Gen3-main-image.png', fallback: makeFallback('#1d4ed8', '1 MINI G3', 'DRY 8A'),
-        amzQuery: 'Shelly+1+Mini+Gen3',
+        asin: 'B0DZHZDJXT', exactSearch: '3800235261576 "Shelly 1 Mini Gen3"',
         pdfUrl: 'https://kb.shelly.cloud/__attachments/a_18fff8095b40e8f8098011f4d03a706ad8d1d6de6bcfbb0f9cd128e025e43530/Shelly%201%20Mini%20Gen3%20multilingual%20printed%20user%20and%20safety%20guide.pdf',
         kbUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-1-mini-gen3',
-        specs: [['Einsatzort', 'Hinter Lichtschaltern oder am 12V/24V Garagentor-Antrieb'], ['Größe', '29 × 34 × 16 mm'], ['Besonderheit', 'Potenzialfreier Kontakt (Klemmen I und O stromlos)']],
+        specs: [['EAN / ASIN', '3800235261576 / B0DZHZDJXT'], ['Besonderheit', 'Potenzialfreier Kontakt (Klemmen I und O stromlos)']],
         box: ['1× Shelly 1 Mini Gen3 (Blau)', 'Mehrsprachiger Beipackzettel (PDF)']
       },
       minipm: {
         name: 'Shelly PM Mini Gen3', cat: 'mini', easy: '🟡 Unterputz',
-        kind: 'Reiner Mini-Stromzähler', price: 'ca. 12,90 €',
+        kind: 'Reiner Mini-Stromzähler', price: 'ca. 12,90 €', numPrice: 12.90,
         human: 'Misst unsichtbar den Stromverbrauch von Balkonkraftwerk & Großgeräten',
         img: SHOPIFY + 'Shelly-PM-Mini-Gen3-main-image.png', fallback: makeFallback('#f59e0b', 'PM MINI', '16A METER'),
-        amzQuery: 'Shelly+PM+Mini+Gen3',
+        asin: 'B0CQCNKVD4', exactSearch: '3800235261613 "Shelly PM Mini Gen3"',
         pdfUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-pm-mini-gen3',
         kbUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-pm-mini-gen3',
-        specs: [['Einsatzort', 'Hinter Steckdosen für Kühlschrank, Gefriertruhe oder Balkonkraftwerk'], ['Vorteil', 'Kein Relais verbaut -> kann das Gerät niemals versehentlich ausschalten!'], ['Max. Strom', '16 A / 3500 W Echtzeit-Messung']],
-        box: ['1× Shelly PM Mini Gen3 (Gelb/Weiß)', 'Beipackzettel mit Mess-Schaltplan']
+        specs: [['EAN / ASIN', '3800235261613 / B0CQCNKVD4'], ['Vorteil', 'Kein Relais verbaut -> schaltet Kühlschrank oder Solar nie versehentlich ab']],
+        box: ['1× Shelly PM Mini Gen3', 'Beipackzettel mit Mess-Schaltplan']
       },
       plus1pm: {
-        name: 'Shelly Plus 1PM (Gen3)', cat: 'relais', easy: '🟡 Unterputz',
-        kind: '16A Leistungs-Relais', price: 'ca. 17,90 €',
+        name: 'Shelly Plus 1PM', cat: 'relais', easy: '🟡 Unterputz',
+        kind: '16A Leistungs-Relais', price: 'ca. 17,90 €', numPrice: 17.90,
         human: 'Starkes 16A Smart-Relais (3500W) mit Strommessung für Steckdosen & Licht',
         img: SHOPIFY + 'Shelly-1PM-Mini-Gen3-2pack.png', fallback: makeFallback('#b91c1c', 'PLUS 1PM', '16A 3500W'),
-        amzQuery: 'Shelly+Plus+1PM+Gen3',
+        asin: 'B09Q2S4FPS', exactSearch: '"Shelly Plus 1PM" 16A',
         pdfUrl: 'https://m.media-amazon.com/images/I/71MRn08eLbL.pdf',
         kbUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-plus-1pm',
-        specs: [['Einsatzort', 'Steckdosen (Waschmaschine/Trockner) & normale Lichtschalter'], ['Max. Leistung', '16 A / 3500 W inkl. Überhitzungsschutz'], ['Klemmen', '3× L und 2× N direkt zum Durchschleifen integriert']],
+        specs: [['ASIN', 'B09Q2S4FPS'], ['Max. Leistung', '16 A / 3500 W inkl. Überhitzungsschutz']],
         box: ['1× Shelly Plus 1PM (Rot)', 'Original-Beipackzettel (PDF)']
       },
       plus1: {
-        name: 'Shelly Plus 1 (Gen3)', cat: 'relais', easy: '🟡 Unterputz',
-        kind: '16A Allround-Relais', price: 'ca. 15,90 €',
+        name: 'Shelly Plus 1', cat: 'relais', easy: '🟡 Unterputz',
+        kind: '16A Allround-Relais', price: 'ca. 15,90 €', numPrice: 15.90,
         human: 'Klassisches 16A Relais für Licht, Garagentor, Klingel & 12V-Betrieb',
         img: SHOPIFY + 'Shelly-1-Mini-Gen3-2pack.png', fallback: makeFallback('#0284c7', 'PLUS 1', '16A DRY'),
-        amzQuery: 'Shelly+Plus+1+Gen3',
+        asin: 'B0CN19JZKB', exactSearch: '3800235261767 "Shelly 1 Gen3"',
         pdfUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-plus-1',
         kbUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-plus-1',
-        specs: [['Spannung', '230V AC oder 12V DC / 24–48V DC'], ['Kontakt', 'Potenzialfrei bis 16A']],
+        specs: [['EAN / ASIN', '3800235261767 / B0CN19JZKB'], ['Kontakt', 'Potenzialfrei bis 16A (230V AC & 12V DC)']],
         box: ['1× Shelly Plus 1 (Blau)', 'Beipackzettel mit 230V- & 12V-Schaltplan']
       },
       plus2pm: {
         name: 'Shelly Plus 2PM Gen3', cat: 'relais', easy: '🟡 Unterputz',
-        kind: 'Rollladen & 2-Kanal', price: 'ca. 26,90 €',
+        kind: 'Rollladen & 2-Kanal', price: 'ca. 26,90 €', numPrice: 26.90,
         human: 'Steuert elektrische Rollläden (Auf/Ab) oder 2 Lampen am Doppelschalter',
         img: SHOPIFY + 'Shelly-Plus-i4-DC-main-image.png', fallback: makeFallback('#1e293b', 'PLUS 2PM', 'ROLLLADEN'),
-        amzQuery: 'Shelly+Plus+2PM+Gen3+Rollladen',
+        exactSearch: '"Shelly 2PM Gen3" OR "Shelly Plus 2PM" Rollladen',
         pdfUrl: 'https://kb.shelly.cloud/__attachments/391315459/Shelly%20Plus%202PM%20multilingual%20printed%20user%20and%20safety%20guide.pdf',
         kbUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-2pm-gen3',
-        specs: [['Einsatzort', 'Hinter dem Rollladentaster oder Serienschalter (2 Wippen)'], ['Funktion', 'Erkennt Endanschlag oben/unten automatisch und fährt auf Wunsch-Prozent (z.B. 50%)']],
+        specs: [['Funktion', 'Automatische Endlagenerkennung für Rollladenmotoren oder 2 Lichtkreise']],
         box: ['1× Shelly Plus 2PM (Schwarz)', 'Beipackzettel für Rollladenmotor & Doppelschalter']
       },
       shelly1l: {
         name: 'Shelly 1L + Bypass', cat: 'relais', easy: '🟡 Altbau 2-Draht',
-        kind: 'Ohne Neutralleiter', price: 'ca. 21,90 €',
+        kind: 'Ohne Neutralleiter', price: 'ca. 21,90 €', numPrice: 21.90,
         human: 'Spezial-Relais für Altbau, wenn der blaue Draht in der Dose fehlt',
         img: makeFallback('#ea580c', '1L + BYPASS', 'OHNE N'), fallback: makeFallback('#ea580c', '1L + BYPASS', 'OHNE N'),
-        amzQuery: 'Shelly+1L+Bypass+ohne+Neutralleiter',
+        exactSearch: '"Shelly 1L" Bypass',
         pdfUrl: 'https://kb.shelly.cloud/__attachments/391315459/Shelly%201L%20Gen3%20multilingual%20printed%20user%20and%20safety%20guide.pdf',
         kbUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-1l',
-        specs: [['Problem-Löser', 'Funktioniert mit nur 2 Adern (Phase + Lampendraht) ohne Neutralleiter'], ['Bypass inklusive', 'Verhindert das Nachglimmen von sparsamen LED-Lampen']],
+        specs: [['Problem-Löser', 'Arbeitet mit nur 2 Adern (Phase + Lampendraht) ohne blauen Neutralleiter']],
         box: ['1× Shelly 1L + 1× Shelly Bypass', 'Altbau-Schaltplan (PDF)']
       },
       dimmer2: {
-        name: 'Shelly Dimmer 2 / Gen3', cat: 'dimmer', easy: '🟡 Unterputz',
-        kind: 'Smart-Dimmer', price: 'ca. 24,90 €',
+        name: 'Shelly Dimmer 2', cat: 'dimmer', easy: '🟡 Unterputz',
+        kind: 'Smart-Dimmer', price: 'ca. 24,90 €', numPrice: 24.90,
         human: 'Dimmt Deckenlampen & LED-Spots stufenlos (geht auch ohne Neutralleiter)',
-        img: makeFallback('#16a34a', 'DIMMER', '10-200W LED'), fallback: makeFallback('#16a34a', 'DIMMER', '10-200W LED'),
-        amzQuery: 'Shelly+Dimmer+2+LED',
+        img: makeFallback('#16a34a', 'DIMMER 2', '10-200W LED'), fallback: makeFallback('#16a34a', 'DIMMER 2', '10-200W LED'),
+        exactSearch: '"Shelly Dimmer 2"',
         pdfUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-dimmer-2',
         kbUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-dimmer-2',
-        specs: [['Funktion', 'Stufenloses Dimmen per App, Sprachbefehl oder kurzem/langem Tastendruck'], ['Besonderheit', 'Mit und ohne Neutralleiter einsetzbar (10–220W)'] ],
-        box: ['1× Shelly Dimmer Modul (Grün)', 'Dimm-Kalibrierungs- & Schaltplan (PDF)']
+        specs: [['Besonderheit', 'Stufenloses Dimmen mit und ohne Neutralleiter (10–220W)']],
+        box: ['1× Shelly Dimmer 2 (Grün)', 'Dimm-Schaltplan (PDF)']
       },
       rgbwpm: {
         name: 'Shelly Plus RGBW PM', cat: 'dimmer', easy: '🟢 12V / 24V LED',
-        kind: 'LED-Streifen Controller', price: 'ca. 21,90 €',
+        kind: 'LED-Streifen Controller', price: 'ca. 21,90 €', numPrice: 21.90,
         human: 'Macht jeden 12V/24V LED-Streifen (Farbig RGBW oder Weiß) smart',
         img: makeFallback('#9333ea', 'RGBW PM', '12V/24V LED'), fallback: makeFallback('#9333ea', 'RGBW PM', '12V/24V LED'),
-        amzQuery: 'Shelly+Plus+RGBW+PM+LED+Controller',
+        asin: 'B08WL2K9JR', exactSearch: '"Shelly Plus RGBW PM"',
         pdfUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-plus-rgbw-pm',
         kbUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-plus-rgbw-pm',
-        specs: [['Einsatzort', 'Wird einfach zwischen 12V/24V Netzteil und den LED-Streifen geklemmt'], ['Kanäle', '4 Kanäle (R, G, B, Weiß oder 4 separate weiße Lichtbänder)']],
-        box: ['1× Shelly Plus RGBW PM Controller', 'LED-Anschlussplan (PDF)']
+        specs: [['ASIN', 'B08WL2K9JR'], ['Einsatzort', 'Zwischen 12V/24V Netzteil und LED-Band']],
+        box: ['1× Shelly RGBW Controller', 'LED-Anschlussplan (PDF)']
       },
       plusi4: {
-        name: 'Shelly Plus i4 Gen3', cat: 'relais', easy: '🟡 Szenen-Sender',
-        kind: '4-fach Szenen-Modul', price: 'ca. 16,90 €',
+        name: 'Shelly i4 Gen3', cat: 'relais', easy: '🟡 Szenen-Sender',
+        kind: '4-fach Szenen-Modul', price: 'ca. 16,90 €', numPrice: 16.90,
         human: 'Verwandelt einen Wandschalter in eine Fernbedienung für das ganze Haus',
         img: SHOPIFY + 'Shelly-Plus-i4-DC-main-image.png', fallback: makeFallback('#ea580c', 'PLUS i4', '4 SZENEN'),
-        amzQuery: 'Shelly+Plus+i4+Gen3',
+        exactSearch: '"Shelly i4 Gen3" OR "Shelly Plus i4"',
         pdfUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-i4-gen3',
         kbUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-i4-gen3',
-        specs: [['Funktion', 'Erkennt 1×, 2×, 3× Klick und langes Drücken auf bis zu 4 Tastern (12 Aktionen)'], ['Ideal für', '„Alles Aus“-Schalter an der Haustür oder neben dem Bett']],
-        box: ['1× Shelly Plus i4 Gen3', 'Taster-Schaltplan (PDF)']
+        specs: [['Funktion', 'Steuert bis zu 12 Szenen per Mehrfachklick am Taster']],
+        box: ['1× Shelly i4 Gen3', 'Taster-Schaltplan (PDF)']
       },
       plusuni: {
         name: 'Shelly Plus Uni', cat: 'relais', easy: '🟢 Kleinspannung',
-        kind: '12V/24V Universal-Modul', price: 'ca. 14,50 €',
+        kind: '12V/24V Universal-Modul', price: 'ca. 14,50 €', numPrice: 14.50,
         human: 'Macht Türklingel, Gegensprechanlage, Wohnmobil & Gartenbewässerung smart',
         img: makeFallback('#0d9488', 'PLUS UNI', '9-24V AC/DC'), fallback: makeFallback('#0d9488', 'PLUS UNI', '9-24V AC/DC'),
-        amzQuery: 'Shelly+Plus+Uni',
+        exactSearch: '"Shelly Plus Uni"',
         pdfUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-plus-uni',
         kbUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-plus-uni',
-        specs: [['Spannung', '8–24V AC oder 9–28V DC (ungefährliche Kleinspannung)'], ['Ausgänge', '2 potenzialfreie Ausgänge + Impulszähler + Sensor-Eingang']],
-        box: ['1× Shelly Plus Uni Platine mit Anschlusskabeln', 'Schaltplan für Klingel & Tor (PDF)']
+        specs: [['Spannung', '8–24V AC oder 9–28V DC']],
+        box: ['1× Shelly Plus Uni mit Anschlusskabeln', 'Klingel-Schaltplan (PDF)']
       },
       plugs: {
         name: 'Shelly Plug S Gen3', cat: 'plugplay', easy: '🟢 Steckerfertig!',
-        kind: 'WLAN Smart-Steckdose', price: 'ca. 22,90 €',
+        kind: 'WLAN Smart-Steckdose', price: 'ca. 22,90 €', numPrice: 22.90,
         human: 'Einfach einstecken: Schaltet Geräte und misst den Stromverbrauch (bis 2500W)',
         img: makeFallback('#0284c7', 'PLUG S G3', '2500W + LED'), fallback: makeFallback('#0284c7', 'PLUG S G3', '2500W + LED'),
-        amzQuery: 'Shelly+Plug+S+Gen3+Smart+Plug',
+        asin: 'B0DJFCQRWL', exactSearch: '3800235261842 "Shelly Plug S Gen3"',
         pdfUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-plug-s-mtr-gen3',
         kbUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-plug-s-mtr-gen3',
-        specs: [['Montage', '0 Minuten — einfach in die normale Steckdose stecken (kein Elektriker nötig)'], ['Extras', 'Farbiger LED-Leuchtring (auch als Nachtlicht nutzbar) + Matter-Standard']],
-        box: ['1× Shelly Plug S Gen3 Zwischenstecker', 'Gedruckte Kurzanleitung (DE)']
+        specs: [['EAN / ASIN', '3800235261842 / B0DJFCQRWL'], ['Montage', '0 Minuten — einfach in die Steckdose stecken']],
+        box: ['1× Shelly Plug S Gen3 Zwischenstecker', 'Kurzanleitung (DE)']
       },
       outdoorplug: {
-        name: 'Shelly Outdoor Plug S', cat: 'plugplay', easy: '🟢 Steckerfertig!',
-        kind: 'Wetterfeste Außensteckdose', price: 'ca. 26,90 €',
+        name: 'Shelly Outdoor Plug S Gen3', cat: 'plugplay', easy: '🟢 Steckerfertig!',
+        kind: 'Wetterfeste Außensteckdose', price: 'ca. 26,90 €', numPrice: 26.90,
         human: 'Spritzwassergeschützte WLAN-Steckdose (IP44) für Balkonkraftwerk & Garten',
         img: makeFallback('#0369a1', 'OUTDOOR', 'IP44 2500W'), fallback: makeFallback('#0369a1', 'OUTDOOR', 'IP44 2500W'),
-        amzQuery: 'Shelly+Outdoor+Plug+S+Gen3',
+        exactSearch: '"Shelly Outdoor Plug S Gen3"',
         pdfUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-outdoor-plug-s-gen3',
         kbUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-outdoor-plug-s-gen3',
-        specs: [['Schutzklasse', 'IP44 wetterfest mit Klappdeckel für Balkon, Terrasse & Teichpumpe'], ['Leistung', 'Bis 12A / 2500W inkl. Solar-Einspeisemessung']],
+        specs: [['Schutzklasse', 'IP44 wetterfest für Balkon & Garten']],
         box: ['1× Shelly Outdoor Plug S Gen3', 'Beipackzettel (DE)']
       },
       trv: {
-        name: 'Shelly TRV Thermostat', cat: 'climate', easy: '🟢 Ohne Kabel!',
-        kind: 'Heizkörperthermostat', price: 'ca. 54,90 €',
+        name: 'Shelly BLU TRV Thermostat', cat: 'climate', easy: '🟢 Ohne Kabel!',
+        kind: 'Heizkörperthermostat', price: 'ca. 44,90 €', numPrice: 44.90,
         human: 'Schraubt man in 2 Min. an den Heizkörper — spart bis zu 30% Heizkosten',
         img: makeFallback('#0f172a', 'SHELLY TRV', 'HEIZUNG'), fallback: makeFallback('#0f172a', 'SHELLY TRV', 'HEIZUNG'),
-        amzQuery: 'Shelly+TRV+Heizk%C3%B6rperthermostat+BLU',
+        exactSearch: '3800235268322 "Shelly BLU TRV"',
         pdfUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-trv',
         kbUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-trv',
-        specs: [['Montage', 'Alten Drehknopf am Heizkörper abschrauben, Shelly TRV aufschrauben (M30×1,5)'], ['Akku', 'Integrierter USB-C Akku (hält bis zu 2 Heizperioden) + Adapterringe inklusive']],
-        box: ['1× Shelly Heizkörperthermostat + 4× Ventil-Adapter', 'Gedruckte Montageanleitung']
+        specs: [['EAN', '3800235268322'], ['Montage', 'In 2 Minuten auf das Heizkörperventil M30×1,5 schrauben']],
+        box: ['1× Shelly Heizkörperthermostat + Adapterringe', 'Montageanleitung']
       },
       walldisplay: {
         name: 'Shelly Wall Display', cat: 'climate', easy: '🟡 In Schalterdose',
-        kind: '4-Zoll Touch-Wanddisplay', price: 'ca. 119,00 €',
-        human: 'Ersetzt einen normalen Lichtschalter durch einen schicken Touchscreen + Thermostat',
+        kind: '4-Zoll Touch-Wanddisplay', price: 'ca. 119,00 €', numPrice: 119.00,
+        human: 'Ersetzt einen normalen Lichtschalter durch einen Touchscreen + Raumthermostat',
         img: makeFallback('#1e293b', 'DISPLAY', '4" TOUCH'), fallback: makeFallback('#1e293b', 'DISPLAY', '4" TOUCH'),
-        amzQuery: 'Shelly+Wall+Display',
+        exactSearch: '"Shelly Wall Display"',
         pdfUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-wall-display',
         kbUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-wall-display',
-        specs: [['Einbau', 'Passt direkt in eine normale 60mm Wanddose anstelle des alten Lichtschalters'], ['Funktionen', 'Eigenes 5A Relais + Raumthermostat + Steuerung aller Lampen & Rollläden']],
-        box: ['1× Shelly Wall Display mit Montagerahmen', 'Anschlussplan L, N, SW, O (PDF)']
+        specs: [['Einbau', 'Passt in eine normale 60mm Schalterdose']],
+        box: ['1× Shelly Wall Display', 'Anschlussplan L, N, SW, O (PDF)']
       },
       htgen3: {
-        name: 'Shelly H&T Gen3 Display', cat: 'climate', easy: '🟢 Batterie / USB',
-        kind: 'Klima- & Schimmelwächter', price: 'ca. 27,90 €',
-        human: 'Zeigt Raumtemperatur, Luftfeuchtigkeit & Uhrzeit auf scharfem E-Paper Display',
+        name: 'Shelly Plus H&T / Gen3', cat: 'climate', easy: '🟢 Batterie / USB',
+        kind: 'Klima- & Schimmelwächter', price: 'ca. 27,90 €', numPrice: 27.90,
+        human: 'Zeigt Raumtemperatur, Luftfeuchtigkeit & Uhrzeit auf E-Paper Display',
         img: makeFallback('#475569', 'H&T Gen3', '°C + % RH'), fallback: makeFallback('#475569', 'H&T Gen3', '°C + % RH'),
-        amzQuery: 'Shelly+HT+Gen3+Sensor',
+        asin: 'B0B8TMPYLG', exactSearch: '"Shelly H&T Gen3"',
         pdfUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-h-t-gen3',
         kbUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-h-t-gen3',
-        specs: [['Einsatzort', 'Wohnzimmer, Bad, Kinderzimmer oder Keller (warnt vor Schimmelgefahr)'], ['Strom', '4× AA Batterien (1 Jahr) oder USB-C Anschluss inkl. Wandhalterung']],
-        box: ['1× Shelly H&T Gen3 mit Tischständer & Wandhalter', 'Beipackzettel (PDF)']
+        specs: [['ASIN', 'B0B8TMPYLG'], ['Funktion', 'Raumthermostat & Feuchtewächter']],
+        box: ['1× Shelly H&T mit Tischständer & Wandhalter', 'Beipackzettel (PDF)']
       },
       bludoor: {
         name: 'Shelly BLU Door/Window', cat: 'blu', easy: '🟢 Einfach ankleben!',
-        kind: 'Fenster- & Türsensor', price: 'ca. 14,90 €',
+        kind: 'Fenster- & Türsensor', price: 'ca. 14,90 €', numPrice: 14.90,
         human: 'Erkennt offene und gekippte Fenster — dreht sofort die Heizung ab',
         img: SHOPIFY + 'Shelly-BLU-Door-Window-White-main-image.png', fallback: makeFallback('#0284c7', 'BLU DOOR', '5 J. BATTERIE'),
-        amzQuery: 'Shelly+BLU+Door+Window+Sensor',
+        asin: 'B0C718F4LG', exactSearch: '"Shelly BLU Door/Window"',
         pdfUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-blu-door-window',
         kbUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-blu-door-window',
-        specs: [['Montage', 'Wird mit dem beiliegenden 3M-Klebepad einfach an den Fensterrahmen geklebt'], ['Extras', 'Misst zusätzlich den Kippwinkel des Fensters + Helligkeit (Lux)']],
-        box: ['1× Sensor + Magnet + Knopfzelle (hält bis 5 Jahre)', 'Klebeanleitung (PDF)']
+        specs: [['ASIN', 'B0C718F4LG'], ['Montage', 'Per Klebepad an den Fensterrahmen kleben (5 Jahre Batterie)']],
+        box: ['1× Sensor + Magnet + Knopfzelle', 'Klebeanleitung (PDF)']
       },
       blumotion: {
         name: 'Shelly BLU Motion', cat: 'blu', easy: '🟢 Einfach ankleben!',
-        kind: 'Funk-Bewegungsmelder', price: 'ca. 18,90 €',
+        kind: 'Funk-Bewegungsmelder', price: 'ca. 18,90 €', numPrice: 18.90,
         human: 'Schaltet das Licht im Flur, Bad oder Keller automatisch bei Bewegung ein',
         img: makeFallback('#0ea5e9', 'BLU MOTION', 'BEWEGUNG'), fallback: makeFallback('#0ea5e9', 'BLU MOTION', 'BEWEGUNG'),
-        amzQuery: 'Shelly+BLU+Motion+Sensor',
+        exactSearch: '"Shelly BLU Motion"',
         pdfUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-blu-motion',
         kbUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-blu-motion',
-        specs: [['Reaktionszeit', 'Unter 100 Millisekunden (sofortiges Licht ohne Verzögerung)'], ['Batterie', 'Bis zu 5 Jahre Batterielaufzeit inkl. Lichtsensor (schaltet nur bei Dunkelheit)']],
-        box: ['1× Shelly BLU Motion + schwenkbarer Klebefuß', 'Beipackzettel (PDF)']
+        specs: [['Reaktionszeit', 'Sofortiges Licht (<100 ms) + Helligkeitssensor']],
+        box: ['1× Shelly BLU Motion inkl. Klebefuß', 'Beipackzettel (PDF)']
       },
       blubutton: {
-        name: 'Shelly BLU Button / Switch', cat: 'blu', easy: '🟢 Kabellos!',
-        kind: 'Funk-Taster & Fernbedienung', price: 'ca. 14,90 €',
-        human: 'Kabelloser Schalter für Nachttisch, Sofa, Schlüsselbund oder Glaswand',
+        name: 'Shelly BLU Button1', cat: 'blu', easy: '🟢 Kabellos!',
+        kind: 'Funk-Taster & Fernbedienung', price: 'ca. 14,90 €', numPrice: 14.90,
+        human: 'Kabelloser Schalter für Nachttisch, Sofa, Schlüsselbund oder Wand',
         img: makeFallback('#6366f1', 'BLU BUTTON', '4 KLICK-ARTEN'), fallback: makeFallback('#6366f1', 'BLU BUTTON', '4 KLICK-ARTEN'),
-        amzQuery: 'Shelly+BLU+Button1+Tough',
+        exactSearch: '"Shelly BLU Button1"',
         pdfUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-blu-button1',
         kbUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-blu-button1',
-        specs: [['Funktion', 'Schaltet bis zu 4 verschiedene Lampen/Rollläden per 1×, 2×, 3× oder langem Klick'], ['Reichweite', 'Jeder eingebaute Shelly Plus/Gen3 im Haus dient automatisch als Bluetooth-Empfänger!']],
-        box: ['1× Shelly BLU Button inkl. Batterie', 'Kurzanleitung (PDF)']
+        specs: [['Funktion', 'Bis zu 4 Aktionen per 1×, 2×, 3× oder langem Druck']],
+        box: ['1× Shelly BLU Button1 inkl. Batterie', 'Kurzanleitung (PDF)']
       },
       smoke_flood: {
-        name: 'Shelly Smoke / Flood', cat: 'blu', easy: '🟢 Kabellos!',
-        kind: 'Rauch- & Wassermelder', price: 'ca. 29,90 €',
-        human: 'Schlägt sofort auf dem Handy Alarm bei Rauch oder auslaufender Waschmaschine',
-        img: makeFallback('#dc2626', 'SMOKE/FLOOD', 'ALARM 85dB'), fallback: makeFallback('#dc2626', 'SMOKE/FLOOD', 'ALARM 85dB'),
-        amzQuery: 'Shelly+Plus+Smoke+Flood+Wassermelder',
+        name: 'Shelly Plus Smoke', cat: 'blu', easy: '🟢 Kabellos!',
+        kind: 'WLAN Rauchmelder', price: 'ca. 29,90 €', numPrice: 29.90,
+        human: 'Schlägt sofort per Sirene und auf dem Handy Alarm bei Rauchentwicklung',
+        img: makeFallback('#dc2626', 'PLUS SMOKE', 'ALARM 85dB'), fallback: makeFallback('#dc2626', 'PLUS SMOKE', 'ALARM 85dB'),
+        exactSearch: '"Shelly Plus Smoke"',
         pdfUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-plus-smoke',
         kbUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-plus-smoke',
-        specs: [['Sicherheit', '85 dB Sirene am Gerät + Push-Alarm aufs Smartphone weltweit'], ['Automatisierung', 'Kann bei Alarm automatisch alle Rollläden öffnen und das Fluchtweg-Licht einschalten']],
-        box: ['1× Gefahrenmelder inkl. Langzeit-Batterie', 'Prüf- & Montageblatt (PDF)']
+        specs: [['Sicherheit', '85 dB Sirene + Push-Alarm aufs Smartphone']],
+        box: ['1× Shelly Plus Smoke inkl. Batterie', 'Prüfblatt (PDF)']
       },
       pro3em: {
         name: 'Shelly Pro 3EM (120A)', cat: 'pro', easy: '🔴 Sicherungskasten',
-        kind: '3-Phasen Hauszähler', price: 'ca. 109,00 €',
+        kind: '3-Phasen Hauszähler', price: 'ca. 109,00 €', numPrice: 109.00,
         human: 'Misst im Sicherungskasten den gesamten Hausverbrauch, Wärmepumpe & Solar',
         img: SHOPIFY + 'Shelly-Pro-3EM-400-main-image.png', fallback: makeFallback('#0284c7', 'PRO 3EM', '3x 120A'),
-        amzQuery: 'Shelly+Pro+3EM+120A+Smart+Meter',
+        exactSearch: '3800235268100 "Shelly Pro 3EM"',
         pdfUrl: 'https://kb.shelly.cloud/__attachments/a_86bf4e57c4a4c4ae040460c1ee19b9399a3baa2b5ca4e4929f709c374074814f/Shelly%20Pro%203EM%20multilingual%20printed%20user%20and%20safety%20guide.pdf',
         kbUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-pro-3em',
-        specs: [['Montage', 'Auf der Hutschiene im Zählerschrank (inkl. 3 Klapp-Messspulen für L1, L2, L3)'], ['Beliebt für', 'Nulleinspeisung mit Balkonkraftwerk-Speichern (Zendure, Anker, EcoFlow, Hoymiles)']],
-        box: ['1× Shelly Pro 3EM + 3× 120A Stromwandler-Klemmen', 'Original-Beipackzettel (PDF)']
+        specs: [['EAN', '3800235268100 (120A Version)'], ['Montage', 'Hutschiene im Zählerschrank inkl. 3 Mess-Spulen']],
+        box: ['1× Shelly Pro 3EM + 3× 120A Stromwandler', 'Original-Beipackzettel (PDF)']
       },
       pro1_4pm: {
-        name: 'Shelly Pro 1 / Pro 4PM', cat: 'pro', easy: '🔴 Sicherungskasten',
-        kind: 'Hutschienen-Schaltrelais', price: 'ca. 48,90 €',
+        name: 'Shelly Pro 1PM / 2PM', cat: 'pro', easy: '🔴 Sicherungskasten',
+        kind: 'Hutschienen-Schaltrelais', price: 'ca. 48,90 €', numPrice: 48.90,
         human: 'Schaltet komplette Stromkreise oder ersetzt klackende Eltakos im Schrank',
         img: SHOPIFY + 'Shelly-Pro-1-main-image.png', fallback: makeFallback('#0369a1', 'PRO SERIE', 'HUTSCHIENE'),
-        amzQuery: 'Shelly+Pro+1+Pro+4PM+Hutschiene',
+        asin: 'B0C9Q684ZZ', exactSearch: '"Shelly Pro 1PM"',
         pdfUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-pro-1',
         kbUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-pro-4pm',
-        specs: [['Anschluss', 'Direkt auf die DIN-Hutschiene im Verteilerkasten (mit LAN-Kabel & WLAN)'], ['Varianten', '1-Kanal (Pro 1 / 1PM), 2-Kanal (Pro 2PM) oder 4-Kanal mit Farbdisplay (Pro 4PM)']],
+        specs: [['ASIN', 'B0C9Q684ZZ']],
         box: ['1× Shelly Pro Hutschienen-Relais', 'Verteiler-Schaltplan (PDF)']
       },
       wago221: {
-        name: 'WAGO 221 Klemmen-Set', cat: 'tools', easy: '🧰 Pflicht-Zubehör',
-        kind: 'Hebel-Verbindungsklemmen', price: 'ca. 14,90 €',
+        name: 'WAGO 221-413 Klemmen', cat: 'tools', easy: '🧰 Pflicht-Zubehör',
+        kind: 'Hebel-Verbindungsklemmen', price: 'ca. 14,90 €', numPrice: 14.90,
         human: 'Unverzichtbar zum sicheren Aufteilen der Stromdrähte (L & N) in der Dose',
         img: makeFallback('#ea580c', 'WAGO 221', '2er/3er/5er'), fallback: makeFallback('#ea580c', 'WAGO 221', '2er/3er/5er'),
-        amzQuery: 'WAGO+221+Klemmen+Set+Sortiment',
-        pdfUrl: 'https://www.amazon.de/s?k=WAGO+221+Klemmen+Set+Sortiment&tag=alekseevtech-21',
+        exactSearch: '4050821808442 "WAGO 221"',
+        pdfUrl: 'https://www.wago.com/de/installationsklemmen/verbindungsklemmen-221',
         kbUrl: 'https://www.wago.com/de/installationsklemmen/verbindungsklemmen-221',
-        specs: [['Warum nötig?', 'Damit du die Phase (Braun) und den Neutralleiter (Blau) sauber zum Schalter UND zum Shelly abzweigen kannst']],
-        box: ['Sortimentskasten mit 2er, 3er und 5er WAGO 221 Hebelklemmen']
+        specs: [['EAN', '4050821808442 (Original WAGO Serie 221)']],
+        box: ['Original WAGO 221 COMPACT Hebelklemmen']
       },
       wallswitch: {
-        name: 'Shelly Wandschalter & Duspol', cat: 'tools', easy: '🧰 Schalter & Prüfer',
-        kind: 'Taster & Spannungsprüfer', price: 'ca. 19,90 €',
-        human: 'Flache Shelly Wandtaster mit Relais-Halterung & VDE-Spannungsprüfer',
-        img: makeFallback('#dc2626', 'SCHALTER', '& DUSPOL'), fallback: makeFallback('#dc2626', 'SCHALTER', '& DUSPOL'),
-        amzQuery: 'Shelly+Wall+Switch+Benning+Duspol',
+        name: 'Benning DUSPOL Prüfer', cat: 'tools', easy: '🧰 VDE-Prüfgerät',
+        kind: '2-poliger Spannungsprüfer', price: 'ca. 49,90 €', numPrice: 49.90,
+        human: 'Zweipoliger Profi-Spannungsprüfer zum sicheren Finden von Phase (L) & Null (N)',
+        img: makeFallback('#dc2626', 'DUSPOL', 'VDE PRÜFER'), fallback: makeFallback('#dc2626', 'DUSPOL', 'VDE PRÜFER'),
+        exactSearch: '4014651502635 "Benning Duspol"',
         pdfUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-wall-switch-1',
         kbUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-wall-switch-2',
-        specs: [['Vorteil', 'Shelly Wall Switch ist extra flach gebaut, damit das Relais direkt hinten eingeklickt werden kann!']],
-        box: ['Schaltereinsatz + Relais-Halterung']
+        specs: [['EAN', '4014651502635 / Benning DUSPOL']],
+        box: ['1× Original Benning DUSPOL Spannungsprüfer']
       }
     };
 
-    // Helper: Official-Style Diagram Builder
     function buildDiagramSvg(titleText, subText, imgUrl, wiresSvg) {
       return `<svg viewBox="0 0 600 325" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
-        <text x="20" y="27" fill="#92400e" font-size="14" font-weight="bold">L</text>
-        <line x1="40" y1="22" x2="570" y2="22" stroke="#b45309" stroke-width="3"/>
-        <text x="19" y="45" fill="#0369a1" font-size="14" font-weight="bold">N</text>
-        <line x1="40" y1="40" x2="570" y2="40" stroke="#0284c7" stroke-width="3"/>
-        <text x="14" y="63" fill="#65a30d" font-size="14" font-weight="bold">PE</text>
-        <line x1="40" y1="58" x2="570" y2="58" stroke="#eab308" stroke-width="2.5"/>
-        <line x1="40" y1="58" x2="570" y2="58" stroke="#22c55e" stroke-width="2.5" stroke-dasharray="10,10"/>
+        <text x="20" y="27" fill="#92400e" font-size="14" font-weight="bold">L</text><line x1="40" y1="22" x2="570" y2="22" stroke="#b45309" stroke-width="3"/>
+        <text x="19" y="45" fill="#0369a1" font-size="14" font-weight="bold">N</text><line x1="40" y1="40" x2="570" y2="40" stroke="#0284c7" stroke-width="3"/>
+        <text x="14" y="63" fill="#65a30d" font-size="14" font-weight="bold">PE</text><line x1="40" y1="58" x2="570" y2="58" stroke="#eab308" stroke-width="2.5"/><line x1="40" y1="58" x2="570" y2="58" stroke="#22c55e" stroke-width="2.5" stroke-dasharray="10,10"/>
         ${wiresSvg}
         <rect x="392" y="125" width="165" height="145" rx="14" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
         <image href="${imgUrl}" x="404" y="132" width="140" height="110" preserveAspectRatio="xMidYMid meet"/>
         <rect x="392" y="140" width="18" height="114" rx="3" fill="#0284c7"/>
-        <text x="396" y="158" fill="#fff" font-size="8" font-weight="bold">N</text>
-        <text x="396" y="190" fill="#fff" font-size="8" font-weight="bold">L</text>
-        <text x="394" y="222" fill="#fff" font-size="7.5" font-weight="bold">SW</text>
-        <text x="396" y="246" fill="#fff" font-size="8" font-weight="bold">O</text>
+        <text x="396" y="158" fill="#fff" font-size="8" font-weight="bold">N</text><text x="396" y="190" fill="#fff" font-size="8" font-weight="bold">L</text><text x="394" y="222" fill="#fff" font-size="7.5" font-weight="bold">SW</text><text x="396" y="246" fill="#fff" font-size="8" font-weight="bold">O</text>
         <text x="475" y="263" fill="#0f172a" font-size="10" font-weight="800" text-anchor="middle">${subText}</text>
-        <text x="475" y="300" fill="#1e293b" font-size="16.5" font-weight="900" text-anchor="middle">${titleText}</text>
+        <text x="475" y="300" fill="#1e293b" font-size="16" font-weight="900" text-anchor="middle">${titleText}</text>
       </svg>`;
     }
 
-    // 14 SCHEMAS ACROSS 5 CATEGORIES
     const CATEGORIES = {
       wechsel_cat: {
         variants: [
           {
-            id: 'wechsel_std', label: '1A. Klassische Wechselschaltung (2 Schalter)',
-            title: 'Wechselschaltung (2 Schalter steuern 1 Lampe)',
+            id: 'wechsel_std', label: '1A. Klassische Wechselschaltung (2 Schalter)', title: 'Wechselschaltung (2 Schalter steuern 1 Lampe)',
             galleryUrl: 'https://community.shelly.cloud/gallery/image/920-plus-1pm-wechselschaltungpng/',
-            hint: '<strong>So einfach geht’s:</strong> Der Shelly kommt in die Schalterdose, in der das Kabel zur Lampe abgeht. Beide bestehenden Wandschalter funktionieren weiterhin ganz normal!',
+            hint: '<strong>Wechselschaltung:</strong> Der Shelly sitzt in der Schalterdose, aus der der Lampendraht zur Deckenleuchte geht.',
             items: ['mini1pm', 'plus1pm', 'mini1', 'wago221'],
-            svg: buildDiagramSvg('Wechselschaltung', 'Shelly Plus 1PM / 1PM Mini', PRODUCTS.mini1pm.img, `
+            svg: buildDiagramSvg('Wechselschaltung', 'Shelly 1PM Mini / Plus 1PM', PRODUCTS.mini1pm.img, `
               <circle cx="95" cy="22" r="4" fill="#b45309"/><circle cx="340" cy="22" r="4" fill="#b45309"/><circle cx="265" cy="40" r="4" fill="#0284c7"/><circle cx="365" cy="40" r="4" fill="#0284c7"/>
               <rect x="55" y="90" width="80" height="80" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2.5"/><text x="95" y="135" fill="#0f172a" font-size="11" font-weight="bold" text-anchor="middle">Schalter 1</text>
               <rect x="165" y="90" width="80" height="80" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2.5"/><text x="205" y="135" fill="#0f172a" font-size="11" font-weight="bold" text-anchor="middle">Schalter 2</text>
               <line x1="95" y1="22" x2="95" y2="90" stroke="#b45309" stroke-width="2.5"/>
-              <polyline points="80,170 80,195 190,195 190,170" fill="none" stroke="#1e293b" stroke-width="2.5"/>
-              <polyline points="110,170 110,185 220,185 220,170" fill="none" stroke="#1e293b" stroke-width="2.5"/>
-              <polyline points="205,90 205,76 310,76 310,222 392,222" fill="none" stroke="#64748b" stroke-width="2.5"/>
-              <polyline points="365,40 365,158 392,158" fill="none" stroke="#0284c7" stroke-width="2.5"/>
-              <polyline points="340,22 340,190 392,190" fill="none" stroke="#b45309" stroke-width="2.5"/>
+              <polyline points="80,170 80,195 190,195 190,170" fill="none" stroke="#1e293b" stroke-width="2.5"/><polyline points="110,170 110,185 220,185 220,170" fill="none" stroke="#1e293b" stroke-width="2.5"/>
+              <polyline points="205,90 205,76 310,76 310,222 392,222" fill="none" stroke="#64748b" stroke-width="2.5"/><polyline points="365,40 365,158 392,158" fill="none" stroke="#0284c7" stroke-width="2.5"/><polyline points="340,22 340,190 392,190" fill="none" stroke="#b45309" stroke-width="2.5"/>
               <circle cx="185" cy="260" r="22" fill="#fef08a" stroke="#f59e0b" stroke-width="2.5"/><text x="185" y="264" fill="#000" font-size="10" font-weight="bold" text-anchor="middle">Lampe</text>
-              <polyline points="265,40 265,260 207,260" fill="none" stroke="#0284c7" stroke-width="2.5"/>
-              <polyline points="185,282 185,302 295,302 295,246 392,246" fill="none" stroke="#1e293b" stroke-width="2.5"/>
+              <polyline points="265,40 265,260 207,260" fill="none" stroke="#0284c7" stroke-width="2.5"/><polyline points="185,282 185,302 295,302 295,246 392,246" fill="none" stroke="#1e293b" stroke-width="2.5"/>
             `)
           },
           {
-            id: 'wechsel_spar', label: '1B. Spar-Wechselschaltung',
-            title: 'Spar-Wechselschaltung (Dauerphase in beiden Dosen)',
+            id: 'wechsel_spar', label: '1B. Spar-Wechselschaltung', title: 'Spar-Wechselschaltung',
             galleryUrl: 'https://community.shelly.cloud/gallery/image/1235-1-mini-gen4-ausschaltungpng/',
-            hint: '<strong>Spar-Wechselschaltung:</strong> In beiden Dosen liegen Dauerphase <code>L</code> und der Lampendraht.',
+            hint: '<strong>Spar-Wechselschaltung:</strong> Dauerphase <code>L</code> und Lampendraht liegen in beiden Dosen.',
             items: ['mini1pm', 'mini1', 'plus1pm', 'wago221'],
             svg: buildDiagramSvg('Spar-Wechselschaltung', 'Shelly 1PM Mini / 1 Mini', PRODUCTS.mini1.img, `
               <rect x="55" y="90" width="80" height="80" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2.5"/><text x="95" y="135" fill="#0f172a" font-size="11" font-weight="bold" text-anchor="middle">Wechsel 1</text>
               <rect x="165" y="90" width="80" height="80" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2.5"/><text x="205" y="135" fill="#0f172a" font-size="11" font-weight="bold" text-anchor="middle">Wechsel 2</text>
               <line x1="95" y1="22" x2="95" y2="90" stroke="#b45309" stroke-width="2.5"/><line x1="205" y1="22" x2="205" y2="90" stroke="#b45309" stroke-width="2.5"/>
-              <line x1="135" y1="130" x2="165" y2="130" stroke="#64748b" stroke-width="2.5"/>
               <polyline points="95,170 95,222 392,222" fill="none" stroke="#1e293b" stroke-width="2.5"/><line x1="205" y1="170" x2="205" y2="222" stroke="#1e293b" stroke-width="2.5"/>
             `)
           },
           {
-            id: 'kreuz_std', label: '1C. Kreuzschaltung (3+ Schalter)',
-            title: 'Kreuzschaltung (3 oder mehr Schalter im Flur)',
+            id: 'kreuz_std', label: '1C. Kreuzschaltung (3+ Schalter)', title: 'Kreuzschaltung (3 oder mehr Schalter)',
             galleryUrl: 'https://community.shelly.cloud/gallery/image/922-shelly-1pm-gen3-kreuzschaltungpng/',
-            hint: '<strong>3 oder mehr Schalter:</strong> Der Shelly sitzt einfach hinter dem letzten Schalter vor der Lampe.',
+            hint: '<strong>Kreuzschaltung:</strong> Der Shelly kommt in die letzte Schalterdose vor der Lampe.',
             items: ['mini1pm', 'plus1pm', 'mini1', 'wago221'],
             svg: buildDiagramSvg('Kreuzschaltung (3+ Schalter)', 'Shelly 1PM Mini Gen3', PRODUCTS.mini1pm.img, `
               <rect x="35" y="90" width="68" height="72" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/><text x="69" y="130" fill="#0f172a" font-size="10" font-weight="bold" text-anchor="middle">Wechsel 1</text>
@@ -674,39 +700,32 @@
       aus_cat: {
         variants: [
           {
-            id: 'aus_std', label: '2A. Ausschaltung (1 Schalter)',
-            title: 'Klassische Ausschaltung (1 Lichtschalter & 1 Lampe)',
+            id: 'aus_std', label: '2A. Ausschaltung (1 Schalter)', title: 'Klassische Ausschaltung (1 Lichtschalter & 1 Lampe)',
             galleryUrl: 'https://community.shelly.cloud/gallery/image/623-plus-1pm-mini-one-way-switch-_enpng/',
-            hint: '<strong>1 Lichtschalter:</strong> Phase <code>L</code> per WAGO-Klemme an Schalter & Shelly; Schalterausgang in <code>SW</code>; Lampe an <code>O</code>; blauer Neutralleiter an <code>N</code>.',
+            hint: '<strong>1 Lichtschalter:</strong> Phase <code>L</code> per WAGO an Schalter & Shelly; Schalterausgang in <code>SW</code>; Lampe an <code>O</code>; Neutralleiter an <code>N</code>.',
             items: ['mini1pm', 'mini1', 'plus1pm', 'dimmer2', 'wago221'],
-            svg: buildDiagramSvg('Ausschaltung (1 Schalter)', 'Shelly 1 Mini / 1PM Mini', PRODUCTS.mini1.img, `
+            svg: buildDiagramSvg('Ausschaltung (1 Schalter)', 'Shelly 1PM Mini / 1 Mini', PRODUCTS.mini1.img, `
               <rect x="95" y="90" width="85" height="85" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2.5"/><text x="137" y="137" fill="#0f172a" font-size="12" font-weight="bold" text-anchor="middle">Schalter</text>
-              <line x1="137" y1="22" x2="137" y2="90" stroke="#b45309" stroke-width="2.5"/>
-              <polyline points="137,175 137,222 392,222" fill="none" stroke="#64748b" stroke-width="2.5"/>
-              <polyline points="340,22 340,190 392,190" fill="none" stroke="#b45309" stroke-width="2.5"/>
-              <polyline points="365,40 365,158 392,158" fill="none" stroke="#0284c7" stroke-width="2.5"/>
+              <line x1="137" y1="22" x2="137" y2="90" stroke="#b45309" stroke-width="2.5"/><polyline points="137,175 137,222 392,222" fill="none" stroke="#64748b" stroke-width="2.5"/>
+              <polyline points="340,22 340,190 392,190" fill="none" stroke="#b45309" stroke-width="2.5"/><polyline points="365,40 365,158 392,158" fill="none" stroke="#0284c7" stroke-width="2.5"/>
               <circle cx="220" cy="265" r="22" fill="#fef08a" stroke="#f59e0b" stroke-width="2.5"/><text x="220" y="269" fill="#000" font-size="10" font-weight="bold" text-anchor="middle">Lampe</text>
-              <polyline points="220,40 220,243" fill="none" stroke="#0284c7" stroke-width="2.5"/>
-              <polyline points="392,246 300,246 300,265 242,265" fill="none" stroke="#1e293b" stroke-width="2.5"/>
+              <polyline points="220,40 220,243" fill="none" stroke="#0284c7" stroke-width="2.5"/><polyline points="392,246 300,246 300,265 242,265" fill="none" stroke="#1e293b" stroke-width="2.5"/>
             `)
           },
           {
-            id: 'aus_serie', label: '2B. Doppelschalter / Serienschaltung (2 Lampen)',
-            title: 'Serienschaltung (Doppelschalter für 2 getrennte Lampen)',
+            id: 'aus_serie', label: '2B. Doppelschalter (2 Lampen)', title: 'Serienschaltung (Doppelschalter für 2 getrennte Lampen)',
             galleryUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-2pm-gen3',
-            hint: '<strong>Doppelschalter:</strong> Ein einziger <strong>Shelly Plus 2PM</strong> steuert 2 Wippen (<code>S1</code>/<code>S2</code>) und 2 Lampen (<code>O1</code>/<code>O2</code>).',
+            hint: '<strong>Doppelschalter:</strong> 1× <strong>Shelly Plus 2PM</strong> steuert beide Wippen (<code>S1</code>/<code>S2</code>) und beide Lampen (<code>O1</code>/<code>O2</code>).',
             items: ['plus2pm', 'wago221'],
             svg: buildDiagramSvg('Serienschaltung (2 Lampen)', 'Shelly Plus 2PM Gen3', PRODUCTS.plus2pm.img, `
               <rect x="85" y="90" width="95" height="85" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2.5"/><text x="132" y="135" fill="#0f172a" font-size="11" font-weight="bold" text-anchor="middle">Doppelschalter</text>
-              <polyline points="115,175 115,215 392,215" fill="none" stroke="#64748b" stroke-width="2.5"/>
-              <polyline points="150,175 150,228 392,228" fill="none" stroke="#64748b" stroke-width="2.5"/>
+              <polyline points="115,175 115,215 392,215" fill="none" stroke="#64748b" stroke-width="2.5"/><polyline points="150,175 150,228 392,228" fill="none" stroke="#64748b" stroke-width="2.5"/>
             `)
           },
           {
-            id: 'aus_ohneneutral', label: '2C. Altbau OHNE Neutralleiter (2-Draht)',
-            title: 'Altbau-Schaltung OHNE blauen Neutralleiter',
+            id: 'aus_ohneneutral', label: '2C. Altbau OHNE Neutralleiter', title: 'Altbau-Schaltung OHNE blauen Neutralleiter (2-Draht)',
             galleryUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-1l',
-            hint: '<strong>Wenn der blaue Draht fehlt:</strong> Der <strong>Shelly 1L</strong> oder <strong>Dimmer 2</strong> funktioniert mit nur 2 Drähten!',
+            hint: '<strong>Kein blauer Draht:</strong> <strong>Shelly 1L + Bypass</strong> (zum Schalten) oder <strong>Shelly Dimmer 2</strong> (zum Dimmen).',
             items: ['shelly1l', 'dimmer2', 'wago221'],
             svg: buildDiagramSvg('Ohne Neutralleiter', 'Shelly 1L + Bypass', PRODUCTS.shelly1l.img, `
               <rect x="85" y="95" width="85" height="80" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2.5"/><text x="127" y="140" fill="#0f172a" font-size="11" font-weight="bold" text-anchor="middle">Schalter</text>
@@ -718,10 +737,9 @@
       taster_cat: {
         variants: [
           {
-            id: 'taster_direkt', label: '3A. Tasterschaltung direkt',
-            title: 'Tasterschaltung (Mehrere Wandtaster parallel)',
+            id: 'taster_direkt', label: '3A. Tasterschaltung direkt', title: 'Tasterschaltung (Mehrere Wandtaster parallel)',
             galleryUrl: 'https://community.shelly.cloud/gallery/image/1185-shelly-1pm-gen4-tasterschaltungpng/',
-            hint: '<strong>Mehrere Taster:</strong> Alle Taster gehen parallel auf Klemme <code>SW</code>.',
+            hint: '<strong>Tasterschaltung:</strong> Alle Taster liegen parallel an Klemme <code>SW</code>.',
             items: ['mini1pm', 'mini1', 'plus1pm', 'wago221'],
             svg: buildDiagramSvg('Tasterschaltung', 'Shelly 1PM Mini / 1 Mini', PRODUCTS.mini1pm.img, `
               <rect x="45" y="95" width="70" height="70" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/><text x="80" y="135" fill="#0f172a" font-size="10" font-weight="bold" text-anchor="middle">Taster 1</text>
@@ -730,13 +748,12 @@
             `)
           },
           {
-            id: 'taster_eltako', label: '3B. Mit Stromstoßrelais (Eltako im Kasten)',
-            title: 'Stromstoßschalter (Eltako) im Sicherungskasten ersetzen',
+            id: 'taster_eltako', label: '3B. Mit Stromstoßrelais (Eltako)', title: 'Stromstoßschalter (Eltako) im Sicherungskasten ersetzen',
             galleryUrl: 'https://community.shelly.cloud/gallery/image/425-1-mini-gen3-tasterschaltung-mit-stromsto%C3%9Frelaispng/',
-            hint: '<strong>Eltako ersetzen:</strong> Das klackende Stromstoßrelais im Verteilerkasten wird gegen einen <strong>Shelly Pro 1</strong> oder <strong>1 Mini</strong> getauscht.',
+            hint: '<strong>Eltako ersetzen:</strong> Im Sicherungskasten wird das Eltako durch <strong>Shelly Pro 1PM</strong> ersetzt.',
             items: ['pro1_4pm', 'mini1', 'wago221'],
-            svg: buildDiagramSvg('Eltako-Ersatz', 'Shelly Pro 1 / 1 Mini', PRODUCTS.pro1_4pm.img, `
-              <rect x="120" y="100" width="140" height="80" rx="8" fill="#e2e8f0" stroke="#0284c7" stroke-width="2" stroke-dasharray="4,4"/><text x="190" y="145" fill="#0f172a" font-size="11" font-weight="bold" text-anchor="middle">Eltako → Shelly Pro 1</text>
+            svg: buildDiagramSvg('Eltako-Ersatz', 'Shelly Pro 1PM / 1 Mini', PRODUCTS.pro1_4pm.img, `
+              <rect x="120" y="100" width="140" height="80" rx="8" fill="#e2e8f0" stroke="#0284c7" stroke-width="2" stroke-dasharray="4,4"/><text x="190" y="145" fill="#0f172a" font-size="11" font-weight="bold" text-anchor="middle">Eltako → Shelly Pro</text>
             `)
           }
         ]
@@ -744,39 +761,32 @@
       power_cat: {
         variants: [
           {
-            id: 'power_socket', label: '4A. Steckdose & Waschmaschine (16A)',
-            title: 'Steckdose smart machen (Unterputz oder Zwischenstecker)',
+            id: 'power_socket', label: '4A. Steckdose & Waschmaschine', title: 'Steckdose smart machen (Stecker oder Unterputz)',
             galleryUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-plus-1pm',
-            hint: '<strong>2 Möglichkeiten:</strong> Entweder komplett ohne Schrauben mit dem <strong>Shelly Plug S</strong> einstecken oder unsichtbar dahinter mit dem <strong>Shelly Plus 1PM (16A)</strong>.',
+            hint: '<strong>Steckdosen:</strong> Steckerfertig mit <strong>Plug S Gen3</strong> oder unsichtbar dahinter mit <strong>Plus 1PM (16A)</strong>.',
             items: ['plugs', 'outdoorplug', 'plus1pm', 'minipm'],
             svg: buildDiagramSvg('Steckdose (16A / 3500W)', 'Shelly Plus 1PM / Plug S', PRODUCTS.plus1pm.img, `
-              <rect x="110" y="110" width="100" height="100" rx="14" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"/>
-              <circle cx="160" cy="160" r="30" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/>
-              <text x="160" y="232" fill="#0f172a" font-size="12" font-weight="bold" text-anchor="middle">Schuko-Steckdose</text>
+              <rect x="110" y="110" width="100" height="100" rx="14" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"/><circle cx="160" cy="160" r="30" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/>
               <polyline points="392,246 210,160" fill="none" stroke="#ef4444" stroke-width="3"/>
             `)
           },
           {
-            id: 'power_bkw', label: '4B. Balkonkraftwerk (BKW) Solar-Messung',
-            title: 'Balkonkraftwerk (BKW) Einspeisung & Hausverbrauch messen',
+            id: 'power_bkw', label: '4B. Balkonkraftwerk (BKW)', title: 'Balkonkraftwerk (BKW) Einspeisung & Hausverbrauch',
             galleryUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-pro-3em',
-            hint: '<strong>Solar-Ertrag live auf dem Handy:</strong> Für die Außensteckdose den wetterfesten <strong>Outdoor Plug S</strong> oder <strong>PM Mini Gen3</strong>, für den Zählerschrank den <strong>Shelly Pro 3EM</strong>.',
+            hint: '<strong>Solar-Ertrag:</strong> <strong>Outdoor Plug S</strong> oder <strong>PM Mini Gen3</strong> am Wechselrichter + <strong>Pro 3EM</strong> im Schrank.',
             items: ['outdoorplug', 'minipm', 'pro3em', 'plus1pm'],
             svg: buildDiagramSvg('Balkonkraftwerk (BKW)', 'Shelly PM Mini / Outdoor Plug', PRODUCTS.minipm.img, `
-              <rect x="85" y="115" width="135" height="90" rx="10" fill="#0284c7" stroke="#38bdf8" stroke-width="2.5"/>
-              <text x="152" y="160" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle">☀️ Solar 800W</text>
+              <rect x="85" y="115" width="135" height="90" rx="10" fill="#0284c7" stroke="#38bdf8" stroke-width="2.5"/><text x="152" y="160" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle">☀️ Solar 800W</text>
               <polyline points="220,160 392,246" fill="none" stroke="#10b981" stroke-width="3.5"/>
             `)
           },
           {
-            id: 'power_contactor', label: '4C. Große Lasten (Schütz / Boiler)',
-            title: 'Große Lasten über Lastschütz schalten',
+            id: 'power_contactor', label: '4C. Große Lasten (Schütz)', title: 'Große Lasten über Lastschütz schalten',
             galleryUrl: 'https://community.shelly.cloud/gallery/image/1239-1-mini-gen4-tasterschaltung-mit-stromsto%C3%9Frelaispng/',
-            hint: '<strong>Für Boiler & Heizstäbe:</strong> Der Shelly steuert die Spule des Lastschützes im Verteilerkasten.',
+            hint: '<strong>Boiler & Heizstab:</strong> Shelly steuert das Lastschütz.',
             items: ['pro1_4pm', 'mini1', 'pro3em'],
-            svg: buildDiagramSvg('Lastschütz-Steuerung', 'Shelly Pro 1 / 1 Mini', PRODUCTS.pro1_4pm.img, `
-              <rect x="110" y="110" width="125" height="95" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="2.5"/>
-              <text x="172" y="160" fill="#fff" font-size="12" font-weight="bold" text-anchor="middle">⚡ Lastschütz</text>
+            svg: buildDiagramSvg('Lastschütz-Steuerung', 'Shelly Pro 1PM / 1 Mini', PRODUCTS.pro1_4pm.img, `
+              <rect x="110" y="110" width="125" height="95" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="2.5"/><text x="172" y="160" fill="#fff" font-size="12" font-weight="bold" text-anchor="middle">⚡ Lastschütz</text>
             `)
           }
         ]
@@ -784,41 +794,33 @@
       motor_cat: {
         variants: [
           {
-            id: 'motor_roll', label: '5A. Rollladenmotor (Auf / Ab)',
-            title: 'Elektrischer Rollladen & Jalousie (Shelly Plus 2PM)',
+            id: 'motor_roll', label: '5A. Rollladenmotor (Auf / Ab)', title: 'Elektrischer Rollladen & Jalousie (Shelly Plus 2PM)',
             galleryUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-2pm-gen3',
-            hint: '<strong>Rollladen smart machen:</strong> Der <strong>Shelly Plus 2PM</strong> kommt hinter den Rollladenschalter. Er kalibriert sich selbst und fährt den Rollladen auf Wunsch-Prozent!',
+            hint: '<strong>Rollladen:</strong> <strong>Shelly Plus 2PM</strong> hinter den Rollladentaster setzen.',
             items: ['plus2pm', 'walldisplay', 'blubutton', 'wago221'],
             svg: buildDiagramSvg('Rollladensteuerung', 'Shelly Plus 2PM Gen3', PRODUCTS.plus2pm.img, `
               <rect x="65" y="95" width="90" height="80" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2.5"/><text x="110" y="135" fill="#0f172a" font-size="11" font-weight="bold" text-anchor="middle">▲ Auf | ▼ Ab</text>
               <circle cx="235" cy="235" r="35" fill="#1e293b" stroke="#0284c7" stroke-width="3"/><text x="235" y="238" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">ROHRMOTOR</text>
-              <polyline points="270,225 392,242" fill="none" stroke="#b45309" stroke-width="3"/>
-              <polyline points="270,248 392,254" fill="none" stroke="#0f172a" stroke-width="3"/>
+              <polyline points="270,225 392,242" fill="none" stroke="#b45309" stroke-width="3"/><polyline points="270,248 392,254" fill="none" stroke="#0f172a" stroke-width="3"/>
             `)
           },
           {
-            id: 'motor_garage', label: '5B. Garagentor & Haustür-Summer',
-            title: 'Garagentor-Antrieb & Klingel (Potenzialfrei)',
+            id: 'motor_garage', label: '5B. Garagentor & Türöffner', title: 'Garagentor-Antrieb & Klingel (Potenzialfrei)',
             galleryUrl: 'https://community.shelly.cloud/gallery/image/1162-shelly-1-g4-wechselschaltungpng/',
-            hint: '<strong>Garagentor & Türöffner:</strong> Die Klemmen <code>I</code> und <code>O</code> am blauen <strong>Shelly 1 Mini</strong> oder <strong>Plus 1</strong> sind stromlos (potenzialfrei) und drücken wie ein Taster den Tor-Knopf.',
+            hint: '<strong>Garagentor:</strong> Potenzialfreier Kontakt <code>I/O</code> am blauen <strong>Shelly 1 Mini</strong> oder <strong>Plus 1</strong>.',
             items: ['mini1', 'plus1', 'plusuni', 'blubutton'],
             svg: buildDiagramSvg('Garagentor / Türöffner', 'Shelly 1 Mini / Plus 1', PRODUCTS.mini1.img, `
-              <rect x="90" y="115" width="145" height="95" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="2.5"/>
-              <text x="162" y="160" fill="#fff" font-size="12" font-weight="bold" text-anchor="middle">🚗 Garagentor-Antrieb</text>
-              <polyline points="235,148 392,222" fill="none" stroke="#10b981" stroke-width="3"/>
-              <polyline points="235,172 392,248" fill="none" stroke="#10b981" stroke-width="3"/>
+              <rect x="90" y="115" width="145" height="95" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="2.5"/><text x="162" y="160" fill="#fff" font-size="12" font-weight="bold" text-anchor="middle">🚗 Garagentor</text>
+              <polyline points="235,148 392,222" fill="none" stroke="#10b981" stroke-width="3"/><polyline points="235,172 392,248" fill="none" stroke="#10b981" stroke-width="3"/>
             `)
           },
           {
-            id: 'motor_3em', label: '5C. 3-Phasen Hauszähler (Pro 3EM)',
-            title: '3-Phasen Smart-Meter im Zählerschrank (Shelly Pro 3EM)',
+            id: 'motor_3em', label: '5C. 3-Phasen Hauszähler (Pro 3EM)', title: '3-Phasen Smart-Meter im Zählerschrank (Shelly Pro 3EM)',
             galleryUrl: 'https://kb.shelly.cloud/knowledge-base/shelly-pro-3em',
-            hint: '<strong>Gesamtes Haus im Blick:</strong> 3 Klapp-Messspulen um die 3 Hauptphasen L1, L2, L3 im Sicherungskasten klipsen.',
+            hint: '<strong>Sicherungskasten:</strong> 3 Klapp-Messspulen um L1, L2, L3.',
             items: ['pro3em', 'pro1_4pm', 'wago221'],
             svg: buildDiagramSvg('3-Phasen Smart-Meter', 'Shelly Pro 3EM (120A)', PRODUCTS.pro3em.img, `
-              <ellipse cx="160" cy="22" rx="10" ry="14" fill="none" stroke="#dc2626" stroke-width="3.5"/>
-              <ellipse cx="220" cy="22" rx="10" ry="14" fill="none" stroke="#dc2626" stroke-width="3.5"/>
-              <ellipse cx="280" cy="22" rx="10" ry="14" fill="none" stroke="#dc2626" stroke-width="3.5"/>
+              <ellipse cx="160" cy="22" rx="10" ry="14" fill="none" stroke="#dc2626" stroke-width="3.5"/><ellipse cx="220" cy="22" rx="10" ry="14" fill="none" stroke="#dc2626" stroke-width="3.5"/><ellipse cx="280" cy="22" rx="10" ry="14" fill="none" stroke="#dc2626" stroke-width="3.5"/>
               <polyline points="160,36 160,190 392,190" fill="none" stroke="#dc2626" stroke-width="2.5"/>
             `)
           }
@@ -826,76 +828,381 @@
       }
     };
 
-    // BEGINNER WISHES MAPPING
-    const WISHES = {
-      light_std: {
-        adviceTitle: '💡 Empfehlung für Deckenlampen & Lichtschalter:',
-        adviceText: 'Du setzt ein kleines Shelly-Relais unsichtbar in die Wanddose hinter deinen Lichtschalter. Dein alter Schalter an der Wand funktioniert danach ganz normal weiter — zusätzlich kannst du das Licht per App, Zeitplan oder Alexa schalten! <strong>Tipp:</strong> Nimm den roten <strong>Shelly 1PM Mini Gen3</strong> (für flache Dosen) und ein Set <strong>WAGO 221 Klemmen</strong>. Fehlt im Altbau der blaue Draht in der Dose? Dann nimm den <strong>Shelly 1L + Bypass</strong>.',
-        schemaCat: 'wechsel_cat', schemaIdx: 0,
-        items: ['mini1pm', 'mini1', 'plus1pm', 'shelly1l', 'plus2pm', 'wago221']
-      },
-      plug_easy: {
-        adviceTitle: '🟢 Komplett ohne Werkzeug (Steckerfertig in 1 Minute):',
-        adviceText: 'Wenn du gar keine Kabel anklemmen möchtest, steckst du einfach den <strong>Shelly Plug S Gen3</strong> in deine Steckdose (oder den wetterfesten <strong>Outdoor Plug S</strong> auf dem Balkon). Für extra Funk-Schalter am Bett oder Sofa klebst du einfach den <strong>Shelly BLU Button</strong> an!',
-        schemaCat: 'power_cat', schemaIdx: 0,
-        items: ['plugs', 'outdoorplug', 'blubutton', 'blumotion', 'htgen3', 'smoke_flood']
+    // CONSULTANT STATE
+    let state = {
+      goal: 'light',
+      q1: 'opt1',
+      q2: 'yes',
+      count: 3
+    };
+
+    const GOAL_QUESTIONS = {
+      light: {
+        q1Label: '1. Wie wird die Lampe aktuell geschaltet?',
+        q1Opts: [
+          ['opt1', '1 einzelner Lichtschalter (Ausschaltung)'],
+          ['opt2', '2 Schalter für 1 Lampe (Wechselschaltung / Flur)'],
+          ['opt3', '3+ Schalter oder Taster (Kreuz / Eltako im Kasten)'],
+          ['opt4', 'Doppelschalter mit 2 Wippen (2 Lampen)']
+        ],
+        q2Label: '2. Ist ein blauer Neutralleiter (N) in der Dose + willst du dimmen?',
+        q2Opts: [
+          ['yes', 'Ja, blauer Draht vorhanden (Standard Ein/Aus)'],
+          ['no_n', 'Nein, Altbau ohne blauen Draht (nur 2 Adern)'],
+          ['dim', 'Ich möchte das Licht stufenlos dimmen']
+        ],
+        countLabel: '3. Wie viele Lampen / Räume möchtest du umrüsten?'
       },
       shutter: {
-        adviceTitle: '🪟 Empfehlung für elektrische Rollläden & Jalousien:',
-        adviceText: 'Hinter jeden elektrischen Rollladenschalter kommt genau <strong>1× Shelly Plus 2PM Gen3</strong>. Er erkennt automatisch, wann der Rollladen ganz oben oder unten ist, und fährt ihn auf Wunsch z.B. auf 60% Sonnenschutz oder automatisch bei Sonnenuntergang herunter.',
-        schemaCat: 'motor_cat', schemaIdx: 0,
-        items: ['plus2pm', 'walldisplay', 'blubutton', 'wago221']
-      },
-      dim_rgb: {
-        adviceTitle: '🔆 Empfehlung zum Licht dimmen & für LED-Streifen:',
-        adviceText: 'Für dimmbare 230V-Deckenlampen nimmst du den grünen <strong>Shelly Dimmer 2</strong> (er funktioniert sogar ohne blauen Neutralleiter). Für 12V/24V LED-Bänder (z.B. in der Küche oder hinter dem TV) nimmst du den <strong>Shelly Plus RGBW PM</strong>.',
-        schemaCat: 'aus_cat', schemaIdx: 0,
-        items: ['dimmer2', 'rgbwpm', 'plusi4', 'blubutton', 'wago221']
+        q1Label: '1. Wie steuerst du den Rollladen aktuell?',
+        q1Opts: [
+          ['opt1', 'Normaler Wandtaster / Wippschalter (Auf / Ab)'],
+          ['opt2', 'Ich möchte zusätzlich einen Funk-Taster am Bett / Sofa'],
+          ['opt3', 'Ich möchte ein zentrales Touch-Display in der Wand']
+        ],
+        q2Label: '2. Sollen die Rollläden im Sommer bei Hitze automatisch schließen?',
+        q2Opts: [
+          ['yes', 'Nur Zeitplan & Sonnenaufgang / Sonnenuntergang'],
+          ['temp', 'Ja, zusätzlich mit Temperatur-Sensor koppeln']
+        ],
+        countLabel: '3. Wie viele elektrische Rollläden hast du?'
       },
       heating: {
-        adviceTitle: '🌡️ Empfehlung für Heizkörper & automatisches Lüften (Ohne Verkabelung!):',
-        adviceText: 'Schraube das <strong>Shelly TRV Heizkörperthermostat</strong> an den Heizkörper und klebe den <strong>Shelly BLU Door/Window Fenstersensor</strong> an den Fensterrahmen. Sobald du das Fenster öffnest, dreht der Heizkörper automatisch ab!',
-        schemaCat: null,
-        items: ['trv', 'bludoor', 'htgen3', 'walldisplay']
+        q1Label: '1. Welche Heizung hast du in den Räumen?',
+        q1Opts: [
+          ['opt1', 'Normale Heizkörper mit Drehventil (M30×1,5)'],
+          ['opt2', 'Fußbodenheizung mit Wandthermostat (230V)']
+        ],
+        q2Label: '2. Soll die Heizung beim Fensteröffnen sofort automatisch stoppen?',
+        q2Opts: [
+          ['yes', 'Ja, inkl. Fenster-Offen-Sensor für jedes Zimmer (Empfohlen)'],
+          ['no', 'Nein, nur Zeitplan am Heizkörper']
+        ],
+        countLabel: '3. Wie viele Heizkörper / Zimmer möchtest du ausstatten?'
       },
-      solar_em: {
-        adviceTitle: '☀️ Empfehlung für Balkonkraftwerk (BKW) & Haus-Stromzähler:',
-        adviceText: 'Um zu sehen, wie viel Watt dein Balkonkraftwerk erzeugt, steckst du den <strong>Shelly Outdoor Plug S</strong> (oder Unterputz den <strong>Shelly PM Mini Gen3</strong>) dazwischen. Für die Messung des gesamten Hauses (und für Solar-Akkus wie Zendure/Anker/EcoFlow) kommt der <strong>Shelly Pro 3EM</strong> in den Sicherungskasten.',
-        schemaCat: 'power_cat', schemaIdx: 1,
-        items: ['outdoorplug', 'minipm', 'pro3em', 'plus1pm']
+      solar: {
+        q1Label: '1. Wo möchtest du den Solarstrom / Hausverbrauch messen?',
+        q1Opts: [
+          ['opt1', 'Am Balkonkraftwerk-Stecker auf dem Balkon (Steckerfertig)'],
+          ['opt2', 'Unsichtbar in der Wanddose hinter der Einspeisesteckdose'],
+          ['opt3', 'Im Sicherungskasten für das gesamte Haus (3 Phasen + Speicher)']
+        ],
+        q2Label: '2. Möchtest du beide Werte kombinieren (Erzeugung + Hausverbrauch)?',
+        q2Opts: [
+          ['yes', 'Ja, Komplettpaket (Solar-Stecker + 3-Phasen Hauszähler)'],
+          ['single', 'Nein, nur die oben gewählte Messung']
+        ],
+        countLabel: '3. Anzahl der Messpunkte / Wechselrichter:'
       },
-      garage_door: {
-        adviceTitle: '🚗 Empfehlung für Garagentor, Türöffner & Klingel:',
-        adviceText: 'Garagentor-Motoren haben einen Taster-Eingang (meist 12V/24V). Dafür brauchst du zwingend ein Relais mit <strong>potenzialfreiem Kontakt (Dry Contact)</strong> wie den blauen <strong>Shelly 1 Mini Gen3</strong>, <strong>Shelly Plus 1</strong> oder für Klingelanlagen den <strong>Shelly Plus Uni</strong>.',
-        schemaCat: 'motor_cat', schemaIdx: 1,
-        items: ['mini1', 'plus1', 'plusuni', 'blubutton']
+      plugs: {
+        q1Label: '1. Was möchtest du ohne Schrauben smart machen?',
+        q1Opts: [
+          ['opt1', 'Haushaltsgeräte & Steckdosen innen (Waschmaschine, TV, Kaffeemaschine)'],
+          ['opt2', 'Garten, Terrasse oder Weihnachtsbeleuchtung draußen (Wetterfest)'],
+          ['opt3', '12V/24V LED-Lichtstreifen an Möbeln oder hinter dem Fernseher']
+        ],
+        q2Label: '2. Möchtest du einen kabellosen Schalter zum Ein-/Ausschalten dazu?',
+        q2Opts: [
+          ['yes', 'Ja, inkl. Funk-Button (für Sofa / Nachttisch)'],
+          ['no', 'Nein, Steuerung nur per Handy-App & Zeitplan']
+        ],
+        countLabel: '3. Wie viele Steckdosen / Geräte möchtest du ausstatten?'
       },
-      security_sensors: {
-        adviceTitle: '🚨 Empfehlung für Bewegung, Rauch- & Wasserschutz (Kabellos per Batterie):',
-        adviceText: 'Alle Sensoren laufen jahrelang mit Batterie: Der <strong>BLU Motion</strong> schaltet automatisch das Licht im Flur ein, <strong>BLU Door/Window</strong> überwacht Türen & Fenster, und <strong>Shelly Smoke / Flood</strong> warnt dich auf dem Handy bei Rauch oder Wasser im Waschraum.',
-        schemaCat: null,
-        items: ['blumotion', 'bludoor', 'smoke_flood', 'blubutton', 'htgen3', 'plugs']
+      garage: {
+        q1Label: '1. Was möchtest du steuern oder absichern?',
+        q1Opts: [
+          ['opt1', 'Garagentor-Antrieb per Handy & Auto öffnen'],
+          ['opt2', 'Türklingel oder 12V-Haustür-Summer smart machen'],
+          ['opt3', 'Automatisches Flurlicht per Bewegungsmelder + Rauchschutz']
+        ],
+        q2Label: '2. Brauchst du einen Funk-Drücker fürs Auto / Schlüsselbund?',
+        q2Opts: [
+          ['yes', 'Ja, inkl. Shelly BLU Button für den Schlüsselbund'],
+          ['no', 'Nein, Öffnen nur per Smartphone']
+        ],
+        countLabel: '3. Anzahl der Tore / Bereiche:'
       }
     };
 
-    function renderProductCards(itemIds) {
-      const grid = document.getElementById('compatGrid');
+    function setGoal(goalKey, btnEl) {
+      state.goal = goalKey;
+      state.q1 = 'opt1';
+      state.q2 = 'yes';
+      if (btnEl) {
+        document.querySelectorAll('.goal-btn').forEach(b => b.classList.remove('active'));
+        btnEl.classList.add('active');
+      }
+      renderQuestions();
+      evaluateConsultation();
+    }
+
+    function setAnswer(field, val) {
+      state[field] = val;
+      renderQuestions();
+      evaluateConsultation();
+    }
+
+    function renderQuestions() {
+      const cfg = GOAL_QUESTIONS[state.goal];
+      const qBox = document.getElementById('diagQuestions');
+      qBox.innerHTML = `
+        <div class="q-block">
+          <div class="q-label">${cfg.q1Label}</div>
+          <div class="q-opts">
+            ${cfg.q1Opts.map(o => `<button class="q-opt ${state.q1 === o[0] ? 'active' : ''}" onclick="setAnswer('q1','${o[0]}')">${state.q1 === o[0] ? '✅ ' : '⚪ '}${o[1]}</button>`).join('')}
+          </div>
+        </div>
+        <div class="q-block">
+          <div class="q-label">${cfg.q2Label}</div>
+          <div class="q-opts">
+            ${cfg.q2Opts.map(o => `<button class="q-opt ${state.q2 === o[0] ? 'active' : ''}" onclick="setAnswer('q2','${o[0]}')">${state.q2 === o[0] ? '✅ ' : '⚪ '}${o[1]}</button>`).join('')}
+          </div>
+          <div style="margin-top:12px; padding-top:10px; border-top:1px solid var(--border);">
+            <div class="q-label"><span>${cfg.countLabel}</span> <span style="color:var(--amber); font-weight:900;">${state.count} Stück</span></div>
+            <input type="range" min="1" max="15" value="${state.count}" oninput="state.count=parseInt(this.value,10); renderQuestions(); evaluateConsultation();" />
+          </div>
+        </div>
+      `;
+    }
+
+    function evaluateConsultation() {
+      const n = state.count;
+      let verdictTitle = '';
+      let verdictText = '';
+      let diff = '🟡 Einbau in Schalterdose (ca. 15 Min.)';
+      let bom = []; // [{id, qty, reason}]
+      let schemaCat = 'wechsel_cat';
+      let schemaIdx = 0;
+      let steps = [];
+
+      if (state.goal === 'light') {
+        if (state.q2 === 'no_n') {
+          verdictTitle = `👨‍🔧 Fachberater-Empfehlung: Altbau-Lösung OHNE Neutralleiter (${n}× Lichtkreis)`;
+          verdictText = `Da in deiner Schalterdose der blaue Neutralleiter fehlt, darfst du kein Standard-Relais nehmen. Du benötigst das <strong>Shelly 1L + Bypass Set</strong> (oder zum Dimmen den <strong>Shelly Dimmer 2</strong>). Der kleine weiße Bypass sorgt dafür, dass sparsame LED-Lampen nicht flackern.`;
+          bom = [
+            { id: 'shelly1l', qty: n, reason: 'Spezial-Relais für 2-Draht-Schalterdosen inklusive LED-Bypass' },
+            { id: 'wago221', qty: 1, reason: 'Verbindungsklemmen-Box für saubere Verdrahtung' }
+          ];
+          schemaCat = 'aus_cat'; schemaIdx = 2;
+          steps = [
+            ['1. Sicherung ausschalten & prüfen', 'Leitungsschutzschalter im Sicherungskasten ausschalten und Spannungsfreiheit prüfen.'],
+            ['2. Shelly 1L hinter den Schalter klemmen', 'Ankommende Phase (Braun) in Klemme L, Lampendraht in Klemme O, den bestehenden Wandschalter an Sx und SW1.'],
+            ['3. Bypass an der Lampe einsetzen', 'Bei LED-Lampen unter 20W den beiliegenden weißen Bypass parallel zwischen Lampendraht und Neutralleiter oben an der Lampe klemmen.'],
+            ['4. App-Einrichtung (2 Minuten)', 'Sicherung einschalten → Shelly Smart Control App öffnen → Gerät per Bluetooth hinzufügen → Schaltertyp auf „Edge Switch“ stellen.']
+          ];
+        } else if (state.q2 === 'dim') {
+          verdictTitle = `👨‍🔧 Fachberater-Empfehlung: Stufenlose Dimm-Lösung (${n}× Raum)`;
+          verdictText = `Mit dem grünen <strong>Shelly Dimmer 2</strong> kannst du deine Deckenlampen per App, Sprachbefehl und über deinen vorhandenen Wandschalter sanft dimmen.`;
+          bom = [
+            { id: 'dimmer2', qty: n, reason: 'Unterputz-Dimmer für LED- und Halogenlampen (10–200W)' },
+            { id: 'wago221', qty: 1, reason: 'WAGO 221 Klemmen-Sortiment zum Aufteilen von L & N' }
+          ];
+          schemaCat = 'aus_cat'; schemaIdx = 0;
+          steps = [
+            ['1. Stromlos schalten', 'Sicherung rausnehmen und prüfen.'],
+            ['2. Dimmer in der Dose verdrahten', 'Phase an L, Neutralleiter an N, Lampendraht an O und den Schalterausgang an SW1.'],
+            ['3. Automatische Kalibrierung starten', 'In der Shelly App auf „Kalibrierung (Calibration)“ tippen — der Dimmer erkennt deine LED-Lampe in 30 Sekunden automatisch!']
+          ];
+        } else if (state.q1 === 'opt4') {
+          verdictTitle = `👨‍🔧 Fachberater-Empfehlung: Doppelschalter / Serienschaltung (${n}× Doppelschalter)`;
+          verdictText = `Für einen Schalter mit 2 Wippen (2 getrennte Lampen) brauchst du keine zwei Relais! Ein einziger <strong>Shelly Plus 2PM Gen3</strong> besitzt 2 Eingänge (S1/S2) und 2 Ausgänge (O1/O2) inkl. Strommessung.`;
+          bom = [
+            { id: 'plus2pm', qty: n, reason: '2-Kanal Relais für beide Schalterwippen & 2 Lampen' },
+            { id: 'wago221', qty: 1, reason: 'WAGO 221 Klemmen zum Aufteilen von Phase & Neutralleiter' }
+          ];
+          schemaCat = 'aus_cat'; schemaIdx = 1;
+          steps = [
+            ['1. Stromlos schalten', 'Sicherung im Kasten ausschalten.'],
+            ['2. Beide Wippen anklemmen', 'Wippe 1 an S1, Wippe 2 an S2; Lampe 1 an O1, Lampe 2 an O2; Dauerphase an L und blauen Draht an N.'],
+            ['3. In der App als „2 Schalter (Switch)“ nutzen', 'Der Shelly Plus 2PM legt in der App automatisch 2 getrennte Lichtschalter an.']
+          ];
+        } else if (state.q1 === 'opt3') {
+          verdictTitle = `👨‍🔧 Fachberater-Empfehlung: Flur mit 3+ Schaltern / Tastern (${n}× Lichtkreis)`;
+          verdictText = `Bei einer Kreuzschaltung kommt <strong>1× Shelly 1PM Mini Gen3</strong> in die letzte Schalterdose vor der Lampe. Hast du Taster mit einem klackenden Eltako im Sicherungskasten? Dann tausche das Eltako gegen den <strong>Shelly Pro 1PM</strong>.`;
+          bom = [
+            { id: 'mini1pm', qty: n, reason: 'Ultra-kompaktes Relais für die letzte Schalterdose vor der Lampe' },
+            { id: 'pro1_4pm', qty: 1, reason: 'Optional: Hutschienen-Relais falls ein Eltako im Sicherungskasten sitzt' },
+            { id: 'wago221', qty: 1, reason: 'WAGO 221 Hebelklemmen-Box' }
+          ];
+          schemaCat = 'wechsel_cat'; schemaIdx = 2;
+          steps = [
+            ['1. Letzte Schalterdose vor der Lampe öffnen', 'Mit dem Spannungsprüfer prüfen, in welcher Dose der Lampendraht zur Leuchte abgeht.'],
+            ['2. Shelly 1PM Mini einsetzen', 'Durch seine winzigen 29×34 mm passt der Mini problemlos hinter den letzten Schalter.'],
+            ['3. App-Modus einstellen', 'Bei Kippschaltern auf „Edge Switch“, bei federnden Tastern auf „Button (Momentary)“ stellen.']
+          ];
+        } else {
+          const isWechsel = state.q1 === 'opt2';
+          verdictTitle = isWechsel
+            ? `👨‍🔧 Fachberater-Empfehlung: Wechselschaltung mit 2 Schaltern (${n}× Raum/Flur)`
+            : `👨‍🔧 Fachberater-Empfehlung: Klassischer Lichtschalter (${n}× Raum)`;
+          verdictText = `Für ${n} ${isWechsel ? 'Wechselschaltungen' : 'Lichtschalter'} brauchst du pro Lampe nur <strong>1× Shelly 1PM Mini Gen3</strong> (extra klein für enge Dosen, inkl. Watt-Messung) sowie ein Paket <strong>WAGO 221 Klemmen</strong>. Alle Wandschalter funktionieren wie gewohnt weiter!`;
+          bom = [
+            { id: 'mini1pm', qty: n, reason: 'Mini-Relais (nur 29×34mm) — passt garantiert hinter jeden Schalter' },
+            { id: 'wago221', qty: 1, reason: 'WAGO 221 Klemmen zum Verbinden von Dauerphase (L) & Neutralleiter (N)' },
+            { id: 'wallswitch', qty: 1, reason: 'Optional: Zweipoliger Spannungsprüfer zum sicheren Finden der Dauerphase' }
+          ];
+          schemaCat = isWechsel ? 'wechsel_cat' : 'aus_cat';
+          schemaIdx = 0;
+          steps = [
+            ['1. Sicherung ausschalten', 'Stromkreis abschalten und mit einem Spannungsprüfer testen.'],
+            ['2. Drähte mit WAGO 221 aufteilen (11mm abisolieren)', 'Braune Dauerphase (L) über eine 3er WAGO-Klemme an den Schalter UND an Klemme L des Shellys führen. Blauen Neutralleiter über WAGO an N.'],
+            ['3. Schalter & Lampe verbinden', 'Den Draht vom Schalterausgang in Klemme SW stecken, den Draht zur Deckenlampe in Klemme O.'],
+            ['4. App-Einstellung: „Edge Switch“', 'In der Shelly App den Schaltertyp auf „Edge Switch (Umschalter)“ stellen — fertig!']
+          ];
+        }
+      } else if (state.goal === 'shutter') {
+        verdictTitle = `👨‍🔧 Fachberater-Empfehlung: Smarte Rollladensteuerung (${n}× Rollladen)`;
+        verdictText = `Für jeden elektrischen Rollladen benötigst du genau <strong>1× Shelly Plus 2PM Gen3</strong> hinter dem vorhandenen Rollladenschalter. Er verriegelt Auf & Ab gegeneinander und erkennt die Endlagen oben/unten automatisch.`;
+        bom = [
+          { id: 'plus2pm', qty: n, reason: 'Rollladen-Relais mit Auf/Ab-Steuerung & automatischer Kalibrierung' },
+          { id: 'wago221', qty: 1, reason: 'WAGO 221 Klemmen für Neutralleiter & Dauerphase' }
+        ];
+        if (state.q1 === 'opt2') bom.push({ id: 'blubutton', qty: 1, reason: 'Kabelloser Funk-Taster für Nachttisch oder Sofa' });
+        if (state.q1 === 'opt3') bom.push({ id: 'walldisplay', qty: 1, reason: '4-Zoll Touch-Wanddisplay als zentrale Rollladen-Steuerung' });
+        if (state.q2 === 'temp') bom.push({ id: 'htgen3', qty: 1, reason: 'Temperatursensor für automatischen Sonnenschutz bei Hitze' });
+        schemaCat = 'motor_cat'; schemaIdx = 0;
+        steps = [
+          ['1. Stromlos schalten & Rollladentaster ausbauen', 'Sicherung ausschalten. Hinter dem Wipptaster liegen 4 Drähte vom Motor (Auf, Ab, Blau N, Grün-Gelb PE) sowie Dauerphase L.'],
+          ['2. Shelly Plus 2PM anklemmen', 'Motorkabel Auf/Ab an O1 und O2; Wipptaster an S1 und S2; Dauerphase an L; blauen Neutralleiter per WAGO an N.'],
+          ['3. In der App auf „Cover / Rollladen-Modus“ stellen', 'In den Geräteeinstellungen das Profil von „2 Schalter“ auf „Cover (Rollladen)“ umstellen.'],
+          ['4. Automatische Kalibrierung antippen', 'Auf „Kalibrieren“ tippen: Der Rollladen fährt einmal komplett hoch und runter und kennt danach jede Prozent-Position (z.B. 50%).']
+        ];
+      } else if (state.goal === 'heating') {
+        diff = '🟢 Kinderleicht ohne Werkzeug (in 2 Min. aufschrauben & ankleben)';
+        verdictTitle = `👨‍🔧 Fachberater-Empfehlung: Intelligente Heizkörper-Steuerung (${n}× Zimmer)`;
+        verdictText = `Hier musst du kein einziges Stromkabel anfassen! Du schraubst pro Heizkörper <strong>1× Shelly BLU TRV Thermostat</strong> auf das Ventil und klebst <strong>1× Shelly BLU Door/Window Sensor</strong> an das Fenster.`;
+        bom = [
+          { id: 'trv', qty: n, reason: 'Smartes Heizkörperthermostat (M30×1,5 inkl. Ventil-Adaptern)' }
+        ];
+        if (state.q2 === 'yes') bom.push({ id: 'bludoor', qty: n, reason: 'Fenstersensor — schaltet den Heizkörper beim Lüften sofort auf 5°C' });
+        bom.push({ id: 'htgen3', qty: 1, reason: 'E-Paper Raumthermometer für exakte Temperaturmessung in der Raummitte' });
+        schemaCat = 'power_cat'; schemaIdx = 0;
+        steps = [
+          ['1. Alten Thermostatkopf abschrauben', 'Überwurfmutter am Heizkörper von Hand oder mit einer Zange lösen (es tritt kein Wasser aus!) und Shelly TRV aufschrauben.'],
+          ['2. Fenstersensor ankleben', 'Mit dem beiliegenden Klebepad den kleinen Sensor an den Fensterflügel und den Magneten an den Rahmen kleben.'],
+          ['3. In der App koppeln & Heizplan aktivieren', 'Wunschtemperatur für Tag & Nacht einstellen und die Regel „Fenster offen → Heizung Pause“ mit einem Klick aktivieren.']
+        ];
+      } else if (state.goal === 'solar') {
+        if (state.q1 === 'opt3' || state.q2 === 'yes') {
+          diff = '🔴 Einbau im Sicherungskasten auf der Hutschiene';
+          verdictTitle = `👨‍🔧 Fachberater-Empfehlung: Balkonkraftwerk + 3-Phasen Haus-Energiemanager`;
+          verdictText = `Für die Messung des gesamten Hauses (und für Nulleinspeisung mit Solar-Speichern wie Zendure, Anker, EcoFlow oder Marstek) sitzt der <strong>Shelly Pro 3EM</strong> im Zählerschrank, während der <strong>Outdoor Plug S</strong> (oder <strong>PM Mini</strong>) den Solar-Wechselrichter misst.`;
+          bom = [
+            { id: 'pro3em', qty: 1, reason: '3-Phasen Hutschienen-Smart-Meter inkl. 3× 120A Klapp-Spulen' },
+            { id: state.q1 === 'opt2' ? 'minipm' : 'outdoorplug', qty: n, reason: 'Misst live die eingespeisten Solar-Watt am Balkonkraftwerk' }
+          ];
+          schemaCat = 'motor_cat'; schemaIdx = 2;
+        } else {
+          diff = state.q1 === 'opt1' ? '🟢 Steckerfertig (0 Min. Montage)' : '🟡 Unterputz hinter der Steckdose';
+          verdictTitle = `👨‍🔧 Fachberater-Empfehlung: Solar-Ertragsmesser für dein Balkonkraftwerk`;
+          verdictText = state.q1 === 'opt1'
+            ? `Stecke einfach den wetterfesten <strong>Shelly Outdoor Plug S Gen3 (IP44)</strong> zwischen Balkonsteckdose und Schuko-Stecker deines Wechselrichters — fertig!`
+            : `Setze den winzigen <strong>Shelly PM Mini Gen3</strong> unsichtbar hinter die Einspeisesteckdose. Da er kein Relais hat, kann er dein Balkonkraftwerk niemals versehentlich trennen.`;
+          bom = [
+            { id: state.q1 === 'opt1' ? 'outdoorplug' : 'minipm', qty: n, reason: 'Echtzeit-Solarzähler (Watt, Tages- & Jahresertrag in kWh)' }
+          ];
+          schemaCat = 'power_cat'; schemaIdx = 1;
+        }
+        steps = [
+          ['1. Zwischenstecken / Anklemmen', 'Den Zwischenstecker in die Balkonsteckdose stecken bzw. die 3 Klapp-Spulen des Pro 3EM im Kasten um L1, L2, L3 klipsen.'],
+          ['2. In der Shelly App als „Erzeuger / Solar“ markieren', 'Damit zeigt dir das Energie-Dashboard auf dem Handy live deine Solar-Produktion und deine Ersparnis in Euro an!']
+        ];
+      } else if (state.goal === 'plugs') {
+        diff = '🟢 100% Steckerfertig ohne Werkzeug (2 Minuten)';
+        const mainId = state.q1 === 'opt2' ? 'outdoorplug' : (state.q1 === 'opt3' ? 'rgbwpm' : 'plugs');
+        verdictTitle = `👨‍🔧 Fachberater-Empfehlung: Sofort-Lösung ohne Kabelschrauben (${n}× Bereich)`;
+        verdictText = `Ideal für Mietwohnungen und Einsteiger: Einfach einstecken, mit dem WLAN verbinden und sofort per Handy, Timer oder Funk-Taster schalten!`;
+        bom = [{ id: mainId, qty: n, reason: PRODUCTS[mainId].human }];
+        if (state.q2 === 'yes') bom.push({ id: 'blubutton', qty: 1, reason: 'Kabelloser Funk-Taster zum Schalten vom Sofa oder Bett' });
+        schemaCat = 'power_cat'; schemaIdx = 0;
+        steps = [
+          ['1. Einstecken', 'Zwischenstecker in die Steckdose stecken (Gerät leuchtet im Kopplungsmodus).'],
+          ['2. In 60 Sekunden per App verbinden', 'Shelly App öffnen → „Gerät hinzufügen“ → WLAN-Passwort eingeben → Fertig!']
+        ];
+      } else if (state.goal === 'garage') {
+        if (state.q1 === 'opt3') {
+          diff = '🟢 Kabellos per Batterie (5 Jahre Laufzeit)';
+          verdictTitle = `👨‍🔧 Fachberater-Empfehlung: Funk-Bewegungslicht & Rauchschutz`;
+          verdictText = `Komplett ohne Schlitzen oder Verkabeln: Sensoren ankleben und in der App verknüpfen.`;
+          bom = [
+            { id: 'blumotion', qty: n, reason: 'Bluetooth-Bewegungsmelder mit Helligkeitssensor' },
+            { id: 'smoke_flood', qty: n, reason: 'WLAN-Rauchmelder mit 85dB Sirene & Handy-Warnung' }
+          ];
+          schemaCat = 'power_cat'; schemaIdx = 0;
+        } else {
+          const devId = state.q1 === 'opt2' ? 'plusuni' : 'mini1';
+          verdictTitle = `👨‍🔧 Fachberater-Empfehlung: Garagentor & Türöffner Steuerung (${n}× Tor)`;
+          verdictText = `Wichtig: Garagentor-Antriebe brauchen einen stromlosen (potenzialfreien) Tast-Impuls. Dafür nimmst du zwingend den blauen <strong>Shelly 1 Mini Gen3</strong> (oder für 12V-Klingeln den <strong>Shelly Plus Uni</strong>).`;
+          bom = [{ id: devId, qty: n, reason: 'Potenzialfreier Kontakt (drückt elektronisch den Tor-Taster)' }];
+          if (state.q2 === 'yes') bom.push({ id: 'blubutton', qty: 1, reason: 'Funk-Handsender für Schlüsselbund oder Auto-Mittelkonsole' });
+          schemaCat = 'motor_cat'; schemaIdx = 1;
+        }
+        steps = [
+          ['1. Klemmen I und O mit dem Taster-Eingang des Torantriebs verbinden', 'Genau dort anklemmen, wo auch der normale Wandtaster in der Garage angeschlossen ist.'],
+          ['2. Auto-Off Timer in der App auf 1 Sekunde stellen!', 'Wichtiger Profi-Tipp: Stelle unter „Timer → Automatisch Ausschalten“ genau 1,0 Sekunden ein, damit der Shelly wie ein kurzer Fingerdruck auf den Taster wirkt!']
+        ];
+      }
+
+      // Render Verdict & BOM
+      document.getElementById('verdictBox').innerHTML = `<h3>${verdictTitle}</h3><p>${verdictText}</p>`;
+      document.getElementById('bomDifficulty').innerText = diff;
+
+      let total = 0;
+      document.getElementById('bomRows').innerHTML = bom.map(item => {
+        const p = PRODUCTS[item.id];
+        const lineSum = p.numPrice * item.qty;
+        total += lineSum;
+        const url = getAmazonLink(p);
+        return `
+          <div class="bom-row">
+            <div>
+              <span class="bom-qty">${item.qty}×</span>
+              <strong style="color:#fff;">${p.name}</strong>
+              <div style="font-size:0.73rem; color:var(--muted); margin-top:2px;">${item.reason}</div>
+            </div>
+            <a href="${url}" target="_blank" rel="noopener sponsored" class="sq-narrow-btn" style="width:auto; padding:6px 10px; white-space:nowrap;" onclick="trackClick('amazon')">
+              🛒 ~${lineSum.toFixed(2).replace('.', ',')} € →
+            </a>
+          </div>
+        `;
+      }).join('');
+      document.getElementById('bomTotalSum').innerText = 'ca. ' + total.toFixed(2).replace('.', ',') + ' €';
+
+      // Render 2-per-row Square Cards with Quantity Badge
+      const qtyMap = {};
+      bom.forEach(b => { qtyMap[b.id] = b.qty; });
+      renderSquareGrid('wizardProductGrid', bom.map(b => b.id), qtyMap);
+
+      // Render Step 4 Diagram & Implementation Roadmap
+      const sc = CATEGORIES[schemaCat].variants[schemaIdx];
+      document.getElementById('wizSchemaTitle').innerText = '🔌 Dein passender Anschlussplan: ' + sc.title;
+      document.getElementById('wizGalleryLink').href = sc.galleryUrl;
+      document.getElementById('wizSvgContainer').innerHTML = sc.svg;
+      document.getElementById('wizRoadmap').innerHTML = `
+        <div style="font-size:0.88rem; font-weight:800; color:#fff; margin-bottom:10px;">🛠️ Schritt-für-Schritt vom Auspacken bis zum Betrieb:</div>
+        ${steps.map(s => `<div class="roadmap-step"><strong>${s[0]}</strong><span>${s[1]}</span></div>`).join('')}
+      `;
+    }
+
+    function renderSquareGrid(containerId, itemIds, qtyMap = {}) {
+      const grid = document.getElementById(containerId);
       grid.innerHTML = itemIds.map(id => {
         const p = PRODUCTS[id];
         if (!p) return '';
-        const amzUrl = `https://www.amazon.de/s?k=${p.amzQuery}&tag=alekseevtech-21`;
+        const amzUrl = getAmazonLink(p);
+        const qtyBadge = qtyMap[id] ? `<span class="sq-qty-badge">Benötigt: ${qtyMap[id]}×</span>` : `<span class="sq-qty-badge" style="background:#e2e8f0;color:#0f172a;">${p.easy}</span>`;
         return `
           <div class="sq-card" onclick="openModal('${id}')">
             <div class="sq-photo-box">
               <span class="sq-kind">${p.kind}</span>
-              <span class="sq-easy">${p.easy}</span>
+              ${qtyBadge}
               <img src="${p.img}" alt="${p.name}" onerror="this.onerror=null;this.src='${p.fallback}';" />
             </div>
             <div class="sq-info">
               <div class="sq-title">${p.name}</div>
               <div class="sq-human">${p.human}</div>
               <a href="${amzUrl}" target="_blank" rel="noopener sponsored" class="sq-narrow-btn" onclick="event.stopPropagation(); trackClick('amazon')">
-                <span>🛒 Amazon.de</span>
+                <span>🛒 Zum Gerät</span>
                 <span>${p.price} →</span>
               </a>
               <div class="sq-pdf-hint">📄 Datenblatt & PDF-Beipackzettel</div>
@@ -913,38 +1220,14 @@
 
       if (mode === 'wizard') {
         document.getElementById('tabWizard').classList.add('active');
-        selectWish('light_std');
+        renderQuestions();
+        evaluateConsultation();
       } else if (mode === 'catalog') {
         document.getElementById('tabCatalog').classList.add('active');
-        document.getElementById('diagramSection').style.display = 'none';
-        document.getElementById('gridHeading').innerText = '📦 Komplettes Shelly-Sortiment (Alle 24 Geräte)';
-        renderProductCards(Object.keys(PRODUCTS));
+        filterFullCatalog('all');
       } else if (mode === 'schemas') {
         document.getElementById('tabSchemas').classList.add('active');
-        document.getElementById('diagramSection').style.display = 'block';
         selectSchemaCategory('wechsel_cat');
-      }
-    }
-
-    function selectWish(wishKey, btnEl) {
-      if (btnEl) {
-        document.querySelectorAll('.wish-btn').forEach(b => b.classList.remove('active'));
-        btnEl.classList.add('active');
-      }
-      const w = WISHES[wishKey];
-      document.getElementById('wishAdvice').innerHTML = `<h3>${w.adviceTitle}</h3><p>${w.adviceText}</p>`;
-      document.getElementById('gridHeading').innerText = '👇 Diese Bauteile brauchst du für dein Vorhaben:';
-      renderProductCards(w.items);
-
-      if (w.schemaCat) {
-        document.getElementById('diagramSection').style.display = 'block';
-        const v = CATEGORIES[w.schemaCat].variants[w.schemaIdx];
-        document.getElementById('schemaTitle').innerText = '🔌 Passender Anschlussplan: ' + v.title;
-        document.getElementById('officialGalleryLink').href = v.galleryUrl;
-        document.getElementById('svgContainer').innerHTML = v.svg;
-        document.getElementById('pinHint').innerHTML = v.hint;
-      } else {
-        document.getElementById('diagramSection').style.display = 'none';
       }
     }
 
@@ -955,7 +1238,7 @@
       }
       const allKeys = Object.keys(PRODUCTS);
       const filtered = cat === 'all' ? allKeys : allKeys.filter(k => PRODUCTS[k].cat === cat);
-      renderProductCards(filtered);
+      renderSquareGrid('catalogGrid', filtered);
     }
 
     function selectSchemaCategory(catKey, btnEl) {
@@ -964,11 +1247,8 @@
         btnEl.classList.add('active');
       }
       const vars = CATEGORIES[catKey].variants;
-      const vContainer = document.getElementById('variantButtons');
-      vContainer.innerHTML = vars.map((v, idx) => `
-        <button class="var-btn ${idx === 0 ? 'active' : ''}" onclick="selectSchemaVariant('${catKey}', ${idx}, this)">
-          ${v.label}
-        </button>
+      document.getElementById('variantButtons').innerHTML = vars.map((v, idx) => `
+        <button class="var-btn ${idx === 0 ? 'active' : ''}" onclick="selectSchemaVariant('${catKey}', ${idx}, this)">${v.label}</button>
       `).join('');
       selectSchemaVariant(catKey, 0);
     }
@@ -983,14 +1263,13 @@
       document.getElementById('officialGalleryLink').href = v.galleryUrl;
       document.getElementById('svgContainer').innerHTML = v.svg;
       document.getElementById('pinHint').innerHTML = v.hint;
-      document.getElementById('gridHeading').innerText = '📦 Passende Geräte für diesen Schaltplan:';
-      renderProductCards(v.items);
+      renderSquareGrid('schemaProductGrid', v.items);
     }
 
     function openModal(id) {
       const p = PRODUCTS[id];
       if (!p) return;
-      const amzUrl = `https://www.amazon.de/s?k=${p.amzQuery}&tag=alekseevtech-21`;
+      const amzUrl = getAmazonLink(p);
       const imgEl = document.getElementById('mImg');
       imgEl.src = p.img;
       imgEl.onerror = function() { this.onerror = null; this.src = p.fallback; };
